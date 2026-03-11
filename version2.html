@@ -79,11 +79,11 @@
 </head>
 <body class="font-sans antialiased selection:bg-brand-terracotta selection:text-white">
 
-    <nav id="navbar" class="fixed w-full z-50 top-0 left-0 bg-white transition-all duration-300 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav id="navbar" class="fixed w-full z-50 top-0 left-0 bg-white transition-all duration-300 shadow-sm relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-50 bg-inherit">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center cursor-pointer z-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terracotta rounded-lg">
-                    <span class="font-serif font-bold text-2xl text-brand-navy">Ang's Travel Guide</span>
+                    <img src="Main Logo - Landscape@2x.png" alt="Ang's Savvy Travel Guide Logo" class="h-14 w-auto object-contain">
                 </div>
                 
                 <div class="hidden lg:flex items-center space-x-8">
@@ -95,22 +95,26 @@
                 </div>
 
                 <div class="flex items-center lg:hidden z-50">
-                    <button id="mobile-menu-btn" class="text-brand-navy hover:text-brand-terracotta focus:outline-none p-3 rounded-md">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <button id="mobile-menu-btn" class="text-brand-navy hover:text-brand-terracotta focus:outline-none p-3 rounded-md transition-colors" aria-label="Toggle menu">
+                        <svg class="w-8 h-8 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-md border-b border-gray-200 absolute w-full left-0 top-20 shadow-lg transition-all duration-300">
-            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col max-w-7xl mx-auto">
-                <a href="#" class="block px-4 py-3 text-brand-navy hover:text-brand-terracotta font-semibold rounded-xl text-lg">Home</a>
-                <a href="#" class="block px-4 py-3 text-brand-navy hover:text-brand-terracotta font-semibold rounded-xl text-lg">About</a>
-                <a href="#" class="block px-4 py-3 text-brand-navy hover:text-brand-terracotta font-semibold rounded-xl text-lg">Resources</a>
-                <a href="#" class="block px-4 py-3 text-brand-navy hover:text-brand-terracotta font-semibold rounded-xl text-lg">Blog</a>
-                <a href="#" class="block w-full text-center bg-brand-terracotta text-white px-6 py-4 rounded-full font-bold shadow-md mt-4 text-lg">Join Newsletter</a>
+        <div id="mobile-menu-backdrop" class="fixed inset-0 bg-brand-navy/40 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 mt-20"></div>
+
+        <div id="mobile-menu" class="absolute w-full left-0 top-20 bg-white shadow-2xl z-40 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-500 ease-in-out rounded-b-[2rem] border-t border-gray-100">
+            <div class="px-6 pt-4 pb-8 space-y-3 flex flex-col max-w-7xl mx-auto">
+                <a href="#" class="block px-4 py-4 text-brand-navy hover:bg-brand-sand hover:text-brand-terracotta font-semibold rounded-2xl text-xl transition-colors">Home</a>
+                <a href="#" class="block px-4 py-4 text-brand-navy hover:bg-brand-sand hover:text-brand-terracotta font-semibold rounded-2xl text-xl transition-colors">About</a>
+                <a href="#" class="block px-4 py-4 text-brand-navy hover:bg-brand-sand hover:text-brand-terracotta font-semibold rounded-2xl text-xl transition-colors">Resources</a>
+                <a href="#" class="block px-4 py-4 text-brand-navy hover:bg-brand-sand hover:text-brand-terracotta font-semibold rounded-2xl text-xl transition-colors">Blog</a>
+                <div class="pt-4 mt-2 border-t border-gray-100">
+                    <a href="#" class="block w-full text-center bg-brand-terracotta text-white px-6 py-4 rounded-full font-bold shadow-md text-xl hover:bg-opacity-90 transition-colors">Join Newsletter</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -254,7 +258,7 @@
                 </div>
 
                 <div class="bg-white rounded-2xl p-8 shadow-sm flex flex-col text-center hover-lift border border-gray-100">
-                    <img src="https://images.unsplash.com/photo-1527015053721-cb233b28b49e?q=80&w=600&auto=format&fit=crop" alt="Travel Camera" class="w-full h-48 object-cover rounded-xl mb-6">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=600&auto=format&fit=crop" alt="Travel Camera" class="w-full h-48 object-cover rounded-xl mb-6">
                     <h3 class="font-serif font-bold text-2xl text-brand-navy mb-3">Compact Mirrorless Camera</h3>
                     <p class="font-sans text-brand-charcoal text-base italic mb-6 flex-1">"Ditch the heavy DSLR. This captures stunning professional photos but fits right into my everyday crossbody bag."</p>
                     <a href="#" class="block w-full bg-brand-navy text-white py-3 rounded-full font-bold hover:bg-brand-terracotta transition-colors">Shop My Setup</a>
@@ -322,7 +326,7 @@
             <div class="flex flex-col md:flex-row items-center gap-12 bg-white/5 rounded-3xl p-8 md:p-12 border border-white/10 backdrop-blur-sm">
                 
                 <div class="w-full md:w-5/12 text-center md:text-left">
-                    <img src="https://images.unsplash.com/photo-1506869640319-ce1c24e15453?q=80&w=800&auto=format&fit=crop" alt="Packing Checklist" class="w-full max-w-sm mx-auto rounded-xl shadow-2xl -rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop" alt="Packing Checklist" class="w-full max-w-sm mx-auto rounded-xl shadow-2xl -rotate-2 hover:rotate-0 transition-transform duration-500">
                 </div>
                 
                 <div class="w-full md:w-7/12">
@@ -387,20 +391,53 @@
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) {
                 navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
-                navbar.classList.remove('bg-white', 'shadow-sm');
+                navbar.classList.remove('bg-white', 'shadow-sm', 'bg-inherit');
             } else {
                 navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md');
-                navbar.classList.add('bg-white', 'shadow-sm');
+                navbar.classList.add('bg-white', 'shadow-sm', 'bg-inherit');
             }
         });
 
         // Mobile Menu Toggle Logic
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileBackdrop = document.getElementById('mobile-menu-backdrop');
+        const menuIconPath = document.getElementById('menu-icon-path');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                // Open Menu: Slide down and fade in
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                
+                // Show Backdrop
+                mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+                mobileBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+                
+                // Change icon to 'X'
+                menuIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                // Close Menu: Slide up and fade out
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                
+                // Hide Backdrop
+                mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+                mobileBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+                
+                // Change icon back to Hamburger
+                menuIconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu if user clicks on the darkened backdrop
+        mobileBackdrop.addEventListener('click', toggleMenu);
     </script>
 </body>
 </html>
