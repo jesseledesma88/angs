@@ -49,14 +49,9 @@
             box-shadow: 0 10px 20px rgba(61, 62, 60, 0.15);
         }
 
-        /* Lightened the overlay gradient so the images pop more */
-        .img-overlay {
-            background: linear-gradient(to bottom, rgba(61, 62, 60, 0.15), rgba(61, 62, 60, 0.45));
-        }
-
-        /* Slightly softened the center glow to match the lighter overlay */
-        .text-glow-overlay {
-            background: radial-gradient(circle at center, rgba(61, 62, 60, 0.2) 0%, transparent 60%);
+        /* New radial gradient overlay: light center, darker edges (vignette effect) */
+        .hero-radial-overlay {
+            background: radial-gradient(circle at center, rgba(61, 62, 60, 0.1) 10%, rgba(61, 62, 60, 0.6) 90%);
         }
     </style>
 </head>
@@ -101,16 +96,10 @@
     </nav>
 
     <header class="relative w-full h-screen min-h-[600px] flex items-center justify-center pt-20 overflow-hidden">
-        <div id="hero-slider" class="absolute inset-0 w-full h-full z-0">
-            <img src="hero-ang.webp" alt="Ang's Savvy Travel Guide Hero" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-100">
-            <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?q=80&w=2070&auto=format&fit=crop" alt="Australian Adventure Landscape" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
-            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop" alt="Mountain Alps Adventure" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
-            <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=2076&auto=format&fit=crop" alt="Desert Safari" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
-        </div>
         
-        <div class="absolute inset-0 img-overlay z-10"></div>
+        <img src="hero-ang.webp" alt="Ang's Savvy Travel Guide Hero" class="absolute inset-0 w-full h-full object-cover z-0">
         
-        <div class="absolute inset-0 text-glow-overlay z-10 pointer-events-none"></div>
+        <div class="absolute inset-0 hero-radial-overlay z-10 pointer-events-none"></div>
 
         <div class="relative z-20 text-center px-4 max-w-5xl mx-auto mt-16">
             <h1 class="font-logo font-extrabold text-6xl md:text-8xl text-white mb-6 tracking-tight leading-[1.05] drop-shadow-[0_5px_8px_rgba(0,0,0,0.6)]">
@@ -351,31 +340,6 @@
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-
-        // Bulletproof Hero Image Slider Logic
-        function initSlider() {
-            const slides = document.querySelectorAll('.slide');
-            if (slides.length === 0) return; 
-            
-            let currentSlide = 0;
-            const slideInterval = 5000; 
-
-            setInterval(() => {
-                slides[currentSlide].classList.remove('opacity-100');
-                slides[currentSlide].classList.add('opacity-0');
-                
-                currentSlide = (currentSlide + 1) % slides.length;
-                
-                slides[currentSlide].classList.remove('opacity-0');
-                slides[currentSlide].classList.add('opacity-100');
-            }, slideInterval);
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initSlider);
-        } else {
-            initSlider();
-        }
     </script>
 </body>
 </html>
