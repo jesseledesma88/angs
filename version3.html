@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ang's Savvy Travel Guide | Smart Travel Tips for Seasoned Souls</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;800&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            teal: '#4A9CAF',   /* Official Teal */
+                            gold: '#D9A343',   /* Official Gold */
+                            green: '#7BAA5D',  /* Official Green */
+                            cream: '#F3EFE2',  /* Official Cream */
+                            dark: '#3D3E3C'    /* Official Dark Gray */
+                        }
+                    },
+                    fontFamily: {
+                        logo: ['"Bricolage Grotesque"', 'sans-serif'],
+                        primary: ['"Open Sans"', 'sans-serif'],   /* Headlines */
+                        secondary: ['"Raleway"', 'sans-serif'], /* Body text */
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { 
+            background-color: #F3EFE2; /* Brand Cream */
+            color: #3D3E3C; /* Brand Dark */
+            font-size: 18px; /* High legibility for 40-60 demographic */
+            line-height: 1.6;
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(61, 62, 60, 0.12);
+        }
+
+        .hero-gradient-overlay {
+            background: linear-gradient(to bottom, rgba(61, 62, 60, 0.4) 0%, rgba(61, 62, 60, 0.8) 100%);
+        }
+
+        /* Premium Navigation Hover Effect */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #4A9CAF; /* brand-teal */
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="font-secondary antialiased selection:bg-brand-teal selection:text-white">
+
+    <nav id="navbar" class="fixed w-full z-50 top-0 left-0 bg-white transition-all duration-300 shadow-sm relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-50 bg-inherit">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer z-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-lg">
+                    <img src="Main-Logo-Landscape.png" alt="Ang's Savvy Travel Guide Logo" class="h-14 w-auto object-contain">
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#" class="nav-link font-primary text-brand-dark hover:text-brand-teal font-semibold transition-colors">Home</a>
+                    <a href="#" class="nav-link font-primary text-brand-dark hover:text-brand-teal font-semibold transition-colors">About</a>
+                    <a href="#" class="nav-link font-primary text-brand-dark hover:text-brand-teal font-semibold transition-colors">Resources</a>
+                    <a href="#" class="nav-link font-primary text-brand-dark hover:text-brand-teal font-semibold transition-colors">Blog</a>
+                    <a href="#" class="bg-brand-teal text-white font-primary px-6 py-2.5 rounded-full font-bold hover:bg-opacity-90 transition-colors shadow-md">Join Newsletter</a>
+                </div>
+
+                <div class="flex items-center lg:hidden z-50">
+                    <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-teal focus:outline-none p-3 rounded-md transition-colors" aria-label="Toggle menu">
+                        <svg class="w-8 h-8 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu-backdrop" class="fixed inset-0 bg-brand-dark/40 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 mt-20"></div>
+
+        <div id="mobile-menu" class="absolute w-full left-0 top-20 bg-white shadow-2xl z-40 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-500 ease-in-out rounded-b-[2rem] border-t border-brand-cream">
+            <div class="px-6 pt-4 pb-8 space-y-3 flex flex-col max-w-7xl mx-auto">
+                <a href="#" class="block px-4 py-4 text-brand-dark font-primary hover:bg-brand-cream hover:text-brand-teal font-bold rounded-2xl text-xl transition-colors">Home</a>
+                <a href="#" class="block px-4 py-4 text-brand-dark font-primary hover:bg-brand-cream hover:text-brand-teal font-bold rounded-2xl text-xl transition-colors">About</a>
+                <a href="#" class="block px-4 py-4 text-brand-dark font-primary hover:bg-brand-cream hover:text-brand-teal font-bold rounded-2xl text-xl transition-colors">Resources</a>
+                <a href="#" class="block px-4 py-4 text-brand-dark font-primary hover:bg-brand-cream hover:text-brand-teal font-bold rounded-2xl text-xl transition-colors">Blog</a>
+                <div class="pt-4 mt-2 border-t border-brand-cream">
+                    <a href="#" class="block w-full text-center bg-brand-teal text-white px-6 py-4 font-primary rounded-full font-bold shadow-md text-xl hover:bg-opacity-90 transition-colors">Join Newsletter</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative w-full h-screen min-h-[600px] flex items-center justify-center pt-20 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=1600&auto=format&fit=crop" alt="Ang's Savvy Travel Guide Hero" class="absolute inset-0 w-full h-full object-cover z-0">
+        <div class="absolute inset-0 hero-gradient-overlay z-10 pointer-events-none"></div>
+
+        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-16">
+            <h1 class="font-primary font-bold text-5xl md:text-7xl text-white mb-6 leading-tight drop-shadow-lg">
+                Smart Travel Tips <br>
+                <span class="text-brand-gold font-semibold">For Seasoned Souls</span>
+            </h1>
+            
+            <p class="font-secondary text-xl text-brand-cream mb-10 max-w-2xl mx-auto drop-shadow-md">
+                Expert itineraries, packing hacks, and trusted recommendations for the seasoned explorer. 
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center font-primary">
+                <a href="#destinations" class="bg-brand-gold text-brand-dark px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all shadow-lg text-center">Explore Destinations</a>
+                <a href="#quick-links" class="bg-transparent text-white border-2 border-brand-cream px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-cream hover:text-brand-dark transition-all shadow-lg text-center">Shop My Travel Kit</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-brand-dark py-6 border-b border-brand-dark border-opacity-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-brand-cream/70 font-secondary text-sm font-semibold uppercase tracking-widest mb-4">Trusted By Travelers Featured In</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 grayscale text-brand-cream">
+                <span class="font-primary text-xl font-bold">Condé Nast Traveler</span>
+                <span class="font-primary text-xl font-bold">Travel + Leisure</span>
+                <span class="font-primary text-xl font-bold">The New York Times</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-24 bg-brand-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="w-full md:w-5/12">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1000&auto=format&fit=crop" alt="Ang - Author" class="w-full h-auto aspect-[4/5] object-cover rounded-2xl shadow-xl border-4 border-white">
+                </div>
+                <div class="w-full md:w-7/12">
+                    <h2 class="font-primary font-bold text-4xl md:text-5xl text-brand-dark mb-6">Hi, I'm Ang. <br>Your Travel Confidant.</h2>
+                    <p class="font-secondary text-brand-dark text-lg leading-relaxed mb-6">
+                        With over two decades of exploring the globe, I've transitioned from budget backpacking to embracing smart luxury. Whether you are a digital nomad or looking for the perfect family getaway, I'm here to share the tried-and-true secrets that make travel seamless and unforgettable for seasoned souls like us.
+                    </p>
+                    <a href="#" class="inline-flex items-center font-primary text-brand-teal font-bold text-lg hover:text-brand-dark transition-all group">
+                        Read my full story <span class="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-brand-green text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <svg class="w-12 h-12 mx-auto mb-6 text-brand-cream opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            <blockquote class="font-secondary font-medium text-2xl md:text-3xl italic leading-relaxed mb-8">
+                "Ang's Paris itinerary saved our 20th-anniversary trip. We skipped the endless tourist lines, found the most incredible hidden bistros, and truly felt like locals."
+            </blockquote>
+            <p class="font-primary font-bold text-lg text-brand-cream tracking-wide uppercase">— Sarah & Mark, Texas</p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="font-primary font-bold text-4xl text-brand-dark mb-3">Latest from the Blog</h2>
+                    <p class="font-secondary text-sm italic text-brand-dark/60">*Some posts contain affiliate links.</p>
+                </div>
+                <a href="#" class="hidden md:inline-flex font-primary items-center text-brand-teal font-bold hover:text-brand-dark transition-all text-lg">
+                    View All Posts <span class="ml-2">→</span>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <a href="#" class="bg-brand-cream rounded-2xl overflow-hidden shadow-sm hover-lift flex flex-col group border border-gray-100">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=800&auto=format&fit=crop" alt="Packing Luggage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brand-teal text-white font-primary text-xs font-bold px-3 py-1.5 rounded-full uppercase shadow-sm">Packing Hacks</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <span class="font-secondary text-sm text-brand-dark/60 mb-3 font-semibold uppercase tracking-wider">March 10, 2026</span>
+                        <h3 class="font-primary font-bold text-2xl text-brand-dark mb-4 line-clamp-2 group-hover:text-brand-teal transition-colors">How to Pack for 2 Weeks in Europe in Just a Carry-On</h3>
+                        <p class="font-secondary text-brand-dark text-base mb-6 line-clamp-3 flex-1">Say goodbye to checked bag fees. Here is my ultimate minimalist packing list for tackling unpredictable European weather and cobblestone streets.</p>
+                        <span class="font-primary inline-flex items-center text-brand-teal font-bold text-base mt-auto">Read Article <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span></span>
+                    </div>
+                </a>
+
+                <a href="#" class="bg-brand-cream rounded-2xl overflow-hidden shadow-sm hover-lift flex flex-col group border border-gray-100">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=800&auto=format&fit=crop" alt="Paris Architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brand-gold text-brand-dark font-primary text-xs font-bold px-3 py-1.5 rounded-full uppercase shadow-sm">Itineraries</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <span class="font-secondary text-sm text-brand-dark/60 mb-3 font-semibold uppercase tracking-wider">March 4, 2026</span>
+                        <h3 class="font-primary font-bold text-2xl text-brand-dark mb-4 line-clamp-2 group-hover:text-brand-gold transition-colors">The Perfect 3-Day Paris Itinerary for Food Lovers</h3>
+                        <p class="font-secondary text-brand-dark text-base mb-6 line-clamp-3 flex-1">Skip the tourist traps. Follow this culinary roadmap through the hidden bistros, authentic boulangeries, and local markets of Paris.</p>
+                        <span class="font-primary inline-flex items-center text-brand-gold font-bold text-base mt-auto">Read Article <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span></span>
+                    </div>
+                </a>
+
+                <a href="#" class="bg-brand-cream rounded-2xl overflow-hidden shadow-sm hover-lift flex flex-col group border border-gray-100">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556740714-a8395b3bf30f?q=80&w=800&auto=format&fit=crop" alt="Credit Cards and Travel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brand-green text-white font-primary text-xs font-bold px-3 py-1.5 rounded-full uppercase shadow-sm">Travel Finance</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <span class="font-secondary text-sm text-brand-dark/60 mb-3 font-semibold uppercase tracking-wider">February 28, 2026</span>
+                        <h3 class="font-primary font-bold text-2xl text-brand-dark mb-4 line-clamp-2 group-hover:text-brand-green transition-colors">Top Travel Credit Cards for Free Flights This Year</h3>
+                        <p class="font-secondary text-brand-dark text-base mb-6 line-clamp-3 flex-1">Stop leaving money on the table. Discover how I use sign-up bonuses and everyday spending to fund my luxury upgrades.</p>
+                        <span class="font-primary inline-flex items-center text-brand-green font-bold text-base mt-auto">Read Article <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span></span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="mt-10 text-center md:hidden">
+                <a href="#" class="inline-flex items-center bg-brand-dark text-white font-primary px-8 py-4 rounded-full font-bold hover:bg-brand-teal transition-colors shadow-md">
+                    View All Posts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="quick-links" class="py-24 bg-brand-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-primary font-bold text-4xl text-brand-dark mb-4">Inside My Travel Kit</h2>
+                <p class="font-secondary text-brand-dark text-lg max-w-2xl mx-auto mb-2">My highly vetted, personal recommendations for packing light and smart.</p>
+                <p class="font-secondary text-sm italic text-brand-dark/60">*Purchases made through these links earn me a small commission at no extra cost to you.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-sm flex flex-col text-center hover-lift border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1553531384-cc64ac80f931?q=80&w=600&auto=format&fit=crop" alt="Carry-on Suitcase" class="w-full h-48 object-cover rounded-xl mb-6">
+                    <h3 class="font-primary font-bold text-2xl text-brand-dark mb-3">The Ultimate Carry-On</h3>
+                    <p class="font-secondary text-brand-dark text-base italic mb-6 flex-1">"I've dragged this exact suitcase across 15 cobblestone streets in Rome. It's virtually indestructible and fits overhead easily."</p>
+                    <a href="#" class="block w-full bg-brand-dark text-white font-primary py-3 rounded-full font-bold hover:bg-brand-teal transition-colors">Check Price on Amazon</a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm flex flex-col text-center hover-lift border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=600&auto=format&fit=crop" alt="Travel Camera" class="w-full h-48 object-cover rounded-xl mb-6">
+                    <h3 class="font-primary font-bold text-2xl text-brand-dark mb-3">Compact Mirrorless Camera</h3>
+                    <p class="font-secondary text-brand-dark text-base italic mb-6 flex-1">"Ditch the heavy DSLR. This captures stunning professional photos but fits right into my everyday crossbody bag."</p>
+                    <a href="#" class="block w-full bg-brand-dark text-white font-primary py-3 rounded-full font-bold hover:bg-brand-teal transition-colors">Shop My Setup</a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm flex flex-col text-center hover-lift border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=600&auto=format&fit=crop" alt="Packing Cubes" class="w-full h-48 object-cover rounded-xl mb-6">
+                    <h3 class="font-primary font-bold text-2xl text-brand-dark mb-3">Compression Packing Cubes</h3>
+                    <p class="font-secondary text-brand-dark text-base italic mb-6 flex-1">"These are the secret to traveling for 3 weeks in just a carry-on. They save me so much space and keep me organized."</p>
+                    <a href="#" class="block w-full bg-brand-dark text-white font-primary py-3 rounded-full font-bold hover:bg-brand-teal transition-colors">Get Them Here</a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center font-primary">
+                <a href="#" class="inline-flex items-center text-brand-teal font-bold text-lg hover:text-brand-dark transition-colors border-b-2 border-brand-teal pb-1">View Full Gear Guide →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="destinations" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-primary font-bold text-4xl text-brand-dark mb-4">Featured Destinations</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <a href="#" class="bg-brand-cream rounded-2xl overflow-hidden shadow-sm hover-lift group">
+                    <div class="relative h-72">
+                        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 font-primary">
+                            <span class="text-brand-dark bg-brand-gold text-xs font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block shadow-sm">Luxury</span>
+                            <h3 class="font-bold text-3xl text-white mb-2 group-hover:text-brand-gold transition-colors">Parisian Elegance</h3>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#" class="bg-brand-cream rounded-2xl overflow-hidden shadow-sm hover-lift group">
+                    <div class="relative h-72">
+                        <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 font-primary">
+                            <span class="text-white bg-brand-teal text-xs font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block shadow-sm">Nomad</span>
+                            <h3 class="font-bold text-3xl text-white mb-2 group-hover:text-brand-teal transition-colors">Bali on a Budget</h3>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#" class="bg-brand-cream rounded-2xl overflow-hidden shadow-sm hover-lift group">
+                    <div class="relative h-72">
+                        <img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 font-primary">
+                            <span class="text-white bg-brand-green text-xs font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block shadow-sm">Family</span>
+                            <h3 class="font-bold text-3xl text-white mb-2 group-hover:text-brand-green transition-colors">Kyoto with Kids</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-dark text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12 bg-white/5 rounded-3xl p-8 md:p-12 border border-brand-cream/10 backdrop-blur-sm">
+                
+                <div class="w-full md:w-5/12 text-center md:text-left">
+                    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop" alt="Packing Checklist" class="w-full max-w-sm mx-auto rounded-xl shadow-2xl -rotate-2 hover:rotate-0 transition-transform duration-500">
+                </div>
+                
+                <div class="w-full md:w-7/12">
+                    <span class="text-brand-gold font-primary font-bold uppercase tracking-wider text-sm mb-2 block">Free Download</span>
+                    <h2 class="font-primary font-bold text-3xl md:text-4xl mb-4">Get My Ultimate Carry-On Packing Checklist</h2>
+                    <p class="font-secondary text-brand-cream/80 text-lg mb-8">Join thousands of seasoned travelers and get my exclusive packing checklist, plus weekly destination guides and hacks straight to your inbox.</p>
+                    
+                    <form class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" placeholder="Enter your email address" required class="flex-1 px-6 py-4 rounded-full font-secondary text-brand-dark focus:outline-none focus:ring-4 focus:ring-brand-gold/50 shadow-inner text-lg">
+                        <button type="submit" class="bg-brand-gold font-primary text-brand-dark px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:-translate-y-1 transition-all duration-300 shadow-lg whitespace-nowrap">Send Me The Guide</button>
+                    </form>
+                    <p class="font-secondary text-xs text-brand-cream/50 mt-4 text-center md:text-left">No spam. Unsubscribe anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#2A2A29] pt-16 pb-8 text-brand-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="font-logo font-bold text-2xl text-white mb-2">Ang's Savvy Travel Guide</h3>
+                    <p class="font-primary text-brand-gold font-semibold mb-6 text-sm uppercase tracking-wide">Smart Travel Tips for Seasoned Souls</p>
+                    <p class="font-secondary text-sm text-brand-cream/70 leading-relaxed max-w-md mb-6">
+                        <strong>Affiliate Disclosure:</strong> This site contains affiliate links. If you purchase through these links, I may earn a small commission at no extra cost to you. I only recommend products and services I personally use and trust.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-primary font-bold text-white mb-4 uppercase tracking-wider">Explore</h4>
+                    <ul class="space-y-3 font-secondary text-brand-cream/80 text-base">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Home</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Travel Resources</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-primary font-bold text-white mb-4 uppercase tracking-wider">Legal</h4>
+                    <ul class="space-y-3 font-secondary text-brand-cream/80 text-base">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-secondary text-brand-cream/50">
+                <p>&copy; 2026 Ang's Savvy Travel Guide. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Facebook</a>
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-white transition-colors">Pinterest</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                navbar.classList.remove('bg-white', 'shadow-sm', 'bg-inherit');
+            } else {
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                navbar.classList.add('bg-white', 'shadow-sm', 'bg-inherit');
+            }
+        });
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileBackdrop = document.getElementById('mobile-menu-backdrop');
+        const menuIconPath = document.getElementById('menu-icon-path');
+
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                // Open Menu: Slide down and fade in
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                
+                // Show Backdrop
+                mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+                mobileBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+                
+                // Change icon to 'X'
+                menuIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                // Close Menu: Slide up and fade out
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                
+                // Hide Backdrop
+                mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+                mobileBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+                
+                // Change icon back to Hamburger
+                menuIconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu if user clicks on the darkened backdrop
+        mobileBackdrop.addEventListener('click', toggleMenu);
+    </script>
+</body>
+</html>
