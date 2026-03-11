@@ -49,13 +49,14 @@
             box-shadow: 0 10px 20px rgba(61, 62, 60, 0.15);
         }
 
+        /* Lightened the overlay gradient so the images pop more */
         .img-overlay {
-            background: linear-gradient(to bottom, rgba(61, 62, 60, 0.4), rgba(61, 62, 60, 0.7));
+            background: linear-gradient(to bottom, rgba(61, 62, 60, 0.15), rgba(61, 62, 60, 0.45));
         }
 
-        /* Replaces the complex Tailwind arbitrary class for better CDN stability */
+        /* Slightly softened the center glow to match the lighter overlay */
         .text-glow-overlay {
-            background: radial-gradient(circle at center, rgba(61,62,60,0.3) 0%, transparent 60%);
+            background: radial-gradient(circle at center, rgba(61, 62, 60, 0.2) 0%, transparent 60%);
         }
     </style>
 </head>
