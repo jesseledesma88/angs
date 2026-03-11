@@ -52,6 +52,11 @@
         .img-overlay {
             background: linear-gradient(to bottom, rgba(61, 62, 60, 0.4), rgba(61, 62, 60, 0.7));
         }
+
+        /* Replaces the complex Tailwind arbitrary class for better CDN stability */
+        .text-glow-overlay {
+            background: radial-gradient(circle at center, rgba(61,62,60,0.3) 0%, transparent 60%);
+        }
     </style>
 </head>
 <body class="font-secondary antialiased selection:bg-brand-teal selection:text-white">
@@ -103,7 +108,7 @@
         
         <div class="absolute inset-0 img-overlay z-10"></div>
         
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(61,62,60,0.3)_0%,transparent_60%)] z-10 pointer-events-none"></div>
+        <div class="absolute inset-0 text-glow-overlay z-10 pointer-events-none"></div>
 
         <div class="relative z-20 text-center px-4 max-w-5xl mx-auto mt-16">
             <h1 class="font-logo font-extrabold text-6xl md:text-8xl text-white mb-6 tracking-tight leading-[1.05] drop-shadow-[0_5px_8px_rgba(0,0,0,0.6)]">
@@ -120,7 +125,6 @@
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#destinations" class="bg-brand-gold text-brand-dark px-8 py-4 rounded-full font-bold text-lg hover-lift shadow-[0_4px_14px_0_rgba(217,163,67,0.39)]">Explore Destinations</a>
-                
                 <a href="#quick-links" class="bg-white/10 backdrop-blur-md text-white border-2 border-white/80 px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-brand-dark transition-colors shadow-lg">Shop My Travel Kit</a>
             </div>
         </div>
@@ -339,4 +343,37 @@
         });
 
         // Mobile Menu Toggle Logic
-        const
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Bulletproof Hero Image Slider Logic
+        function initSlider() {
+            const slides = document.querySelectorAll('.slide');
+            if (slides.length === 0) return; 
+            
+            let currentSlide = 0;
+            const slideInterval = 5000; 
+
+            setInterval(() => {
+                slides[currentSlide].classList.remove('opacity-100');
+                slides[currentSlide].classList.add('opacity-0');
+                
+                currentSlide = (currentSlide + 1) % slides.length;
+                
+                slides[currentSlide].classList.remove('opacity-0');
+                slides[currentSlide].classList.add('opacity-100');
+            }, slideInterval);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSlider);
+        } else {
+            initSlider();
+        }
+    </script>
+</body>
+</html>
