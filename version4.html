@@ -61,50 +61,33 @@
             background: radial-gradient(circle at center, transparent 30%, rgba(61, 62, 60, 0.8) 100%);
         }
 
-        /* Flying Arrow Underline (Animates ONCE) */
+        /* Curved Underline (Animates ONCE) */
         .animate-underline {
             position: relative;
             display: inline-block;
         }
         
-        /* The Line of the Arrow */
         .animate-underline::after {
             content: '';
             position: absolute;
-            width: 0; /* Starts at 0 width */
-            height: 4px;
-            bottom: -8px;
+            bottom: -6px; /* Adjust vertical placement */
             left: 0;
-            background-color: #4A9CAF; /* Brand Teal */
-            border-radius: 2px;
+            width: 100%;
+            height: 14px; /* Gives room for the curve */
+            border-bottom: 4px solid #D9A343; /* Brand Gold */
+            border-radius: 50%; /* Creates the gentle bend */
+            
+            /* Hide the element by clipping 100% from the right side */
+            clip-path: inset(0 100% 0 0);
+            
             /* 1s duration, ease-out curve, forwards to hold final state, 0.5s delay on load */
-            animation: shootLine 1s ease-out forwards 0.5s; 
+            animation: drawCurve 1s ease-out forwards 0.5s; 
         }
 
-        /* The Head of the Arrow */
-        .animate-underline::before {
-            content: '';
-            position: absolute;
-            bottom: -13px; /* Vertically centered with the line */
-            left: 0;
-            /* Create CSS Triangle */
-            border-top: 7px solid transparent;
-            border-bottom: 7px solid transparent;
-            border-left: 10px solid #4A9CAF; /* Brand Teal */
-            opacity: 0;
-            /* Matches the line timing */
-            animation: shootArrow 1s ease-out forwards 0.5s;
-            z-index: 10;
-        }
-
-        @keyframes shootLine {
-            0% { width: 0; }
-            100% { width: 100%; }
-        }
-        @keyframes shootArrow {
-            0% { left: 0; opacity: 0; }
-            5% { opacity: 1; }
-            100% { left: 100%; opacity: 1; }
+        @keyframes drawCurve {
+            /* Smoothly reveal by un-clipping to 0% */
+            0% { clip-path: inset(0 100% 0 0); }
+            100% { clip-path: inset(0 0 0 0); }
         }
 
         /* Navigation Links */
@@ -178,7 +161,7 @@
         <div class="relative z-20 text-center px-4 max-w-5xl mx-auto">
             <h1 class="font-primary font-bold text-5xl md:text-7xl text-white mb-6 tracking-tight leading-[1.1] drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)]">
                 Smart Travel Tips<br>
-                <span class="text-white inline-block mt-2 animate-underline">For Seasoned Souls</span>
+                <span class="text-white inline-block mt-2">For <span class="animate-underline">Seasoned Souls</span></span>
             </h1>
             
             <p class="font-secondary font-medium text-lg md:text-xl text-white mb-10 max-w-2xl mx-auto drop-shadow-md">
@@ -195,11 +178,11 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
                 <div class="w-full md:w-1/2 flex justify-center md:justify-end relative">
-                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1000&auto=format&fit=crop" alt="Ang - Author" class="w-full max-w-md h-auto object-cover rounded-2xl shadow-lg transition-all duration-500 hover:scale-105 hover:-rotate-1 hover:shadow-2xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1000&auto=format&fit=crop" alt="Ang - Author" class="w-full max-w-sm h-80 md:h-96 object-cover rounded-2xl shadow-lg transition-all duration-500 hover:scale-105 hover:-rotate-1 hover:shadow-2xl cursor-pointer">
                 </div>
                 <div class="w-full md:w-1/2 text-left">
                     <h2 class="font-primary font-bold text-4xl md:text-5xl text-brand-dark mb-6 leading-tight max-w-md">
-                        Hi, I'm Ang. Your Travel Confidant.
+                        Hi, I'm Ang.<br>Your Travel Confidant.
                     </h2>
                     <p class="font-secondary font-medium text-brand-dark/80 text-lg leading-relaxed mb-8">
                         With over two decades of exploring the globe, I've transitioned from budget backpacking to embracing smart luxury. Whether you are a digital nomad or looking for the perfect family getaway, I'm here to share the tried-and-true secrets that make travel seamless and unforgettable for seasoned souls like us.
