@@ -1,1 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ang's Savvy Travel Guide | Smart Travel Tips for Seasoned Souls</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;800&family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            teal: '#4A9CAF',
+                            gold: '#D9A343',
+                            green: '#7BAA5D',
+                            cream: '#F3EFE2',
+                            dark: '#3D3E3C'
+                        }
+                    },
+                    fontFamily: {
+                        logo: ['"Bricolage Grotesque"', 'sans-serif'],
+                        primary: ['"Open Sans"', 'sans-serif'],
+                        secondary: ['"Raleway"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
+    <style>
+        html { scroll-behavior: smooth; }
+        body { 
+            background-color: #F3EFE2; 
+            color: #3D3E3C; 
+        }
+        
+        /* Interactive Hover States */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(61, 62, 60, 0.15);
+        }
+
+        /* Hero Animation & Vignette */
+        @keyframes slowZoomOut {
+            0% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        .animate-zoom-out {
+            animation: slowZoomOut 15s ease-out forwards;
+        }
+        .vignette-overlay {
+            background: radial-gradient(circle at center, transparent 30%, rgba(61, 62, 60, 0.8) 100%);
+        }
+
+        /* Navigation Links */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 0.75rem; /* Generous touch target */
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: calc(100% - 1.5rem);
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 4px;
+            left: 0.75rem;
+            background-color: #7BAA5D;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="font-secondary antialiased selection:bg-brand-green selection:text-white">
+
+    <nav id="navbar" class="fixed w-full z-50 top-0 left-0 bg-white transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center cursor-pointer z-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green rounded-lg py-2">
+                    <img src="https://jesseledesma88.github.io/angs/Main%20Logo%20-%20Landscape@2x.png" alt="Ang's Savvy Travel Guide Logo" class="h-16 w-auto object-contain">
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="#" class="nav-link text-brand-dark hover:text-brand-green font-semibold transition-colors focus-visible:outline-none focus-visible:text-brand-green min-h-[44px] flex items-center">Home</a>
+                    <a href="#" class="nav-link text-brand-dark hover:text-brand-green font-semibold transition-colors focus-visible:outline-none focus-visible:text-brand-green min-h-[44px] flex items-center">About</a>
+                    <a href="#" class="nav-link text-brand-dark hover:text-brand-green font-semibold transition-colors focus-visible:outline-none focus-visible:text-brand-green min-h-[44px] flex items-center">Travel Resources</a>
+                    <a href="#" class="nav-link text-brand-dark hover:text-brand-green font-semibold transition-colors focus-visible:outline-none focus-visible:text-brand-green min-h-[44px] flex items-center">Blog</a>
+                    <a href="#" class="nav-link text-brand-dark hover:text-brand-green font-semibold transition-colors focus-visible:outline-none focus-visible:text-brand-green min-h-[44px] flex items-center mr-4">Contact</a>
+                    <a href="#" class="bg-brand-green text-white px-8 py-3 rounded-full font-bold hover:bg-brand-dark transition-colors shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-green min-h-[44px] flex items-center">Join Newsletter</a>
+                </div>
+
+                <div class="flex items-center lg:hidden z-50">
+                    <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-green focus:outline-none p-3 rounded-md min-h-[44px] min-w-[44px] flex items-center justify-center focus-visible:ring-2 focus-visible:ring-brand-green">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-brand-green/20 absolute w-full left-0 top-24 shadow-lg transition-all duration-300">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col max-w-7xl mx-auto">
+                <a href="#" class="block px-4 py-4 text-brand-dark hover:bg-brand-cream hover:text-brand-green font-semibold rounded-xl transition-all duration-300 text-lg min-h-[44px]">Home</a>
+                <a href="#" class="block px-4 py-4 text-brand-dark hover:bg-brand-cream hover:text-brand-green font-semibold rounded-xl transition-all duration-300 text-lg min-h-[44px]">About</a>
+                <a href="#" class="block px-4 py-4 text-brand-dark hover:bg-brand-cream hover:text-brand-green font-semibold rounded-xl transition-all duration-300 text-lg min-h-[44px]">Travel Resources</a>
+                <a href="#" class="block px-4 py-4 text-brand-dark hover:bg-brand-cream hover:text-brand-green font-semibold rounded-xl transition-all duration-300 text-lg min-h-[44px]">Blog</a>
+                <a href="#" class="block px-4 py-4 text-brand-dark hover:bg-brand-cream hover:text-brand-green font-semibold rounded-xl transition-all duration-300 text-lg min-h-[44px]">Contact</a>
+                <a href="#" class="block w-full text-center bg-brand-green text-white px-6 py-4 rounded-full font-bold hover:bg-brand-dark transition-colors shadow-md mt-4 text-lg min-h-[44px]">Join Newsletter</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative w-full h-[70vh] min-h-[500px] flex items-center justify-center mt-24 overflow-hidden bg-brand-dark">
+        <img src="https://jesseledesma88.github.io/angs/hero-ang.webp" alt="Nature Roadtrip Hero" class="absolute inset-0 w-full h-full object-cover z-0 animate-zoom-out">
+        
+        <div class="absolute inset-0 vignette-overlay z-10 pointer-events-none"></div>
+
+        <div class="relative z-20 text-center px-4 max-w-5xl mx-auto">
+            <h1 class="font-primary font-bold text-5xl md:text-7xl text-white mb-6 tracking-tight leading-[1.1] drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)]">
+                Smart Travel Tips<br>
+                <span class="text-brand-green inline-block mt-2">For Seasoned Souls</span>
+            </h1>
+            
+            <p class="font-secondary font-medium text-lg md:text-xl text-white mb-10 max-w-2xl mx-auto drop-shadow-md">
+                Expert itineraries, packing hacks, and trusted recommendations for the seasoned explorer. 
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#destinations" class="bg-brand-green text-white px-8 py-4 rounded-full font-bold text-lg hover-lift shadow-[0_4px_14px_0_rgba(123,170,93,0.39)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-cream min-h-[44px] flex items-center justify-center">Explore Destinations</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-20 bg-brand-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12 bg-white rounded-[2rem] p-8 md:p-12 shadow-sm border border-brand-green/20">
+                <div class="w-full md:w-1/3">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1000&auto=format&fit=crop" alt="Ang - Author" class="w-full h-auto aspect-square object-cover rounded-[2rem] shadow-lg">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <h2 class="font-primary font-bold text-3xl md:text-4xl text-brand-dark mb-4">Hi, I'm Ang. Your Travel Confidant.</h2>
+                    <p class="font-secondary font-medium text-brand-dark/80 text-lg leading-relaxed mb-6">
+                        With over two decades of exploring the globe, I've transitioned from budget backpacking to embracing smart luxury. Whether you are a digital nomad or looking for the perfect family getaway, I'm here to share the tried-and-true secrets that make travel seamless and unforgettable for seasoned souls like us.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-brand-green font-bold hover:text-brand-dark hover:translate-x-1 transition-all text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green rounded-md p-2 min-h-[44px]">
+                        Read my full story <span class="ml-2">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quick-links" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <a href="#" class="group relative h-64 rounded-[2rem] overflow-hidden shadow-md hover-lift flex items-center justify-center focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-green">
+                    <img src="https://images.unsplash.com/photo-1553531384-cc64ac80f931?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-brand-dark/60 group-hover:bg-brand-green/80 transition-colors duration-300"></div>
+                    <h3 class="relative z-10 font-primary font-bold text-3xl text-white text-center px-4 transition-transform duration-300 group-hover:scale-105">Shop My Travel Kit</h3>
+                </a>
+                <a href="#" class="group relative h-64 rounded-[2rem] overflow-hidden shadow-md hover-lift flex items-center justify-center focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-green">
+                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-brand-dark/60 group-hover:bg-brand-green/80 transition-colors duration-300"></div>
+                    <h3 class="relative z-10 font-primary font-bold text-3xl text-white text-center px-4 transition-transform duration-300 group-hover:scale-105">Book with Trusted Partners</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-brand-green relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#F3EFE2 2px, transparent 2px); background-size: 30px 30px;"></div>
+        <div class="relative max-w-4xl mx-auto px-4 text-center z-10">
+            <h2 class="font-primary font-bold text-3xl md:text-4xl text-white mb-4">Never Miss a Savvy Travel Tip</h2>
+            <p class="font-secondary font-medium text-brand-cream text-lg mb-8">Join thousands of seasoned travelers getting exclusive deals, destination guides, and packing hacks straight to your inbox.</p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                <input type="email" placeholder="Enter your email address" required class="flex-1 px-6 py-4 rounded-full font-secondary font-medium text-brand-dark focus:outline-none focus:ring-4 focus:ring-brand-gold/80 shadow-inner transition-shadow min-h-[56px]">
+                <button type="submit" class="bg-brand-dark text-white px-8 py-4 rounded-full font-bold hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-lg focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white min-h-[56px]">Subscribe Now</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="font-primary font-bold text-3xl md:text-4xl text-brand-dark mb-4">Latest from the Blog</h2>
+                    <div class="w-24 h-1 bg-brand-green rounded-full"></div>
+                </div>
+                <a href="#" class="hidden md:inline-flex items-center text-brand-green font-bold hover:text-brand-dark hover:translate-x-1 transition-all text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green rounded-md p-2 min-h-[44px]">
+                    View All Posts <span class="ml-2">→</span>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <a href="#" class="bg-brand-cream rounded-[2rem] overflow-hidden shadow-sm hover-lift border border-brand-green/10 flex flex-col cursor-pointer group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-green">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=800&auto=format&fit=crop" alt="Packing Luggage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">Packing Hacks</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="font-secondary text-xs text-brand-dark/60 mb-3 font-bold tracking-wide uppercase">March 10, 2026</span>
+                        <h3 class="font-primary font-bold text-xl text-brand-dark mb-3 line-clamp-2 group-hover:text-brand-green transition-colors">How to Pack for 2 Weeks in Europe in Just a Carry-On</h3>
+                        <p class="font-secondary font-medium text-brand-dark/80 text-sm mb-6 line-clamp-3 flex-1">Say goodbye to checked bag fees. Here is my ultimate minimalist packing list for tackling unpredictable European weather and cobblestone streets.</p>
+                        <span class="inline-flex items-center text-brand-green font-bold transition-transform group-hover:translate-x-1 text-sm mt-auto py-2">Read Article <span class="ml-1">→</span></span>
+                    </div>
+                </a>
+
+                <a href="#" class="bg-brand-cream rounded-[2rem] overflow-hidden shadow-sm hover-lift border border-brand-green/10 flex flex-col cursor-pointer group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-gold">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=800&auto=format&fit=crop" alt="Paris Architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brand-gold text-brand-dark text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">Itineraries</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="font-secondary text-xs text-brand-dark/60 mb-3 font-bold tracking-wide uppercase">March 4, 2026</span>
+                        <h3 class="font-primary font-bold text-xl text-brand-dark mb-3 line-clamp-2 group-hover:text-brand-gold transition-colors">The Perfect 3-Day Paris Itinerary for Food Lovers</h3>
+                        <p class="font-secondary font-medium text-brand-dark/80 text-sm mb-6 line-clamp-3 flex-1">Skip the tourist traps. Follow this culinary roadmap through the hidden bistros, authentic boulangeries, and local markets of Paris.</p>
+                        <span class="inline-flex items-center text-brand-green font-bold transition-transform group-hover:translate-x-1 text-sm mt-auto py-2">Read Article <span class="ml-1">→</span></span>
+                    </div>
+                </a>
+
+                <a href="#" class="bg-brand-cream rounded-[2rem] overflow-hidden shadow-sm hover-lift border border-brand-green/10 flex flex-col cursor-pointer group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-teal">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556740714-a8395b3bf30f?q=80&w=800&auto=format&fit=crop" alt="Credit Cards and Travel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brand-teal text-white text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">Travel Finance</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="font-secondary text-xs text-brand-dark/60 mb-3 font-bold tracking-wide uppercase">February 28, 2026</span>
+                        <h3 class="font-primary font-bold text-xl text-brand-dark mb-3 line-clamp-2 group-hover:text-brand-teal transition-colors">Top Travel Credit Cards for Free Flights This Year</h3>
+                        <p class="font-secondary font-medium text-brand-dark/80 text-sm mb-6 line-clamp-3 flex-1">Stop leaving money on the table. Discover how I use sign-up bonuses and everyday spending to fund my luxury upgrades.</p>
+                        <span class="inline-flex items-center text-brand-green font-bold transition-transform group-hover:translate-x-1 text-sm mt-auto py-2">Read Article <span class="ml-1">→</span></span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="#" class="inline-flex items-center justify-center bg-brand-green text-white px-8 py-4 rounded-full font-bold hover:bg-brand-dark transition-colors shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-green min-h-[44px]">
+                    View All Posts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark pt-16 pb-8 text-brand-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="font-logo font-bold text-2xl text-white mb-2">Ang's Savvy Travel Guide</h3>
+                    <p class="font-secondary font-medium text-brand-green mb-6 text-sm">Smart Travel Tips for Seasoned Souls</p>
+                    <p class="font-secondary font-medium text-sm text-brand-cream/80 leading-relaxed max-w-md mb-6">
+                        <strong>Affiliate Disclosure:</strong> This site contains affiliate links. If you purchase through these links, I may earn a small commission at no extra cost to you. I only recommend products and services I personally use and trust.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-primary font-bold text-white mb-4">Explore</h4>
+                    <ul class="space-y-3 font-secondary font-medium text-brand-cream/80 text-sm">
+                        <li><a href="#" class="inline-block hover:text-brand-green transition-all duration-300 hover:translate-x-1 py-1 min-h-[44px] flex items-center">Home</a></li>
+                        <li><a href="#" class="inline-block hover:text-brand-green transition-all duration-300 hover:translate-x-1 py-1 min-h-[44px] flex items-center">About</a></li>
+                        <li><a href="#" class="inline-block hover:text-brand-green transition-all duration-300 hover:translate-x-1 py-1 min-h-[44px] flex items-center">Travel Resources</a></li>
+                        <li><a href="#" class="inline-block hover:text-brand-green transition-all duration-300 hover:translate-x-1 py-1 min-h-[44px] flex items-center">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-primary font-bold text-white mb-4">Legal</h4>
+                    <ul class="space-y-3 font-secondary font-medium text-brand-cream/80 text-sm">
+                        <li><a href="#" class="inline-block hover:text-brand-green transition-all duration-300 hover:translate-x-1 py-1 min-h-[44px] flex items-center">Privacy Policy</a></li>
+                        <li><a href="#" class="inline-block hover:text-brand-green transition-all duration-300 hover:translate-x-1 py-1 min-h-[44px] flex items-center">Terms of Service</a></li>
+                        <li><a href="#" class="inline-block hover:text-brand-green transition-all duration-300 hover:translate-x-1 py-1 min-h-[44px] flex items-center">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-secondary font-medium text-brand-cream/60">
+                <p>&copy; 2026 Ang's Savvy Travel Guide. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <span class="opacity-50 hover:opacity-100 transition-opacity cursor-pointer p-2">Trusted Partner 1</span>
+                    <span class="opacity-50 hover:opacity-100 transition-opacity cursor-pointer p-2">Trusted Partner 2</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                // Header remains solid white per your request, we just add a shadow on scroll.
+                navbar.classList.add('shadow-md', 'border-b', 'border-brand-green/20');
+            } else {
+                navbar.classList.remove('shadow-md', 'border-b', 'border-brand-green/20');
+            }
+        });
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
