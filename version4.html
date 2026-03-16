@@ -61,6 +61,30 @@
             background: radial-gradient(circle at center, transparent 30%, rgba(61, 62, 60, 0.8) 100%);
         }
 
+        /* Animated Looping Underline */
+        @keyframes drawUnderline {
+            0% { transform: scaleX(0); transform-origin: left; }
+            40% { transform: scaleX(1); transform-origin: left; }
+            40.1% { transform-origin: right; }
+            80% { transform: scaleX(0); transform-origin: right; }
+            100% { transform: scaleX(0); transform-origin: right; }
+        }
+        .animate-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .animate-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            bottom: -8px;
+            left: 0;
+            background-color: #D9A343; /* Brand Gold */
+            border-radius: 2px;
+            animation: drawUnderline 3s ease-in-out infinite;
+        }
+
         /* Navigation Links */
         .nav-link {
             position: relative;
@@ -124,7 +148,7 @@
         </div>
     </nav>
 
-    <header class="relative w-full h-[85vh] min-h-[500px] flex items-center justify-center mt-24 overflow-hidden bg-brand-dark">
+    <header class="relative w-full h-screen min-h-[500px] flex items-center justify-center pt-24 overflow-hidden bg-brand-dark">
         <img src="https://jesseledesma88.github.io/angs/hero-ang.webp" alt="Nature Roadtrip Hero" class="absolute inset-0 w-full h-full object-cover z-0 animate-zoom-out">
         
         <div class="absolute inset-0 vignette-overlay z-10 pointer-events-none"></div>
@@ -132,9 +156,12 @@
         <div class="relative z-20 text-center px-4 max-w-5xl mx-auto">
             <h1 class="font-primary font-bold text-5xl md:text-7xl text-white mb-6 tracking-tight leading-[1.1] drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)]">
                 Smart Travel Tips<br>
-                <span class="text-white inline-block mt-2">For Seasoned Souls</span>
+                <span class="text-white inline-block mt-2 animate-underline">For Seasoned Souls</span>
             </h1>
             
+            <p class="font-secondary font-medium text-lg md:text-xl text-white mb-10 max-w-2xl mx-auto drop-shadow-md">
+                Expert itineraries, packing hacks, and trusted recommendations for the seasoned explorer. 
+            </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#destinations" class="bg-brand-green text-white px-8 py-4 rounded-full font-bold text-lg hover-lift shadow-[0_4px_14px_0_rgba(123,170,93,0.39)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-cream min-h-[44px] flex items-center justify-center">Explore Destinations</a>
@@ -145,12 +172,12 @@
     <section class="py-24 bg-brand-cream">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
-                <div class="w-full md:w-1/2 flex justify-center md:justify-end">
-                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1000&auto=format&fit=crop" alt="Ang - Author" class="w-full max-w-md h-auto object-cover rounded-2xl shadow-lg">
+                <div class="w-full md:w-1/2 flex justify-center md:justify-end relative">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1000&auto=format&fit=crop" alt="Ang - Author" class="w-full max-w-md h-auto object-cover rounded-2xl shadow-lg transition-all duration-500 hover:scale-105 hover:-rotate-1 hover:shadow-2xl cursor-pointer">
                 </div>
                 <div class="w-full md:w-1/2 text-left">
-                    <h2 class="font-primary font-bold text-4xl md:text-5xl text-brand-dark mb-6 leading-tight">
-                        Hi, I'm Ang.<br>Your Travel Confidant.
+                    <h2 class="font-primary font-bold text-4xl md:text-5xl text-brand-dark mb-6 leading-tight max-w-md">
+                        Hi, I'm Ang. Your Travel Confidant.
                     </h2>
                     <p class="font-secondary font-medium text-brand-dark/80 text-lg leading-relaxed mb-8">
                         With over two decades of exploring the globe, I've transitioned from budget backpacking to embracing smart luxury. Whether you are a digital nomad or looking for the perfect family getaway, I'm here to share the tried-and-true secrets that make travel seamless and unforgettable for seasoned souls like us.
