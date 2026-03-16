@@ -78,7 +78,8 @@
             100% { transform: scale(1); }
         }
         .animate-zoom-out {
-            animation: zoomOut 1.5s ease-out forwards; 
+            /* Added infinite and alternate to fix the broken loop, keeping it brisk but smooth */
+            animation: zoomOut 2.5s ease-in-out infinite alternate; 
         }
         .vignette-effect {
             position: absolute;
@@ -124,14 +125,15 @@
                     <img src="https://jesseledesma88.github.io/angs/Main%20Logo%20-%20Landscape@2x.png" alt="Ang's Savvy Travel Guide Logo" class="h-14 w-auto object-contain">
                 </div>
                 
-                <div class="hidden lg:flex items-center space-x-8">
+                <div class="hidden lg:flex items-center space-x-6">
                     <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Home</a>
                     <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">About</a>
-                    <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Resources</a>
+                    <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Travel Resources</a>
                     <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Blog</a>
+                    <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Contact</a>
                     
                     <div class="relative ml-4">
-                        <input type="text" placeholder="Search guides..." class="w-48 pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-transparent text-sm font-body text-brand-charcoal transition-all duration-300 focus:w-64 bg-gray-50 focus:bg-white shadow-inner">
+                        <input type="text" placeholder="Search here...." class="w-48 pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-transparent text-sm font-body text-brand-charcoal transition-all duration-300 focus:w-64 bg-gray-50 focus:bg-white shadow-inner">
                         <svg class="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 transform -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
@@ -154,12 +156,13 @@
             <div class="px-6 pt-4 pb-8 space-y-3 flex flex-col max-w-7xl mx-auto">
                 <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Home</a>
                 <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">About</a>
-                <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Resources</a>
+                <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Travel Resources</a>
                 <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Blog</a>
+                <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Contact</a>
                 
                 <div class="pt-4 mt-2 border-t border-gray-100 px-2">
                     <div class="relative w-full">
-                        <input type="text" placeholder="Search guides, destinations..." class="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-green text-base font-body text-brand-charcoal bg-gray-50 focus:bg-white shadow-inner">
+                        <input type="text" placeholder="Search here...." class="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-green text-base font-body text-brand-charcoal bg-gray-50 focus:bg-white shadow-inner">
                         <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
@@ -392,7 +395,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-2">
-                    <img src="https://jesseledesma88.github.io/angs/logo-footer.webp" alt="Ang's Savvy Travel Guide Footer Logo" class="h-16 w-auto mb-6 object-contain">
+                    <img src="https://jesseledesma88.github.io/angs/logo-footer_v2.webp" alt="Ang's Savvy Travel Guide Footer Logo" class="h-16 w-auto mb-6 object-contain">
                     <p class="font-body text-sm text-brand-sand/60 leading-relaxed max-w-md mb-6">
                         <strong>Affiliate Disclosure:</strong> This site contains affiliate links. If you purchase through these links, I may earn a small commission at no extra cost to you. I only recommend products and services I personally use and trust.
                     </p>
@@ -404,6 +407,7 @@
                         <li><a href="#" class="hover:text-brand-green transition-colors">About</a></li>
                         <li><a href="#" class="hover:text-brand-green transition-colors">Travel Resources</a></li>
                         <li><a href="#" class="hover:text-brand-green transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 <div>
