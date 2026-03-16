@@ -87,6 +87,9 @@
             pointer-events: none;
             z-index: 15;
         }
+        .text-shadow-strong {
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.7);
+        }
     </style>
 </head>
 <body class="font-body antialiased selection:bg-brand-green selection:text-white">
@@ -137,9 +140,9 @@
         <div class="vignette-effect"></div>
 
         <div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-16">
-            <h1 class="font-heading font-extrabold text-5xl md:text-7xl text-white mb-10 leading-tight drop-shadow-md">
+            <h1 class="font-heading font-extrabold text-5xl md:text-7xl text-white mb-10 leading-tight text-shadow-strong">
                 Smart Travel Tips <br>
-                <span class="text-brand-green font-semibold">For Seasoned Souls</span>
+                For Seasoned Souls
             </h1>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -371,62 +374,4 @@
             </div>
             
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-body text-brand-sand/50">
-                <p>&copy; 2026 Ang's Savvy Travel Guide. All rights reserved.</p>
-                <div class="flex gap-6 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-white transition-colors">Facebook</a>
-                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
-                    <a href="#" class="hover:text-white transition-colors">Pinterest</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
-                navbar.classList.remove('bg-white', 'shadow-sm', 'bg-inherit');
-            } else {
-                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md');
-                navbar.classList.add('bg-white', 'shadow-sm', 'bg-inherit');
-            }
-        });
-
-        // Mobile Menu Toggle Logic
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileBackdrop = document.getElementById('mobile-menu-backdrop');
-        const menuIconPath = document.getElementById('menu-icon-path');
-
-        let isMenuOpen = false;
-
-        function toggleMenu() {
-            isMenuOpen = !isMenuOpen;
-            
-            if (isMenuOpen) {
-                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                
-                mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
-                mobileBackdrop.classList.add('opacity-100', 'pointer-events-auto');
-                
-                menuIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-            } else {
-                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                
-                mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
-                mobileBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
-                
-                menuIconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-            }
-        }
-
-        mobileMenuBtn.addEventListener('click', toggleMenu);
-        mobileBackdrop.addEventListener('click', toggleMenu);
-    </script>
-</body>
-</html>
+                <p>&copy; 2026 Ang's Savvy Travel Guide. All rights reserved
