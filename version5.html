@@ -17,11 +17,11 @@
                 extend: {
                     colors: {
                         brand: {
-                            green: '#7BAA5D',      /* Primary/Major Color [cite: 16] */
-                            blue: '#4A9CAF',       /* Secondary [cite: 14] */
-                            gold: '#D9A343',       /* Secondary [cite: 15] */
-                            sand: '#F3EFE2',       /* Background [cite: 17] */
-                            charcoal: '#3D3E3C',   /* Text/Dark Elements [cite: 18] */
+                            green: '#7BAA5D',      /* Primary/Major Color */
+                            blue: '#4A9CAF',       /* Secondary */
+                            gold: '#D9A343',       /* Secondary */
+                            sand: '#F3EFE2',       /* Background */
+                            charcoal: '#3D3E3C',   /* Text/Dark Elements */
                             white: '#FFFFFF'
                         }
                     },
@@ -37,8 +37,8 @@
     <style>
         html { scroll-behavior: smooth; }
         body { 
-             background-color: #F3EFE2; /* brand-sand [cite: 17] */
-             color: #3D3E3C; /* brand-charcoal [cite: 18] */
+             background-color: #F3EFE2; /* brand-sand */
+             color: #3D3E3C; /* brand-charcoal */
              font-size: 18px;
              line-height: 1.6;
         }
@@ -63,7 +63,7 @@
             height: 2px;
             bottom: -4px;
             left: 0;
-            background-color: #7BAA5D; /* brand-green [cite: 16] */
+            background-color: #7BAA5D; /* brand-green */
             transform-origin: bottom right;
             transition: transform 0.3s ease-out;
         }
@@ -79,9 +79,6 @@
         }
         .animate-zoom-out {
             animation: zoomOut 4s ease-out forwards;
-        }
-        .hero-dark-overlay {
-            background-color: rgba(61, 62, 60, 0.6); /* Brand Charcoal with 60% opacity */
         }
         .vignette-effect {
             position: absolute;
@@ -137,18 +134,13 @@
     <header class="relative w-full h-screen flex items-center justify-center pt-20 overflow-hidden bg-brand-charcoal">
         <img src="https://jesseledesma88.github.io/angs/hero-ang.webp" alt="Ang's Savvy Travel Guide Hero" class="absolute inset-0 w-full h-full object-cover z-0 animate-zoom-out origin-center">
         
-        <div class="absolute inset-0 hero-dark-overlay z-10 pointer-events-none"></div>
         <div class="vignette-effect"></div>
 
         <div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-16">
-            <h1 class="font-heading font-extrabold text-5xl md:text-7xl text-white mb-6 leading-tight drop-shadow-md">
+            <h1 class="font-heading font-extrabold text-5xl md:text-7xl text-white mb-10 leading-tight drop-shadow-md">
                 Smart Travel Tips <br>
                 <span class="text-brand-green font-semibold">For Seasoned Souls</span>
             </h1>
-            
-            <p class="font-body text-xl text-brand-sand font-medium mb-10 max-w-2xl mx-auto drop-shadow-sm">
-                Expert itineraries, packing hacks, and trusted recommendations for the seasoned explorer. 
-            </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#destinations" class="bg-brand-green text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all shadow-lg text-center">Explore Destinations</a>
@@ -156,17 +148,6 @@
             </div>
         </div>
     </header>
-
-    <div class="bg-brand-charcoal py-6 border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-brand-sand/60 text-sm font-semibold uppercase tracking-widest mb-4">Trusted By Travelers Featured In</p>
-            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 grayscale">
-                <span class="font-heading text-xl text-white font-bold">Condé Nast Traveler</span>
-                <span class="font-heading text-xl text-white font-bold">Travel + Leisure</span>
-                <span class="font-heading text-xl text-white font-bold">The New York Times</span>
-            </div>
-        </div>
-    </div>
 
     <section class="py-24 bg-brand-sand">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -187,7 +168,7 @@
         </div>
     </section>
 
-    <section class="py-20 bg-brand-blue text-white">
+    <section class="py-20 bg-brand-green text-white">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <svg class="w-12 h-12 mx-auto mb-6 text-brand-sand opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
             <blockquote class="font-heading text-2xl md:text-3xl italic leading-relaxed mb-8">
