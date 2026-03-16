@@ -17,11 +17,11 @@
                 extend: {
                     colors: {
                         brand: {
-                            green: '#7BAA5D',      /* Primary/Major Color */
-                            blue: '#4A9CAF',       /* Accent */
-                            gold: '#D9A343',       /* Accent */
-                            sand: '#F3EFE2',       /* Backgrounds */
-                            charcoal: '#3D3E3C',   /* Text/Dark Elements */
+                            green: '#7BAA5D',      /* Primary/Major Color [cite: 16] */
+                            blue: '#4A9CAF',       /* Secondary [cite: 14] */
+                            gold: '#D9A343',       /* Secondary [cite: 15] */
+                            sand: '#F3EFE2',       /* Background [cite: 17] */
+                            charcoal: '#3D3E3C',   /* Text/Dark Elements [cite: 18] */
                             white: '#FFFFFF'
                         }
                     },
@@ -37,8 +37,8 @@
     <style>
         html { scroll-behavior: smooth; }
         body { 
-             background-color: #F3EFE2; /* brand-sand */
-             color: #3D3E3C; /* brand-charcoal */
+             background-color: #F3EFE2; /* brand-sand [cite: 17] */
+             color: #3D3E3C; /* brand-charcoal [cite: 18] */
              font-size: 18px;
              line-height: 1.6;
         }
@@ -63,7 +63,7 @@
             height: 2px;
             bottom: -4px;
             left: 0;
-            background-color: #7BAA5D; /* brand-green */
+            background-color: #7BAA5D; /* brand-green [cite: 16] */
             transform-origin: bottom right;
             transition: transform 0.3s ease-out;
         }
@@ -80,13 +80,13 @@
         .animate-zoom-out {
             animation: zoomOut 4s ease-out forwards;
         }
-        .hero-light-overlay {
-            background-color: rgba(243, 239, 226, 0.5); /* Sand color with opacity */
+        .hero-dark-overlay {
+            background-color: rgba(61, 62, 60, 0.6); /* Brand Charcoal with 60% opacity */
         }
         .vignette-effect {
             position: absolute;
             inset: 0;
-            box-shadow: inset 0 0 150px rgba(61, 62, 60, 0.65); /* Charcoal vignette */
+            box-shadow: inset 0 0 150px rgba(61, 62, 60, 0.8); /* Dark vignette */
             pointer-events: none;
             z-index: 15;
         }
@@ -134,25 +134,25 @@
         </div>
     </nav>
 
-    <header class="relative w-full h-screen flex items-center justify-center pt-20 overflow-hidden bg-brand-sand">
+    <header class="relative w-full h-screen flex items-center justify-center pt-20 overflow-hidden bg-brand-charcoal">
         <img src="https://jesseledesma88.github.io/angs/hero-ang.webp" alt="Ang's Savvy Travel Guide Hero" class="absolute inset-0 w-full h-full object-cover z-0 animate-zoom-out origin-center">
         
-        <div class="absolute inset-0 hero-light-overlay z-10 pointer-events-none"></div>
+        <div class="absolute inset-0 hero-dark-overlay z-10 pointer-events-none"></div>
         <div class="vignette-effect"></div>
 
         <div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-16">
-            <h1 class="font-heading font-extrabold text-5xl md:text-7xl text-brand-charcoal mb-6 leading-tight">
+            <h1 class="font-heading font-extrabold text-5xl md:text-7xl text-white mb-6 leading-tight drop-shadow-md">
                 Smart Travel Tips <br>
                 <span class="text-brand-green font-semibold">For Seasoned Souls</span>
             </h1>
             
-            <p class="font-body text-xl text-brand-charcoal font-medium mb-10 max-w-2xl mx-auto">
+            <p class="font-body text-xl text-brand-sand font-medium mb-10 max-w-2xl mx-auto drop-shadow-sm">
                 Expert itineraries, packing hacks, and trusted recommendations for the seasoned explorer. 
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#destinations" class="bg-brand-green text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all shadow-lg text-center">Explore Destinations</a>
-                <a href="#quick-links" class="bg-white/80 backdrop-blur-sm text-brand-charcoal border-2 border-brand-charcoal px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-charcoal hover:text-white transition-all shadow-lg text-center">Shop My Travel Kit</a>
+                <a href="#quick-links" class="bg-transparent text-white border-2 border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-brand-charcoal transition-all shadow-lg text-center">Shop My Travel Kit</a>
             </div>
         </div>
     </header>
