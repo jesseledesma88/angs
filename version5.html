@@ -74,16 +74,17 @@
 
         /* Hero Section Effects */
         @keyframes zoomOut {
-            0% { transform: scale(1.15); }
+            0% { transform: scale(1.25); }
             100% { transform: scale(1); }
         }
         .animate-zoom-out {
-            animation: zoomOut 4s ease-out forwards;
+            /* Adjusted to 1.5s to be noticeably faster and not slow */
+            animation: zoomOut 1.5s ease-out forwards; 
         }
         .vignette-effect {
             position: absolute;
             inset: 0;
-            box-shadow: inset 0 0 150px rgba(61, 62, 60, 0.8); /* Dark vignette */
+            box-shadow: inset 0 0 150px rgba(61, 62, 60, 0.9); /* Strong Dark Vignette */
             pointer-events: none;
             z-index: 15;
         }
@@ -157,7 +158,7 @@
         </div>
     </nav>
 
-    <header class="relative w-full h-screen flex items-center justify-center pt-20 overflow-hidden bg-brand-charcoal">
+    <header class="relative w-full h-[90vh] flex items-center justify-center pt-20 overflow-hidden bg-brand-charcoal">
         <img src="https://jesseledesma88.github.io/angs/hero-ang.webp" alt="Ang's Savvy Travel Guide Hero" class="absolute inset-0 w-full h-full object-cover z-0 animate-zoom-out origin-center">
         
         <div class="vignette-effect"></div>
