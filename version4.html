@@ -55,7 +55,8 @@
             100% { transform: scale(1); }
         }
         .animate-zoom-out {
-            animation: slowZoomOut 15s ease-out forwards;
+            /* Changed to infinite alternate for a smooth, continuous loop */
+            animation: slowZoomOut 15s ease-in-out infinite alternate;
         }
         .vignette-overlay {
             background: radial-gradient(circle at center, transparent 30%, rgba(61, 62, 60, 0.8) 100%);
@@ -132,7 +133,7 @@
         <div class="relative z-20 text-center px-4 max-w-5xl mx-auto">
             <h1 class="font-primary font-bold text-5xl md:text-7xl text-white mb-6 tracking-tight leading-[1.1] drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)]">
                 Smart Travel Tips<br>
-                <span class="text-brand-green inline-block mt-2">For Seasoned Souls</span>
+                <span class="text-white inline-block mt-2">For Seasoned Souls</span>
             </h1>
             
             <p class="font-secondary font-medium text-lg md:text-xl text-white mb-10 max-w-2xl mx-auto drop-shadow-md">
@@ -297,7 +298,6 @@
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) {
-                // Header remains solid white per your request, we just add a shadow on scroll.
                 navbar.classList.add('shadow-md', 'border-b', 'border-brand-green/20');
             } else {
                 navbar.classList.remove('shadow-md', 'border-b', 'border-brand-green/20');
