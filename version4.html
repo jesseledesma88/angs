@@ -61,28 +61,50 @@
             background: radial-gradient(circle at center, transparent 30%, rgba(61, 62, 60, 0.8) 100%);
         }
 
-        /* Animated Looping Underline */
-        @keyframes drawUnderline {
-            0% { transform: scaleX(0); transform-origin: left; }
-            40% { transform: scaleX(1); transform-origin: left; }
-            40.1% { transform-origin: right; }
-            80% { transform: scaleX(0); transform-origin: right; }
-            100% { transform: scaleX(0); transform-origin: right; }
-        }
+        /* Flying Arrow Underline (Animates ONCE) */
         .animate-underline {
             position: relative;
             display: inline-block;
         }
+        
+        /* The Line of the Arrow */
         .animate-underline::after {
             content: '';
             position: absolute;
-            width: 100%;
+            width: 0; /* Starts at 0 width */
             height: 4px;
             bottom: -8px;
             left: 0;
-            background-color: #D9A343; /* Brand Gold */
+            background-color: #4A9CAF; /* Brand Teal */
             border-radius: 2px;
-            animation: drawUnderline 3s ease-in-out infinite;
+            /* 1s duration, ease-out curve, forwards to hold final state, 0.5s delay on load */
+            animation: shootLine 1s ease-out forwards 0.5s; 
+        }
+
+        /* The Head of the Arrow */
+        .animate-underline::before {
+            content: '';
+            position: absolute;
+            bottom: -13px; /* Vertically centered with the line */
+            left: 0;
+            /* Create CSS Triangle */
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 10px solid #4A9CAF; /* Brand Teal */
+            opacity: 0;
+            /* Matches the line timing */
+            animation: shootArrow 1s ease-out forwards 0.5s;
+            z-index: 10;
+        }
+
+        @keyframes shootLine {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+        @keyframes shootArrow {
+            0% { left: 0; opacity: 0; }
+            5% { opacity: 1; }
+            100% { left: 100%; opacity: 1; }
         }
 
         /* Navigation Links */
