@@ -78,7 +78,6 @@
             100% { transform: scale(1); }
         }
         .animate-zoom-out {
-            /* Adjusted to 1.5s to be noticeably faster and not slow */
             animation: zoomOut 1.5s ease-out forwards; 
         }
         .vignette-effect {
@@ -118,8 +117,8 @@
 </head>
 <body class="font-body antialiased selection:bg-brand-green selection:text-white">
 
-    <nav id="navbar" class="fixed w-full z-50 top-0 left-0 bg-white transition-all duration-300 shadow-sm relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-50 bg-inherit">
+    <nav id="navbar" class="sticky top-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-50">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center cursor-pointer z-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green rounded-lg">
                     <img src="https://jesseledesma88.github.io/angs/Main%20Logo%20-%20Landscape@2x.png" alt="Ang's Savvy Travel Guide Logo" class="h-14 w-auto object-contain">
@@ -130,7 +129,13 @@
                     <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">About</a>
                     <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Resources</a>
                     <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Blog</a>
-                    <a href="#" class="bg-brand-green text-white px-6 py-2.5 rounded-full font-semibold hover:bg-opacity-90 transition-colors shadow-md">Join Newsletter</a>
+                    
+                    <div class="relative ml-4">
+                        <input type="text" placeholder="Search guides..." class="w-48 pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-transparent text-sm font-body text-brand-charcoal transition-all duration-300 focus:w-64 bg-gray-50 focus:bg-white shadow-inner">
+                        <svg class="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 transform -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
                 </div>
 
                 <div class="flex items-center lg:hidden z-50">
@@ -151,14 +156,20 @@
                 <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">About</a>
                 <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Resources</a>
                 <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Blog</a>
-                <div class="pt-4 mt-2 border-t border-gray-100">
-                    <a href="#" class="block w-full text-center bg-brand-green text-white px-6 py-4 rounded-full font-bold shadow-md text-xl hover:bg-opacity-90 transition-colors">Join Newsletter</a>
+                
+                <div class="pt-4 mt-2 border-t border-gray-100 px-2">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search guides, destinations..." class="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-green text-base font-body text-brand-charcoal bg-gray-50 focus:bg-white shadow-inner">
+                        <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <header class="relative w-full h-[90vh] flex items-center justify-center pt-20 overflow-hidden bg-brand-charcoal">
+    <header class="relative w-full h-[90vh] flex items-center justify-center overflow-hidden bg-brand-charcoal">
         <img src="https://jesseledesma88.github.io/angs/hero-ang.webp" alt="Ang's Savvy Travel Guide Hero" class="absolute inset-0 w-full h-full object-cover z-0 animate-zoom-out origin-center">
         
         <div class="vignette-effect"></div>
@@ -417,19 +428,6 @@
     </footer>
 
     <script>
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
-                navbar.classList.remove('bg-white', 'shadow-sm', 'bg-inherit');
-            } else {
-                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md');
-                navbar.classList.add('bg-white', 'shadow-sm', 'bg-inherit');
-            }
-        });
-
         // Mobile Menu Toggle Logic
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
