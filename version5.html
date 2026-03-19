@@ -74,11 +74,10 @@
 
         /* Hero Section Effects */
         @keyframes zoomOut {
-            0% { transform: scale(1.15); } /* Reduced max scale slightly for smoothness */
+            0% { transform: scale(1.15); } 
             100% { transform: scale(1); }
         }
         .animate-zoom-out {
-            /* Slower, smoother 12-second cinematic loop */
             animation: zoomOut 12s ease-in-out infinite alternate; 
         }
         .vignette-effect {
@@ -127,9 +126,10 @@
                 
                 <div class="hidden lg:flex items-center space-x-6">
                     <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Home</a>
-                    <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">About</a>
-                    <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Travel Resources</a>
+                    <a href="#destinations" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Favourite Destinations</a>
+                    <a href="#quick-links" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Travel Resources</a>
                     <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Blog</a>
+                    <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">About</a>
                     <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Contact</a>
                     
                     <div class="relative ml-4">
@@ -155,9 +155,10 @@
         <div id="mobile-menu" class="absolute w-full left-0 top-20 bg-white shadow-2xl z-40 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-500 ease-in-out rounded-b-[2rem] border-t border-gray-100">
             <div class="px-6 pt-4 pb-8 space-y-3 flex flex-col max-w-7xl mx-auto">
                 <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Home</a>
-                <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">About</a>
-                <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Travel Resources</a>
+                <a href="#destinations" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Favourite Destinations</a>
+                <a href="#quick-links" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Travel Resources</a>
                 <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Blog</a>
+                <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">About</a>
                 <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Contact</a>
                 
                 <div class="pt-4 mt-2 border-t border-gray-100 px-2">
@@ -189,11 +190,13 @@
                     <span class="absolute inset-[-1000%] animate-border-spin shiny-gradient opacity-80 group-hover:opacity-100 transition-opacity"></span>
                     
                     <span class="relative flex items-center justify-center px-8 py-4 bg-brand-green text-white rounded-full font-bold text-lg w-full h-full group-hover:bg-[#6A964D] transition-colors">
-                        Explore Destinations
+                        Favourite Destination
                     </span>
                 </a>
 
-                <a href="#quick-links" class="bg-transparent text-white border-2 border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-brand-charcoal transition-all shadow-lg text-center">Shop My Travel Kit</a>
+                <a href="#quick-links" class="bg-transparent text-white border-2 border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-brand-charcoal transition-all shadow-lg text-center">
+                    Travel Resources
+                </a>
             </div>
         </div>
     </header>
@@ -205,25 +208,32 @@
                     <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1000&auto=format&fit=crop" alt="Ang - Author" class="w-full h-auto aspect-[4/5] object-cover rounded-2xl shadow-xl">
                 </div>
                 <div class="w-full md:w-7/12">
-                    <h2 class="font-heading font-bold text-4xl md:text-5xl text-brand-charcoal mb-6">Hi, I'm Ang. <br>Your Travel Confidant.</h2>
-                    <p class="font-body text-brand-charcoal text-lg leading-relaxed mb-6">
-                        With over two decades of exploring the globe, I've transitioned from budget backpacking to embracing smart luxury. Whether you are a digital nomad or looking for the perfect family getaway, I'm here to share the tried-and-true secrets that make travel seamless and unforgettable for seasoned souls like us.
+                    <h2 class="font-heading font-bold text-4xl md:text-5xl text-brand-charcoal mb-6">Greetings! I am Ang (aka Saw Lin).</h2>
+                    <p class="font-body text-brand-charcoal text-lg leading-relaxed mb-4">
+                        I believe every seasoned traveler deserves a seamless, enriching journey where quality meets value. After decades of travelling the globe, I know that the best experiences happen when smart preparation meets a passion for value. I’m here to help you skip the stress and focus on the discovery, ensuring every dollar of your budget works as hard as you do.
                     </p>
-                    <a href="#" class="inline-flex items-center text-brand-green font-bold text-lg hover:text-brand-blue transition-all group">
-                        Read my full story <span class="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+                    <p class="font-body text-brand-charcoal text-lg leading-relaxed mb-4">
+                        I created Ang’s Savvy Travel Guide to help travelers like you reduce the stress and get straight to the magic. Whether you’re cruising down the River Seine, chasing the Northern Lights or finding the best Nyonya food in a hidden alleyway in Malaysia, I’m here to make sure you have the right gear, the right plan, and the confidence to say "yes" to the next adventure.
+                    </p>
+                    <p class="font-body text-brand-charcoal text-lg leading-relaxed mb-8">
+                        Thanks for reading and I hope you will enjoy my travel digital corner.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-brand-green font-bold text-lg hover:text-brand-blue transition-all group tracking-wide uppercase">
+                        READ MORE ABOUT ANG <span class="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-brand-green text-white overflow-hidden">
-        <div class="max-w-4xl mx-auto px-4 text-center reveal-on-scroll">
-            <svg class="w-12 h-12 mx-auto mb-6 text-brand-sand opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-            <blockquote class="font-heading text-2xl md:text-3xl italic leading-relaxed mb-8">
-                "Ang's Paris itinerary saved our 20th-anniversary trip. We skipped the endless tourist lines, found the most incredible hidden bistros, and truly felt like locals."
-            </blockquote>
-            <p class="font-body font-bold text-lg text-brand-sand tracking-wide uppercase">— Sarah & Mark, Texas</p>
+    <section class="py-20 bg-white overflow-hidden text-center border-y border-gray-100 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 reveal-on-scroll">
+            <p class="font-heading text-2xl md:text-3xl text-brand-charcoal mb-8 leading-relaxed">
+                To get my free guide on recommended travel and packing essentials, please click here.
+            </p>
+            <a href="#" class="inline-flex items-center justify-center bg-brand-charcoal text-white px-8 py-4 rounded-full font-bold hover:bg-brand-green transition-colors shadow-lg text-lg">
+                EMAIL ME YOUR FREE GUIDE NOW
+            </a>
         </div>
     </section>
 
@@ -231,7 +241,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
             <div class="flex justify-between items-end mb-12">
                 <div>
-                    <h2 class="font-heading font-bold text-4xl text-brand-charcoal mb-3">Latest from the Blog</h2>
+                    <h2 class="font-heading font-bold text-4xl text-brand-charcoal mb-3">Recent Blog Posts</h2>
                     <p class="text-sm italic text-brand-charcoal/60">*Some posts contain affiliate links.</p>
                 </div>
                 <a href="#" class="hidden md:inline-flex items-center text-brand-green font-bold hover:text-brand-blue transition-all text-lg">
@@ -291,8 +301,8 @@
     <section id="quick-links" class="py-24 bg-brand-sand overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
             <div class="text-center mb-16">
-                <h2 class="font-heading font-bold text-4xl text-brand-charcoal mb-4">Inside My Travel Kit</h2>
-                <p class="font-body text-brand-charcoal text-lg max-w-2xl mx-auto mb-2">My highly vetted, personal recommendations for packing light and smart.</p>
+                <h2 class="font-heading font-bold text-4xl text-brand-charcoal mb-4">Explore My Travel Resources</h2>
+                <p class="font-body text-brand-charcoal text-lg max-w-2xl mx-auto mb-2">The essential items....that I take with me</p>
                 <p class="text-sm italic text-brand-charcoal/60">*Purchases made through these links earn me a small commission at no extra cost to you.</p>
             </div>
             
@@ -320,15 +330,24 @@
             </div>
             
             <div class="mt-12 text-center">
-                <a href="#" class="inline-flex items-center text-brand-green font-bold text-lg hover:text-brand-blue transition-colors border-b-2 border-brand-green pb-1">View Full Gear Guide →</a>
+                <a href="#" class="inline-flex items-center text-brand-green font-bold text-lg hover:text-brand-blue transition-colors border-b-2 border-brand-green pb-1">View My Full Travel Resources →</a>
             </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-brand-green text-white overflow-hidden text-center">
+        <div class="max-w-4xl mx-auto px-4 reveal-on-scroll">
+            <h3 class="font-heading font-bold text-3xl md:text-4xl mb-8">Send me the free essential travel checklist</h3>
+            <a href="#" class="inline-flex items-center justify-center bg-white text-brand-green px-10 py-4 rounded-full font-bold hover:bg-brand-charcoal hover:text-white transition-colors shadow-lg text-lg">
+                Get it now
+            </a>
         </div>
     </section>
 
     <section id="destinations" class="py-24 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
             <div class="text-center mb-16">
-                <h2 class="font-heading font-bold text-4xl text-brand-charcoal mb-4">Featured Destinations</h2>
+                <h2 class="font-heading font-bold text-4xl text-brand-charcoal mb-4">Favourite Destinations</h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -404,9 +423,10 @@
                     <h4 class="font-body font-bold text-white mb-4 uppercase tracking-wider">Explore</h4>
                     <ul class="space-y-3 font-body text-brand-sand/80 text-base">
                         <li><a href="#" class="hover:text-brand-green transition-colors">Home</a></li>
-                        <li><a href="#" class="hover:text-brand-green transition-colors">About</a></li>
-                        <li><a href="#" class="hover:text-brand-green transition-colors">Travel Resources</a></li>
+                        <li><a href="#destinations" class="hover:text-brand-green transition-colors">Favourite Destinations</a></li>
+                        <li><a href="#quick-links" class="hover:text-brand-green transition-colors">Travel Resources</a></li>
                         <li><a href="#" class="hover:text-brand-green transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition-colors">About</a></li>
                         <li><a href="#" class="hover:text-brand-green transition-colors">Contact</a></li>
                     </ul>
                 </div>
