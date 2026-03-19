@@ -78,9 +78,10 @@
             color: var(--lr-accent);
         }
 
-        /* Hero Layout - Single Column Centered, Increased Width */
+        /* Hero Layout - Single Column Centered, MAX WIDTH EXPANDED */
         .lr-main {
-            max-width: 1200px; /* Increased from 800px to make calendar wider */
+            width: 100%;
+            max-width: 1200px; /* Increased from 1000px to make calendar significantly wider */
             margin: 50px auto;
             padding: 0 20px;
             display: flex;
@@ -116,7 +117,7 @@
             font-size: 18px;
             color: var(--lr-text-muted);
             margin-bottom: 40px;
-            max-width: 750px;
+            max-width: 750px; /* Keeps the text from stretching too wide and becoming hard to read */
         }
 
         /* Calendar Embed Container */
@@ -129,10 +130,10 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             padding: 40px;
             border-top: 5px solid var(--lr-accent);
-            margin-bottom: 50px; /* Space between calendar and trust badges */
+            margin-bottom: 50px; 
         }
 
-        /* Trust Badges moved below calendar */
+        /* Trust Badges */
         .lr-trust-badges {
             display: flex;
             justify-content: center;
