@@ -81,10 +81,10 @@
             color: var(--lr-accent);
         }
 
-        /* Hero Layout - Single Column Centered, MAX WIDTH EXPANDED */
+        /* Hero Layout */
         .lr-main {
             width: 100%;
-            max-width: 1200px; /* Wide layout for the calendar */
+            max-width: 1200px;
             margin: 50px auto;
             padding: 0 20px;
             display: flex;
@@ -113,34 +113,37 @@
             font-weight: 700;
             color: var(--lr-text-main);
             line-height: 1.15;
-            margin: 0 0 20px 0;
+            margin: 0 0 30px 0; /* Space below header */
+        }
+
+        /* VSL Video Container - FIXED */
+        .lr-vsl-container {
+            width: 100%;
+            max-width: 900px; /* Keeps video at a cinematic, focused width */
+            margin: 0 auto 30px auto; /* Space below the video */
+            background-color: var(--lr-card-bg);
+            border: 1px solid var(--lr-card-border);
+            border-radius: 12px;
+            overflow: hidden; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border-top: 5px solid var(--lr-accent);
+            aspect-ratio: 16 / 9; /* Forces the box to be the correct video shape instantly */
+            position: relative;
+        }
+
+        .lr-vsl-video {
+            width: 100%;
+            height: 100%; /* Fills the 16:9 container perfectly */
+            object-fit: contain; /* Ensures no part of the video is cropped */
+            display: block;
+            background-color: #000; /* Deep black behind the video */
         }
 
         .lr-subtitle {
             font-size: 18px;
             color: var(--lr-text-muted);
             margin-bottom: 40px;
-            max-width: 750px; /* Keeps the text from stretching too wide and becoming hard to read */
-        }
-
-        /* VSL Video Container */
-        .lr-vsl-container {
-            width: 100%;
-            max-width: 900px; /* Keeps video at a cinematic, focused width */
-            margin: 0 auto 40px auto;
-            background-color: var(--lr-card-bg);
-            border: 1px solid var(--lr-card-border);
-            border-radius: 12px;
-            overflow: hidden; /* Ensures the video corners stay rounded */
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            backdrop-filter: blur(12px);
-            border-top: 5px solid var(--lr-accent);
-        }
-
-        .lr-vsl-video {
-            width: 100%;
-            display: block;
-            background-color: #000; /* Deep black behind the video */
+            max-width: 750px; 
         }
 
         /* Calendar Embed Container */
@@ -251,14 +254,15 @@
         
         <span class="lr-badge">Odessa's Trusted Roofing Contractor</span>
         <h1 class="lr-title">Schedule Your Free Roof Inspection Today</h1>
-        <p class="lr-subtitle">Whether you need a complete roof replacement, minor repairs, or emergency storm damage assistance, our licensed team is ready to help. Select a time that works for you below.</p>
         
         <div class="lr-vsl-container">
-            <video class="lr-vsl-video" controls playsinline preload="metadata">
+            <video class="lr-vsl-video" controls playsinline preload="auto">
                 <source src="https://assets.cdn.filesafe.space/EqAcAZF442GYcFCiGnFk/media/69bc54399e44081f78b53fe4.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
+
+        <p class="lr-subtitle">Whether you need a complete roof replacement, minor repairs, or emergency storm damage assistance, our licensed team is ready to help. Select a time that works for you below.</p>
         
         <div class="lr-calendar-col">
             <iframe src="https://api.leadconnectorhq.com/widget/booking/58nYgFCKnDlt5qDe6T6N" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="58nYgFCKnDlt5qDe6T6N_1773946060367"></iframe><br>
