@@ -9,48 +9,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables for Brand Colors */
+        /* CSS Variables for Dark Theme */
         :root {
             --lr-primary: #0a1f3f; /* Deep Navy Blue */
             --lr-accent: #e53935;  /* Strong Accent Red/Orange */
-            --lr-accent-hover: #c62828;
-            --lr-text-main: #333333;
-            --lr-text-muted: #666666;
-            --lr-bg-light: #f4f7f6;
-            --lr-white: #ffffff;
-            --lr-border: #e2e8f0;
+            --lr-text-main: #ffffff;
+            --lr-text-muted: #cbd5e1;
+            --lr-card-bg: rgba(15, 23, 42, 0.75); /* Dark slate with transparency */
+            --lr-card-border: rgba(255, 255, 255, 0.1);
         }
 
         /* Base Resets & Typography */
         .lr-wrapper {
             font-family: 'Inter', sans-serif;
             color: var(--lr-text-main);
-            background-color: var(--lr-bg-light);
+            /* Background image with a dark gradient overlay */
+            background-image: linear-gradient(to bottom, rgba(10, 31, 63, 0.85), rgba(0, 0, 0, 0.95)), url('https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .lr-wrapper * {
             box-sizing: inherit;
         }
 
-        /* Header */
+        /* Header - Transparent for Dark Theme */
         .lr-header {
-            background-color: var(--lr-white);
             padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-bottom: 3px solid var(--lr-accent);
+            border-bottom: 1px solid var(--lr-card-border);
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .lr-logo {
             font-size: 24px;
             font-weight: 700;
-            color: var(--lr-primary);
+            color: var(--lr-text-main);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -63,145 +68,146 @@
         }
 
         .lr-header-cta a {
-            color: var(--lr-primary);
+            color: var(--lr-text-main);
             text-decoration: none;
             font-size: 18px;
+            transition: color 0.3s ease;
         }
 
-        /* Hero Layout */
+        .lr-header-cta a:hover {
+            color: var(--lr-accent);
+        }
+
+        /* Hero Layout - Single Column Centered */
         .lr-main {
-            max-width: 1200px;
-            margin: 40px auto;
+            max-width: 800px;
+            margin: 60px auto;
             padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1; /* Pushes footer down */
         }
 
-        /* Left Column - Copy & Value Proposition */
-        .lr-content-col {
-            padding-top: 20px;
-        }
-
+        /* Copy & Value Proposition */
         .lr-badge {
             display: inline-block;
-            background-color: #e3f2fd;
-            color: var(--lr-primary);
-            padding: 6px 12px;
-            border-radius: 4px;
+            background-color: var(--lr-accent);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 30px;
             font-size: 14px;
             font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .lr-title {
-            font-size: 42px;
+            font-size: 48px;
             font-weight: 700;
-            color: var(--lr-primary);
-            line-height: 1.2;
+            color: var(--lr-text-main);
+            line-height: 1.15;
             margin: 0 0 20px 0;
         }
 
         .lr-subtitle {
             font-size: 18px;
             color: var(--lr-text-muted);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            max-width: 650px;
         }
 
-        .lr-benefits {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 30px 0;
-        }
-
-        .lr-benefits li {
-            font-size: 16px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-        }
-
-        .lr-benefits li svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--lr-accent);
-        }
-
+        /* Trust Badges */
         .lr-trust-badges {
             display: flex;
-            gap: 20px;
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid var(--lr-border);
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
         }
 
         .lr-trust-item {
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 25px;
+            border-radius: 8px;
+            border: 1px solid var(--lr-card-border);
+            backdrop-filter: blur(5px);
         }
 
         .lr-trust-item span.lr-trust-title {
             font-weight: 700;
-            color: var(--lr-primary);
+            font-size: 20px;
+            color: var(--lr-text-main);
         }
 
         .lr-trust-item span.lr-trust-desc {
             font-size: 13px;
             color: var(--lr-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Right Column - Calendar Embed */
+        /* Calendar Embed Container */
         .lr-calendar-col {
-            background-color: var(--lr-white);
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            padding: 30px 20px;
-            border-top: 5px solid var(--lr-primary);
+            width: 100%;
+            background-color: var(--lr-card-bg);
+            border: 1px solid var(--lr-card-border);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            padding: 40px 20px;
+            border-top: 5px solid var(--lr-accent);
         }
 
         .lr-calendar-heading {
             text-align: center;
             margin-bottom: 20px;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
-            color: var(--lr-primary);
+            color: var(--lr-text-main);
         }
 
         /* Footer */
         .lr-footer {
             text-align: center;
-            padding: 40px 20px;
-            background-color: var(--lr-primary);
-            color: rgba(255,255,255,0.7);
+            padding: 30px 20px;
+            border-top: 1px solid var(--lr-card-border);
+            background: rgba(0, 0, 0, 0.4);
+            color: var(--lr-text-muted);
             font-size: 14px;
-            margin-top: 60px;
         }
 
-        .lr-footer a {
-            color: var(--lr-white);
-            text-decoration: none;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .lr-main {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
             .lr-title {
-                font-size: 34px;
+                font-size: 36px;
+            }
+            .lr-main {
+                margin: 40px auto;
+            }
+            .lr-trust-badges {
+                gap: 15px;
+            }
+            .lr-trust-item {
+                padding: 12px 20px;
+                width: calc(50% - 15px); /* 2 per row on mobile */
             }
         }
 
         @media (max-width: 480px) {
             .lr-header {
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
                 text-align: center;
+            }
+            .lr-trust-item {
+                width: 100%; /* Stack on very small screens */
             }
         }
     </style>
@@ -220,39 +226,23 @@
     </header>
 
     <main class="lr-main">
-        <div class="lr-content-col">
-            <span class="lr-badge">Odessa's Trusted Roofing Contractor</span>
-            <h1 class="lr-title">Schedule Your Free Roof Inspection Today</h1>
-            <p class="lr-subtitle">Whether you need a complete roof replacement, minor repairs, or emergency storm damage assistance, our licensed team is ready to help. Select a time that works for you.</p>
-            
-            <ul class="lr-benefits">
-                <li>
-                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    Owner-Operated – Adam Stevens oversees every project
-                </li>
-                <li>
-                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    GAF Master Elite Certified (Top 3% in the US)
-                </li>
-                <li>
-                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    Comprehensive Liability & Workers' Comp Coverage
-                </li>
-            </ul>
-
-            <div class="lr-trust-badges">
-                <div class="lr-trust-item">
-                    <span class="lr-trust-title">18+ Years</span>
-                    <span class="lr-trust-desc">Industry Experience</span>
-                </div>
-                <div class="lr-trust-item">
-                    <span class="lr-trust-title">5.0 ★★★★★</span>
-                    <span class="lr-trust-desc">Google Rating</span>
-                </div>
-                <div class="lr-trust-item">
-                    <span class="lr-trust-title">Licensed</span>
-                    <span class="lr-trust-desc">CCC1334782</span>
-                </div>
+        
+        <span class="lr-badge">Odessa's Trusted Roofing Contractor</span>
+        <h1 class="lr-title">Schedule Your Free Roof Inspection Today</h1>
+        <p class="lr-subtitle">Whether you need a complete roof replacement, minor repairs, or emergency storm damage assistance, our licensed team is ready to help. Select a time that works for you below.</p>
+        
+        <div class="lr-trust-badges">
+            <div class="lr-trust-item">
+                <span class="lr-trust-title">18+ Years</span>
+                <span class="lr-trust-desc">Experience</span>
+            </div>
+            <div class="lr-trust-item">
+                <span class="lr-trust-title">Top 3%</span>
+                <span class="lr-trust-desc">GAF Certified</span>
+            </div>
+            <div class="lr-trust-item">
+                <span class="lr-trust-title">5.0 ★★★★★</span>
+                <span class="lr-trust-desc">Google Rating</span>
             </div>
         </div>
 
@@ -265,19 +255,17 @@
     </main>
 
     <footer class="lr-footer">
-        <p>&copy; 2026 Legend Roofing. All rights reserved. | 11515 Pyramid Drive, Odessa, FL 33556</p>
+        <p>&copy; 2026 Legend Roofing. All rights reserved. | License # CCC1334782</p>
         <p>Serving Odessa, Lutz, Land O' Lakes, Wesley Chapel & Tampa Bay</p>
     </footer>
 </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Optional snippet to track when the iframe loads, 
-        // useful if you want to add loading states in the future.
         const iframe = document.getElementById('58nYgFCKnDlt5qDe6T6N_1773946060367');
         if(iframe) {
             iframe.onload = function() {
-                console.log("Calendar Loaded Successfully");
+                console.log("Dark Theme Calendar Loaded Successfully");
             };
         }
     });
