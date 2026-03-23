@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore England | Ang's Savvy Travel Guide</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { green: '#7BAA5D', blue: '#4A9CAF', gold: '#D9A343', sand: '#F3EFE2', charcoal: '#3D3E3C', white: '#FFFFFF' }
+                    },
+                    fontFamily: { heading: ['"Open Sans"', 'sans-serif'], body: ['"Raleway"', 'sans-serif'], }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #F3EFE2; color: #3D3E3C; }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(61, 62, 60, 0.12); }
+        .img-zoom-container { overflow: hidden; }
+        .img-zoom { transition: transform 0.6s ease; }
+        .img-zoom-container:hover .img-zoom { transform: scale(1.05); }
+    </style>
+</head>
+<body class="font-body antialiased selection:bg-brand-green selection:text-white">
+
+    <div class="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center mb-16">
+        <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2000&auto=format&fit=crop" alt="London Big Ben" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-brand-charcoal/40"></div>
+        <div class="relative z-10 text-center px-4">
+            <span class="text-white font-bold uppercase tracking-widest text-sm mb-3 block font-heading drop-shadow-md">Destination Guide</span>
+            <h1 class="font-heading font-extrabold text-5xl md:text-7xl text-white drop-shadow-lg">England</h1>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 flex flex-col lg:flex-row gap-12">
+        
+        <main class="w-full lg:w-2/3">
+            
+            <div class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 mb-10">
+                <h2 class="font-heading font-bold text-3xl text-brand-charcoal mb-6">Discovering the Charm of England</h2>
+                <p class="font-body text-brand-charcoal/80 text-lg leading-relaxed mb-6">
+                    England is a beautiful tapestry of rolling green countryside, dramatic coastlines, and centuries of history packed into bustling cities and quaint villages. Whether you are sipping afternoon tea in a cozy Cotswolds café, exploring the historic streets of Bath, or taking in the fast-paced energy of London, there is a distinct charm here that calls you back time and time again. 
+                </p>
+                <p class="font-body text-brand-charcoal/80 text-lg leading-relaxed">
+                    During my travels, I found that taking the train is one of the best ways to see the varying landscapes. The locals are welcoming, the pub food is surprisingly hearty and delicious, and the history is palpable at every corner.
+                </p>
+            </div>
+
+            <div class="bg-brand-sand p-8 md:p-10 rounded-3xl shadow-inner mb-10 border border-brand-green/20">
+                <h3 class="font-heading font-bold text-2xl text-brand-green mb-6 flex items-center gap-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Ang's Smart Travel Tips
+                </h3>
+                <ul class="space-y-4 font-body text-brand-charcoal/80 text-lg">
+                    <li class="flex gap-3"><strong class="text-brand-charcoal">Weather:</strong> Always pack layers and a compact umbrella. The weather can change multiple times in a single day!</li>
+                    <li class="flex gap-3"><strong class="text-brand-charcoal">Transport:</strong> Book intercity train tickets (like National Rail) well in advance to save money. Get an Oyster card for London.</li>
+                    <li class="flex gap-3"><strong class="text-brand-charcoal">Etiquette:</strong> Never skip the queue (line). Queueing is practically a national sport in England!</li>
+                </ul>
+            </div>
+
+            <h3 class="font-heading font-extrabold text-3xl text-brand-charcoal mb-8">Towns & Cities I've Explored</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover-lift">
+                    <div class="h-48 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1529655683823-dc58689bbed8?q=80&w=800&auto=format&fit=crop" alt="London" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading font-bold text-xl text-brand-charcoal mb-2">London</h4>
+                        <p class="font-body text-sm text-brand-charcoal/70">A vibrant mix of historic grandeur and modern edge. Must-dos include the British Museum, walking along the Thames, and exploring Borough Market.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover-lift">
+                    <div class="h-48 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1574888279813-f66100ed1cda?q=80&w=800&auto=format&fit=crop" alt="Bath" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading font-bold text-xl text-brand-charcoal mb-2">Bath</h4>
+                        <p class="font-body text-sm text-brand-charcoal/70">Famous for its Roman-built baths and stunning honey-colored Georgian architecture. It feels like stepping straight into a Jane Austen novel.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-brand-green text-center p-10 rounded-3xl shadow-md text-white hover-lift">
+                <h3 class="font-heading font-bold text-3xl mb-4">Want to see more?</h3>
+                <p class="font-body text-white/90 text-lg mb-8 max-w-xl mx-auto">
+                    Words can only say so much! Come take a visual walk with me through the foggy mornings, historic streets, and beautiful landscapes of England.
+                </p>
+                <a href="gallery-england.html" class="inline-block bg-white text-brand-green font-heading font-bold py-3 px-8 rounded-full hover:bg-brand-charcoal hover:text-white transition-colors text-lg shadow-sm">
+                    View My Travel Gallery - Photos/Videos
+                </a>
+            </div>
+
+        </main>
+
+        <aside class="w-full lg:w-1/3 space-y-10">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover-lift">
+                <h3 class="font-heading font-bold text-2xl text-brand-charcoal mb-2">About This Guide</h3>
+                <p class="font-body text-brand-charcoal/80 text-sm leading-relaxed mb-6">
+                    All recommendations on this page are based on my personal travels. I only share places, tips, and experiences that I genuinely loved!
+                </p>
+            </div>
+        </aside>
+
+    </div>
+
+    </body>
+</html>
