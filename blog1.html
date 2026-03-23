@@ -3,336 +3,384 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ang's Digital Corner | A New Chapter Begins</title>
+    <title>A New Chapter Begins | Ang's Savvy Travel Guide</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#7BAA5D',      /* Primary/Major Color */
+                            blue: '#4A9CAF',       /* Secondary */
+                            gold: '#D9A343',       /* Secondary */
+                            sand: '#F3EFE2',       /* Background */
+                            charcoal: '#3D3E3C',   /* Text/Dark Elements */
+                            white: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['"Open Sans"', 'sans-serif'],
+                        body: ['"Raleway"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        /* ==========================================================================
-           1. CSS VARIABLES (UPDATE THESE TO MATCH YOUR BRAND GUIDE)
-           ========================================================================== */
-        :root {
-            /* Colors */
-            --bg-color: #FAFAFA; /* Soft off-white */
-            --text-main: #333333;
-            --text-light: #777777;
-            --accent-color: #B28E6F; /* Elegant earthy tone for links/accents */
-            --border-color: #EAEAEA;
-            
-            /* Typography */
-            --font-headings: 'Lora', serif;
-            --font-body: 'Open Sans', sans-serif;
-            
-            /* Layout */
-            --max-width: 800px;
+        html { scroll-behavior: smooth; }
+        body { 
+            background-color: #F3EFE2; /* brand-sand */
+            color: #3D3E3C; /* brand-charcoal */
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(61, 62, 60, 0.12);
         }
 
-        /* ==========================================================================
-           2. RESET & BASE STYLES
-           ========================================================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.8;
-            font-size: 18px;
-            font-weight: 300;
-        }
-
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--text-main);
-        }
-
-        /* ==========================================================================
-           3. HEADER & NAVIGATION
-           ========================================================================== */
-        .site-header {
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-            background: #fff;
-        }
-
-        .site-title {
-            font-family: var(--font-headings);
-            font-size: 2.5rem;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            margin-bottom: 10px;
-        }
-
-        .site-title a {
-            color: var(--text-main);
-        }
-
-        .site-nav {
-            margin-top: 20px;
-        }
-
-        .site-nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        .site-nav a {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-light);
-            font-weight: 600;
-        }
-
-        .site-nav a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Mobile Menu Toggle (Hidden on desktop) */
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-family: var(--font-headings);
-            font-size: 1.2rem;
-            color: var(--text-main);
-            margin-top: 15px;
-        }
-
-        /* ==========================================================================
-           4. MAIN CONTENT & ARTICLE
-           ========================================================================== */
-        .main-content {
-            max-width: var(--max-width);
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .post-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .post-meta {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-light);
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .post-title {
-            font-family: var(--font-headings);
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 30px;
-        }
-
-        .post-featured-image {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            margin-bottom: 50px;
-        }
-
-        .post-content h2, .post-content h3 {
-            font-family: var(--font-headings);
-            margin: 40px 0 20px;
-            color: var(--text-main);
-        }
-
-        .post-content p {
-            margin-bottom: 25px;
-        }
-
-        /* Drop cap for the first paragraph */
-        .post-content > p:first-of-type::first-letter {
-            float: left;
-            font-family: var(--font-headings);
-            font-size: 4rem;
-            line-height: 0.8;
-            margin-right: 10px;
-            margin-top: 5px;
-            color: var(--accent-color);
-        }
-
-        /* Emphasized intro paragraphs */
-        .intro-text {
-            font-size: 1.1rem;
-            color: #555;
-        }
-
-        /* Content Lists */
-        .post-content ul {
-            margin-bottom: 25px;
-            padding-left: 20px;
-        }
-
-        .post-content li {
-            margin-bottom: 10px;
-        }
-
-        .post-content strong {
-            font-weight: 600;
-        }
-
-        /* Blockquote Styling */
-        blockquote {
-            font-family: var(--font-headings);
-            font-size: 1.5rem;
-            font-style: italic;
-            text-align: center;
-            margin: 50px auto;
-            padding: 0 40px;
-            color: var(--accent-color);
-            position: relative;
-        }
-
-        blockquote::before {
-            content: "\201C";
-            font-size: 4rem;
-            color: var(--border-color);
+        /* Premium Navigation Hover Effect */
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
             position: absolute;
-            top: -20px;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
             left: 0;
-            line-height: 1;
+            background-color: #7BAA5D; /* brand-green */
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
 
-        /* ==========================================================================
-           5. FOOTER
-           ========================================================================== */
-        .site-footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid var(--border-color);
-            background: #fff;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 60px;
-        }
-
-        /* ==========================================================================
-           6. RESPONSIVE DESIGN
-           ========================================================================== */
-        @media (max-width: 768px) {
-            .site-title { font-size: 2rem; }
-            .post-title { font-size: 2.2rem; }
-            
-            /* Simple mobile menu handling */
-            .site-nav ul {
-                display: none; /* Hidden by default on mobile */
-                flex-direction: column;
-                gap: 15px;
-                padding-top: 15px;
-            }
-            .site-nav ul.active {
-                display: flex;
-            }
-            .menu-toggle {
-                display: block;
-            }
+        /* Drop cap for the first paragraph of the article */
+        .drop-cap::first-letter {
+            float: left;
+            font-family: "Open Sans", sans-serif;
+            font-size: 4.5rem;
+            line-height: 0.8;
+            margin-right: 0.75rem;
+            margin-top: 0.5rem;
+            color: #7BAA5D;
+            font-weight: 700;
         }
     </style>
 </head>
-<body>
+<body class="font-body antialiased selection:bg-brand-green selection:text-white">
 
-    <header class="site-header">
-        <h1 class="site-title"><a href="#">Ang's Digital Corner</a></h1>
-        <div class="menu-toggle" id="mobile-menu-btn">Menu ▾</div>
-        <nav class="site-nav">
-            <ul id="nav-list">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Ang</a></li>
-                <li><a href="#">Travel Stories</a></li>
-                <li><a href="#">Running Guides</a></li>
-                <li><a href="#">Gallery</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav id="navbar" class="sticky top-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-50">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer z-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green rounded-lg">
+                    <img src="https://jesseledesma88.github.io/angs/Main%20Logo%20-%20Landscape@2x.png" alt="Ang's Savvy Travel Guide Logo" class="h-14 w-auto object-contain">
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Home</a>
+                    <a href="#destinations" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Favourite Destinations</a>
+                    <a href="#quick-links" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Travel Resources</a>
+                    <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Blog</a>
+                    <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">About</a>
+                    <a href="#" class="nav-link text-brand-charcoal hover:text-brand-green font-medium transition-colors">Contact</a>
+                    
+                    <div class="relative ml-4">
+                        <input type="text" placeholder="Search here...." class="w-48 pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-transparent text-sm font-body text-brand-charcoal transition-all duration-300 focus:w-64 bg-gray-50 focus:bg-white shadow-inner">
+                        <svg class="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 transform -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
 
-    <main class="main-content">
-        <article class="post">
+                <div class="flex items-center lg:hidden z-50">
+                    <button id="mobile-menu-btn" class="text-brand-charcoal hover:text-brand-green focus:outline-none p-3 rounded-md transition-colors" aria-label="Toggle menu">
+                        <svg class="w-8 h-8 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu-backdrop" class="fixed inset-0 bg-brand-charcoal/40 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 mt-20"></div>
+        <div id="mobile-menu" class="absolute w-full left-0 top-20 bg-white shadow-2xl z-40 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-500 ease-in-out rounded-b-[2rem] border-t border-gray-100">
+            <div class="px-6 pt-4 pb-8 space-y-3 flex flex-col max-w-7xl mx-auto">
+                <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Home</a>
+                <a href="#destinations" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Favourite Destinations</a>
+                <a href="#quick-links" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Travel Resources</a>
+                <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Blog</a>
+                <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">About</a>
+                <a href="#" class="block px-4 py-4 text-brand-charcoal hover:bg-brand-sand hover:text-brand-green font-semibold rounded-2xl text-xl transition-colors">Contact</a>
+                <div class="pt-4 mt-2 border-t border-gray-100 px-2">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search here...." class="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-green text-base font-body text-brand-charcoal bg-gray-50 focus:bg-white shadow-inner">
+                        <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col lg:flex-row gap-12">
+        
+        <main class="w-full lg:w-2/3 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
             
-            <header class="post-header">
-                <span class="post-meta">Travel & Lifestyle • March 2026</span>
-                <h1 class="post-title">A New Chapter Begins</h1>
+            <header class="mb-10 text-center">
+                <span class="text-brand-green font-bold uppercase tracking-widest text-sm mb-4 block font-heading">Travel & Lifestyle • March 2026</span>
+                <h1 class="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-brand-charcoal mb-6 leading-tight">
+                    A New Chapter Begins
+                </h1>
+                <p class="font-body text-brand-charcoal/70 text-lg">By Ang (Saw Lin)</p>
             </header>
 
-            <img src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Beautiful travel landscape" class="post-featured-image">
+            <img src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Beautiful travel landscape" class="w-full h-auto object-cover rounded-2xl mb-12 shadow-md aspect-video">
 
-            <div class="post-content">
-                <p class="intro-text">Hello - my name is Ang and welcome to my digital corner. I recently retired from my full time role, living in a lovely suburb in Perth, Australia. I am fortunate to call Perth my home, where my husband, Neil and I have brought up our two beautiful girls, after working and living in Singapore for 14 years.</p>
+            <article class="prose max-w-none text-brand-charcoal">
                 
-                <p>I am ever so grateful that I have had the chance to travel locally and internationally over the past two decades with Neil, and I would like to share my travel adventures with you. Both Neil and I also love to run for fun, usually at a decent distance of 5-6 km. We found out that the best way to see a town or city is to run, an opportunity to see the local areas where no tourist gets to see.</p>
+                <p class="font-body text-lg leading-relaxed mb-6 drop-cap text-brand-charcoal/90 font-medium">
+                    Hello - my name is Ang and welcome to my digital corner. I recently retired from my full time role, living in a lovely suburb in Perth, Australia. I am fortunate to call Perth my home, where my husband, Neil and I have brought up our two beautiful girls, after working and living in Singapore for 14 years.
+                </p>
+                
+                <p class="font-body text-lg leading-relaxed mb-6">
+                    I am ever so grateful that I have had the chance to travel locally and internationally over the past two decades with Neil, and I would like to share my travel adventures with you. Both Neil and I also love to run for fun, usually at a decent distance of 5-6 km. We found out that the best way to see a town or city is to run, an opportunity to see the local areas where no tourist gets to see.
+                </p>
 
-                <p>As I start writing my travel stories in March 2026, the world is going through an oil crisis, because of the US/Iran war. Travel may not be easy or the same again going forward. Let us hope and pray that this will not be the case and the war will end soon. I believe the war should not stop us who are retiring or have retired from travelling totally. We have to be prudent and smart in our sourcing, and also travel to countries that are safe to visit.</p>
+                <p class="font-body text-lg leading-relaxed mb-6">
+                    As I start writing my travel stories in March 2026, the world is going through an oil crisis, because of the US/Iran war. Travel may not be easy or the same again going forward. Let us hope and pray that this will not be the case and the war will end soon. I believe the war should not stop us who are retiring or have retired from travelling totally. We have to be prudent and smart in our sourcing, and also travel to countries that are safe to visit.
+                </p>
 
-                <p>Now let me share my story with you….mine began several decades ago, in the 80s. I was twenty years old, a student embarking on tertiary education in the United States, carrying little more than a suitcase and a sense of wonder that has never quite left me. You can read about my first overseas trip in “Travelling in the 80s”.</p>
+                <p class="font-body text-lg leading-relaxed mb-6">
+                    Now let me share my story with you….mine began several decades ago, in the 80s. I was twenty years old, a student embarking on tertiary education in the United States, carrying little more than a suitcase and a sense of wonder that has never quite left me. You can read about my first overseas trip in “Travelling in the 80s”.
+                </p>
 
-                <p>Over the years, my life has been shaped by the many places and cultures I have lived and seen. I have had the privilege of calling Malaysia, the United States, Denmark, Singapore, and Australia home. These were not just stopovers but countries I have lived and breathed and met so many lovely people whom I now call friends.</p>
+                <p class="font-body text-lg leading-relaxed mb-10">
+                    Over the years, my life has been shaped by the many places and cultures I have lived and seen. I have had the privilege of calling Malaysia, the United States, Denmark, Singapore, and Australia home. These were not just stopovers but countries I have lived and breathed and met so many lovely people whom I now call friends.
+                </p>
 
-                <h2>My Turning Point</h2>
-                <p>2025 was the year the ground shifted for me (and my family). I lost a brother that I love dearly suddenly, and the grief I felt then was heavy. The “loss” changed how I see everything. I realized that the things I love—travelling, taking photos, trying new food—aren’t just things I do for fun. They’re the things that make me feel happy and they are what keep me going. Hence, I took the plunge and made the tough decision to retire, and start a new chapter.</p>
+                <h2 class="font-heading font-bold text-3xl text-brand-charcoal mt-12 mb-6 border-b border-gray-100 pb-2">My Turning Point</h2>
+                
+                <p class="font-body text-lg leading-relaxed mb-10">
+                    2025 was the year the ground shifted for me (and my family). I lost a brother that I love dearly suddenly, and the grief I felt then was heavy. The “loss” changed how I see everything. I realized that the things I love—travelling, taking photos, trying new food—aren’t just things I do for fun. They’re the things that make me feel happy and they are what keep me going. Hence, I took the plunge and made the tough decision to retire, and start a new chapter.
+                </p>
 
-                <h2>Why I am Starting This Blog</h2>
-                <p>I am starting this blog for three simple reasons:</p>
-                <ul>
-                    <li><strong>Writing to Heal:</strong> For me, writing is just how I make sense of everything. It makes me feel lighter when things get heavy.</li>
-                    <li><strong>Making Travel Easier:</strong> I want to share the kind of tips that help you stress less. Even for those of us who have travelled for years, that "pre-travel anxiety" is real. I like to help you overcome this.</li>
-                    <li><strong>Sharing My Lens:</strong> Lastly, I want to share the cultures and foods I have been fortunate to experience. Through my writing and my photos that I had captured, I hope to bring these journeys to life for you.</li>
+                <h2 class="font-heading font-bold text-3xl text-brand-charcoal mt-12 mb-6 border-b border-gray-100 pb-2">Why I am Starting This Blog</h2>
+                
+                <p class="font-body text-lg leading-relaxed mb-4">I am starting this blog for three simple reasons:</p>
+                <ul class="list-none space-y-4 mb-10">
+                    <li class="font-body text-lg leading-relaxed flex items-start">
+                        <span class="text-brand-green mr-3 mt-1">✦</span>
+                        <div><strong class="font-heading font-semibold text-brand-charcoal">Writing to Heal:</strong> For me, writing is just how I make sense of everything. It makes me feel lighter when things get heavy.</div>
+                    </li>
+                    <li class="font-body text-lg leading-relaxed flex items-start">
+                        <span class="text-brand-green mr-3 mt-1">✦</span>
+                        <div><strong class="font-heading font-semibold text-brand-charcoal">Making Travel Easier:</strong> I want to share the kind of tips that help you stress less. Even for those of us who have travelled for years, that "pre-travel anxiety" is real. I like to help you overcome this.</div>
+                    </li>
+                    <li class="font-body text-lg leading-relaxed flex items-start">
+                        <span class="text-brand-green mr-3 mt-1">✦</span>
+                        <div><strong class="font-heading font-semibold text-brand-charcoal">Sharing My Lens:</strong> Lastly, I want to share the cultures and foods I have been fortunate to experience. Through my writing and my photos that I had captured, I hope to bring these journeys to life for you.</div>
+                    </li>
                 </ul>
 
-                <h2>What to Expect</h2>
-                <p>In the coming weeks and months, I will look into my archives and my current adventures. You can expect:</p>
-                <ul>
-                    <li><strong>Photography Stories:</strong> Capturing the soul of a place through my lens.</li>
-                    <li><strong>A Taste of the World:</strong> Explore the different food and traditions that define the regions I have lived in and visited.</li>
-                    <li><strong>The Smart Travel Guide:</strong> Tips on how to prepare mentally and logistically to ensure your travels are enjoyable instead of stressful.</li>
-                    <li><strong>Running Guide:</strong> Sharing where we ran in some of the cities we visited - good way to see areas you will never get to visit as a tourist.</li>
+                <h2 class="font-heading font-bold text-3xl text-brand-charcoal mt-12 mb-6 border-b border-gray-100 pb-2">What to Expect</h2>
+                
+                <p class="font-body text-lg leading-relaxed mb-4">In the coming weeks and months, I will look into my archives and my current adventures. You can expect:</p>
+                
+                <ul class="list-none space-y-4 mb-10">
+                    <li class="font-body text-lg leading-relaxed flex items-start">
+                        <span class="text-brand-gold mr-3 mt-1">✦</span>
+                        <div><strong class="font-heading font-semibold text-brand-charcoal">Photography Stories:</strong> Capturing the soul of a place through my lens.</div>
+                    </li>
+                    <li class="font-body text-lg leading-relaxed flex items-start">
+                        <span class="text-brand-gold mr-3 mt-1">✦</span>
+                        <div><strong class="font-heading font-semibold text-brand-charcoal">A Taste of the World:</strong> Explore the different food and traditions that define the regions I have lived in and visited.</div>
+                    </li>
+                    <li class="font-body text-lg leading-relaxed flex items-start">
+                        <span class="text-brand-gold mr-3 mt-1">✦</span>
+                        <div><strong class="font-heading font-semibold text-brand-charcoal">The Smart Travel Guide:</strong> Tips on how to prepare mentally and logistically to ensure your travels are enjoyable instead of stressful.</div>
+                    </li>
+                    <li class="font-body text-lg leading-relaxed flex items-start">
+                        <span class="text-brand-gold mr-3 mt-1">✦</span>
+                        <div><strong class="font-heading font-semibold text-brand-charcoal">Running Guide:</strong> Sharing where we ran in some of the cities we visited - good way to see areas you will never get to visit as a tourist.</div>
+                    </li>
                 </ul>
 
-                <p>Thank you for being here. I hope my stories offer you a sense of connection and also an encouragement for you to travel more if possible. I also hope you will enjoy my gallery of photos and videos.</p>
+                <p class="font-body text-lg leading-relaxed mb-10">
+                    Thank you for being here. I hope my stories offer you a sense of connection and also an encouragement for you to travel more if possible. I also hope you will enjoy my gallery of photos and videos.
+                </p>
 
-                <blockquote>
-                    We travel not to escape life, but for life not to escape us.
+                <blockquote class="border-l-4 border-brand-green bg-brand-sand/50 p-8 rounded-r-2xl my-12 shadow-sm">
+                    <p class="font-heading italic text-2xl md:text-3xl text-brand-charcoal leading-snug text-center">
+                        "We travel not to escape life, but for life not to escape us."
+                    </p>
                 </blockquote>
+            </article>
+
+            <div class="mt-12 pt-8 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="flex gap-2">
+                    <span class="bg-gray-100 text-brand-charcoal px-4 py-1.5 rounded-full text-sm font-bold uppercase font-heading">Travel</span>
+                    <span class="bg-gray-100 text-brand-charcoal px-4 py-1.5 rounded-full text-sm font-bold uppercase font-heading">Lifestyle</span>
+                    <span class="bg-gray-100 text-brand-charcoal px-4 py-1.5 rounded-full text-sm font-bold uppercase font-heading">Mindset</span>
+                </div>
+                <div class="flex items-center gap-4 font-heading font-bold text-sm text-brand-charcoal uppercase">
+                    Share: 
+                    <a href="#" class="text-brand-blue hover:text-brand-charcoal transition-colors">Facebook</a>
+                    <a href="#" class="text-brand-blue hover:text-brand-charcoal transition-colors">Twitter</a>
+                    <a href="#" class="text-brand-blue hover:text-brand-charcoal transition-colors">Pinterest</a>
+                </div>
             </div>
 
-        </article>
-    </main>
+        </main>
 
-    <footer class="site-footer">
-        <p>&copy; 2026 Ang's Digital Corner. All rights reserved.</p>
+        <aside class="w-full lg:w-1/3 space-y-10">
+            
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover-lift">
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=400&auto=format&fit=crop" alt="Ang" class="w-32 h-32 object-cover rounded-full mx-auto mb-4 border-4 border-brand-sand">
+                <h3 class="font-heading font-bold text-2xl text-brand-charcoal mb-2">Hi, I'm Ang!</h3>
+                <p class="font-body text-brand-charcoal/80 text-sm leading-relaxed mb-6">
+                    A retired seasoned traveler who believes every journey should be seamless and enriching. I'm here to help you skip the stress and focus on discovery.
+                </p>
+                <a href="#" class="inline-block bg-brand-charcoal text-white font-heading font-bold py-2.5 px-6 rounded-full hover:bg-brand-green transition-colors text-sm w-full">More About Me</a>
+            </div>
+
+            <div class="bg-brand-green text-white p-8 rounded-3xl shadow-md text-center hover-lift">
+                <h3 class="font-heading font-bold text-2xl mb-3">Travel Smarter</h3>
+                <p class="font-body text-white/90 text-sm mb-6 leading-relaxed">
+                    Get my free guide on recommended travel and packing essentials delivered straight to your inbox.
+                </p>
+                <form class="flex flex-col gap-3">
+                    <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-xl text-brand-charcoal font-body focus:outline-none focus:ring-2 focus:ring-brand-charcoal">
+                    <button class="bg-white text-brand-green font-heading font-bold py-3 px-4 rounded-xl hover:bg-brand-charcoal hover:text-white transition-colors w-full">Send My Free Guide</button>
+                </form>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                <h3 class="font-heading font-bold text-xl text-brand-charcoal mb-6 border-b border-gray-100 pb-3">Latest Adventures</h3>
+                <div class="space-y-6">
+                    <a href="#" class="flex items-center gap-4 group">
+                        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=150&auto=format&fit=crop" class="w-20 h-20 object-cover rounded-xl group-hover:opacity-80 transition-opacity">
+                        <div>
+                            <h4 class="font-heading font-bold text-brand-charcoal text-sm leading-tight group-hover:text-brand-green transition-colors mb-1">How to Pack for 2 Weeks in Europe</h4>
+                            <span class="font-body text-xs text-brand-charcoal/50 uppercase tracking-wider">March 10, 2026</span>
+                        </div>
+                    </a>
+                    <a href="#" class="flex items-center gap-4 group">
+                        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=150&auto=format&fit=crop" class="w-20 h-20 object-cover rounded-xl group-hover:opacity-80 transition-opacity">
+                        <div>
+                            <h4 class="font-heading font-bold text-brand-charcoal text-sm leading-tight group-hover:text-brand-green transition-colors mb-1">3-Day Paris Itinerary for Food Lovers</h4>
+                            <span class="font-body text-xs text-brand-charcoal/50 uppercase tracking-wider">March 4, 2026</span>
+                        </div>
+                    </a>
+                    <a href="#" class="flex items-center gap-4 group">
+                        <img src="https://images.unsplash.com/photo-1556740714-a8395b3bf30f?q=80&w=150&auto=format&fit=crop" class="w-20 h-20 object-cover rounded-xl group-hover:opacity-80 transition-opacity">
+                        <div>
+                            <h4 class="font-heading font-bold text-brand-charcoal text-sm leading-tight group-hover:text-brand-green transition-colors mb-1">Top Travel Credit Cards This Year</h4>
+                            <span class="font-body text-xs text-brand-charcoal/50 uppercase tracking-wider">Feb 28, 2026</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 p-4 rounded-3xl border border-dashed border-gray-300 flex items-center justify-center min-h-[300px]">
+                <div class="text-center">
+                    <span class="font-heading text-gray-400 font-bold uppercase tracking-widest text-sm block mb-2">Advertisement</span>
+                    <p class="font-body text-gray-400 text-xs">300 x 250 Ad Space</p>
+                </div>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <footer class="bg-brand-charcoal pt-16 pb-8 text-brand-sand border-t border-white/10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <img src="https://jesseledesma88.github.io/angs/logo-footer_v2.webp" alt="Ang's Savvy Travel Guide Footer Logo" class="h-16 w-auto mb-6 object-contain">
+                    <p class="font-body text-sm text-brand-sand/60 leading-relaxed max-w-md mb-6">
+                        <strong>Affiliate Disclosure:</strong> This site contains affiliate links. If you purchase through these links, I may earn a small commission at no extra cost to you. I only recommend products and services I personally use and trust.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-body font-bold text-white mb-4 uppercase tracking-wider">Explore</h4>
+                    <ul class="space-y-3 font-body text-brand-sand/80 text-base">
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Home</a></li>
+                        <li><a href="#destinations" class="hover:text-brand-green transition-colors">Favourite Destinations</a></li>
+                        <li><a href="#quick-links" class="hover:text-brand-green transition-colors">Travel Resources</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-body font-bold text-white mb-4 uppercase tracking-wider">Legal</h4>
+                    <ul class="space-y-3 font-body text-brand-sand/80 text-base">
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-body text-brand-sand/50">
+                <p>&copy; 2026 Ang's Savvy Travel Guide. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Facebook</a>
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-white transition-colors">Pinterest</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuBtn = document.getElementById('mobile-menu-btn');
-            const navList = document.getElementById('nav-list');
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileBackdrop = document.getElementById('mobile-menu-backdrop');
+        const menuIconPath = document.getElementById('menu-icon-path');
 
-            menuBtn.addEventListener('click', () => {
-                navList.classList.toggle('active');
-                if(navList.classList.contains('active')) {
-                    menuBtn.textContent = 'Close ▴';
-                } else {
-                    menuBtn.textContent = 'Menu ▾';
-                }
-            });
-        });
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                
+                mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+                mobileBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+                
+                menuIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                
+                mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+                mobileBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+                
+                menuIconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        mobileBackdrop.addEventListener('click', toggleMenu);
     </script>
 </body>
 </html>
