@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ang's Digital Corner | A New Chapter Begins</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. CSS VARIABLES (UPDATE THESE TO MATCH YOUR BRAND GUIDE)
+           ========================================================================== */
+        :root {
+            /* Colors */
+            --bg-color: #FAFAFA; /* Soft off-white */
+            --text-main: #333333;
+            --text-light: #777777;
+            --accent-color: #B28E6F; /* Elegant earthy tone for links/accents */
+            --border-color: #EAEAEA;
+            
+            /* Typography */
+            --font-headings: 'Lora', serif;
+            --font-body: 'Open Sans', sans-serif;
+            
+            /* Layout */
+            --max-width: 800px;
+        }
+
+        /* ==========================================================================
+           2. RESET & BASE STYLES
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--text-main);
+        }
+
+        /* ==========================================================================
+           3. HEADER & NAVIGATION
+           ========================================================================== */
+        .site-header {
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            background: #fff;
+        }
+
+        .site-title {
+            font-family: var(--font-headings);
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        .site-title a {
+            color: var(--text-main);
+        }
+
+        .site-nav {
+            margin-top: 20px;
+        }
+
+        .site-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .site-nav a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .site-nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Mobile Menu Toggle (Hidden on desktop) */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-family: var(--font-headings);
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-top: 15px;
+        }
+
+        /* ==========================================================================
+           4. MAIN CONTENT & ARTICLE
+           ========================================================================== */
+        .main-content {
+            max-width: var(--max-width);
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .post-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .post-meta {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .post-title {
+            font-family: var(--font-headings);
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .post-featured-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 50px;
+        }
+
+        .post-content h2, .post-content h3 {
+            font-family: var(--font-headings);
+            margin: 40px 0 20px;
+            color: var(--text-main);
+        }
+
+        .post-content p {
+            margin-bottom: 25px;
+        }
+
+        /* Drop cap for the first paragraph */
+        .post-content > p:first-of-type::first-letter {
+            float: left;
+            font-family: var(--font-headings);
+            font-size: 4rem;
+            line-height: 0.8;
+            margin-right: 10px;
+            margin-top: 5px;
+            color: var(--accent-color);
+        }
+
+        /* Emphasized intro paragraphs */
+        .intro-text {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Content Lists */
+        .post-content ul {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .post-content li {
+            margin-bottom: 10px;
+        }
+
+        .post-content strong {
+            font-weight: 600;
+        }
+
+        /* Blockquote Styling */
+        blockquote {
+            font-family: var(--font-headings);
+            font-size: 1.5rem;
+            font-style: italic;
+            text-align: center;
+            margin: 50px auto;
+            padding: 0 40px;
+            color: var(--accent-color);
+            position: relative;
+        }
+
+        blockquote::before {
+            content: "\201C";
+            font-size: 4rem;
+            color: var(--border-color);
+            position: absolute;
+            top: -20px;
+            left: 0;
+            line-height: 1;
+        }
+
+        /* ==========================================================================
+           5. FOOTER
+           ========================================================================== */
+        .site-footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            background: #fff;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+
+        /* ==========================================================================
+           6. RESPONSIVE DESIGN
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .site-title { font-size: 2rem; }
+            .post-title { font-size: 2.2rem; }
+            
+            /* Simple mobile menu handling */
+            .site-nav ul {
+                display: none; /* Hidden by default on mobile */
+                flex-direction: column;
+                gap: 15px;
+                padding-top: 15px;
+            }
+            .site-nav ul.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <h1 class="site-title"><a href="#">Ang's Digital Corner</a></h1>
+        <div class="menu-toggle" id="mobile-menu-btn">Menu ▾</div>
+        <nav class="site-nav">
+            <ul id="nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Ang</a></li>
+                <li><a href="#">Travel Stories</a></li>
+                <li><a href="#">Running Guides</a></li>
+                <li><a href="#">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <article class="post">
+            
+            <header class="post-header">
+                <span class="post-meta">Travel & Lifestyle • March 2026</span>
+                <h1 class="post-title">A New Chapter Begins</h1>
+            </header>
+
+            <img src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Beautiful travel landscape" class="post-featured-image">
+
+            <div class="post-content">
+                <p class="intro-text">Hello - my name is Ang and welcome to my digital corner. I recently retired from my full time role, living in a lovely suburb in Perth, Australia. I am fortunate to call Perth my home, where my husband, Neil and I have brought up our two beautiful girls, after working and living in Singapore for 14 years.</p>
+                
+                <p>I am ever so grateful that I have had the chance to travel locally and internationally over the past two decades with Neil, and I would like to share my travel adventures with you. Both Neil and I also love to run for fun, usually at a decent distance of 5-6 km. We found out that the best way to see a town or city is to run, an opportunity to see the local areas where no tourist gets to see.</p>
+
+                <p>As I start writing my travel stories in March 2026, the world is going through an oil crisis, because of the US/Iran war. Travel may not be easy or the same again going forward. Let us hope and pray that this will not be the case and the war will end soon. I believe the war should not stop us who are retiring or have retired from travelling totally. We have to be prudent and smart in our sourcing, and also travel to countries that are safe to visit.</p>
+
+                <p>Now let me share my story with you….mine began several decades ago, in the 80s. I was twenty years old, a student embarking on tertiary education in the United States, carrying little more than a suitcase and a sense of wonder that has never quite left me. You can read about my first overseas trip in “Travelling in the 80s”.</p>
+
+                <p>Over the years, my life has been shaped by the many places and cultures I have lived and seen. I have had the privilege of calling Malaysia, the United States, Denmark, Singapore, and Australia home. These were not just stopovers but countries I have lived and breathed and met so many lovely people whom I now call friends.</p>
+
+                <h2>My Turning Point</h2>
+                <p>2025 was the year the ground shifted for me (and my family). I lost a brother that I love dearly suddenly, and the grief I felt then was heavy. The “loss” changed how I see everything. I realized that the things I love—travelling, taking photos, trying new food—aren’t just things I do for fun. They’re the things that make me feel happy and they are what keep me going. Hence, I took the plunge and made the tough decision to retire, and start a new chapter.</p>
+
+                <h2>Why I am Starting This Blog</h2>
+                <p>I am starting this blog for three simple reasons:</p>
+                <ul>
+                    <li><strong>Writing to Heal:</strong> For me, writing is just how I make sense of everything. It makes me feel lighter when things get heavy.</li>
+                    <li><strong>Making Travel Easier:</strong> I want to share the kind of tips that help you stress less. Even for those of us who have travelled for years, that "pre-travel anxiety" is real. I like to help you overcome this.</li>
+                    <li><strong>Sharing My Lens:</strong> Lastly, I want to share the cultures and foods I have been fortunate to experience. Through my writing and my photos that I had captured, I hope to bring these journeys to life for you.</li>
+                </ul>
+
+                <h2>What to Expect</h2>
+                <p>In the coming weeks and months, I will look into my archives and my current adventures. You can expect:</p>
+                <ul>
+                    <li><strong>Photography Stories:</strong> Capturing the soul of a place through my lens.</li>
+                    <li><strong>A Taste of the World:</strong> Explore the different food and traditions that define the regions I have lived in and visited.</li>
+                    <li><strong>The Smart Travel Guide:</strong> Tips on how to prepare mentally and logistically to ensure your travels are enjoyable instead of stressful.</li>
+                    <li><strong>Running Guide:</strong> Sharing where we ran in some of the cities we visited - good way to see areas you will never get to visit as a tourist.</li>
+                </ul>
+
+                <p>Thank you for being here. I hope my stories offer you a sense of connection and also an encouragement for you to travel more if possible. I also hope you will enjoy my gallery of photos and videos.</p>
+
+                <blockquote>
+                    We travel not to escape life, but for life not to escape us.
+                </blockquote>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ang's Digital Corner. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const navList = document.getElementById('nav-list');
+
+            menuBtn.addEventListener('click', () => {
+                navList.classList.toggle('active');
+                if(navList.classList.contains('active')) {
+                    menuBtn.textContent = 'Close ▴';
+                } else {
+                    menuBtn.textContent = 'Menu ▾';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
