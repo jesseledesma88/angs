@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourite Destinations | Ang's Savvy Travel Guide</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#7BAA5D',
+                            blue: '#4A9CAF',
+                            gold: '#D9A343',
+                            sand: '#F3EFE2',
+                            charcoal: '#3D3E3C',
+                            white: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['"Open Sans"', 'sans-serif'],
+                        body: ['"Raleway"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #F3EFE2; color: #3D3E3C; }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(61, 62, 60, 0.12); }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: #7BAA5D; transform-origin: bottom right; transition: transform 0.3s ease-out; }
+        .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+    </style>
+</head>
+<body class="font-body antialiased selection:bg-brand-green selection:text-white">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h1 class="font-heading font-extrabold text-4xl md:text-5xl text-brand-charcoal mb-6">My Travel Footprint</h1>
+            <p class="font-body text-brand-charcoal/80 text-lg leading-relaxed">
+                Over the years, I've had the immense privilege of wandering across different continents, immersing myself in diverse cultures, tasting incredible cuisines, and collecting memories that will last a lifetime. Click on any highlighted country on the map below to explore my personal travel guides, smart tips, and favorite towns from my journeys!
+            </p>
+        </div>
+
+        <div class="bg-white p-4 md:p-8 rounded-3xl shadow-sm border border-gray-100 hover-lift mb-16">
+            <div class="w-full aspect-video bg-brand-sand rounded-2xl flex items-center justify-center border-2 border-dashed border-brand-green/30 relative overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200&auto=format&fit=crop" alt="World Map Placeholder" class="absolute inset-0 w-full h-full object-cover opacity-20">
+                <div class="z-10 text-center p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-sm">
+                    <h3 class="font-heading font-bold text-xl text-brand-charcoal mb-2">Interactive Map Goes Here</h3>
+                    <p class="font-body text-sm text-brand-charcoal/70 mb-4">Users will click a country (e.g., England) to navigate to its specific guide.</p>
+                    <a href="england.html" class="inline-block bg-brand-green text-white font-heading font-bold py-2 px-6 rounded-full hover:bg-brand-charcoal transition-colors text-sm">Test the England Link</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </body>
+</html>
