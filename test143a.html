@@ -218,8 +218,25 @@
         .mobile-dropdown { width: 100%; }
         .mobile-dropdown-btn { display: flex; justify-content: space-between; align-items: center; width: 100%; border: none; background: none; color: var(--c-dark); padding: 0; cursor: pointer; }
         .mobile-dropdown-btn svg { transition: transform 0.3s ease; width: 20px; height: 20px; }
-        .mobile-dropdown-content { display: none; flex-direction: column; gap: 1.2rem; padding-left: 1.5rem; margin-top: 1.5rem; border-left: 2px solid rgba(67, 58, 36, 0.2); }
-        .mobile-dropdown.active .mobile-dropdown-content { display: flex; }
+        
+        /* Updated to force collapse on load and provide smooth slide animation */
+        .mobile-dropdown-content { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 1.2rem; 
+            padding-left: 1.5rem; 
+            border-left: 2px solid rgba(67, 58, 36, 0.2);
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-top: 0;
+            transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease; 
+        }
+        .mobile-dropdown.active .mobile-dropdown-content { 
+            max-height: 300px; /* Expands when active */
+            opacity: 1;
+            margin-top: 1.5rem;
+        }
         .mobile-dropdown.active .mobile-dropdown-btn svg { transform: rotate(180deg); }
         .mobile-dropdown-content a { font-family: var(--f-body); font-size: 1.15rem; text-transform: none; letter-spacing: normal; }
 
@@ -595,7 +612,8 @@
             
             <a href="#about" class="mobile-link">About</a>
             
-            <div class="mobile-dropdown">
+            <!-- Added "active" class so it starts expanded -->
+            <div class="mobile-dropdown active">
                 <button class="mobile-dropdown-btn">
                     Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
@@ -1024,9 +1042,9 @@
             mobileMenu.classList.remove('active');
             menuOverlay.classList.remove('active');
             
-            // Reset mobile dropdown to be collapsed by default when menu is closed
+            // Reset mobile dropdown to be EXPANDED by default when menu is closed
             const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-            mobileDropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+            mobileDropdowns.forEach(dropdown => dropdown.classList.add('active'));
         }
 
         mobileBtn.addEventListener('click', openMenu);
