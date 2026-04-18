@@ -12,6 +12,22 @@
 
     <style>
         /* ==========================================================================
+           CUSTOM FONT IMPORT (ARTISAN)
+           ========================================================================== */
+        @font-face {
+            font-family: 'Artisan';
+            /* IMPORTANT: Replace the URLs below with the actual paths to your font files 
+               once you upload them to your website/WordPress.
+            */
+            src: url('fonts/Artisan-Regular.woff2') format('woff2'),
+                 url('fonts/Artisan-Regular.woff') format('woff'),
+                 url('fonts/Artisan-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* ==========================================================================
            GLOBAL VARIABLES (Map these to Elementor Global Colors/Fonts)
            ========================================================================== */
         :root {
@@ -19,8 +35,8 @@
             --c-mid: #d8cebb;   /* 15,15,26,0 */
             --c-dark: #433a24;  /* 57,59,81,57 */
             
-            /* Prioritizes your local Artisan font, falls back to Cormorant Garamond for others */
-            --f-heading: 'Artisan', 'Artisan Regular', 'Cormorant Garamond', serif; 
+            /* Prioritizes your custom Artisan font, falls back to Cormorant Garamond */
+            --f-heading: 'Artisan', 'Cormorant Garamond', serif; 
             --f-body: 'DM Sans', sans-serif;
             
             --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -117,7 +133,13 @@
         .nav-center { flex: 1; text-align: center; }
 
         .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { font-family: var(--f-heading); font-size: 1.15rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 400; }
+        .nav-links a { 
+            font-family: 'Artisan', var(--f-heading); /* Forces Artisan explicitly */
+            font-size: 1.15rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            font-weight: 400; 
+        }
         .nav-links a:hover { color: #8a7a58; }
 
         .logo { font-family: var(--f-heading); font-size: 1.8rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; line-height: 1; display: inline-block; }
@@ -197,8 +219,8 @@
         .hero-floating-img img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 25px 50px rgba(67, 58, 36, 0.2);
+            /* Replaced box-shadow with drop-shadow so the shadow hugs the transparent cutout */
+            filter: drop-shadow(0 15px 25px rgba(67, 58, 36, 0.25));
         }
 
         @keyframes float {
@@ -369,7 +391,7 @@
             </div>
 
             <div class="hero-floating-img fade-up" style="transition-delay: 0.2s;">
-                <img src="https://jesseledesma88.github.io/angs/hero-img2.webp" alt="Equine Therapy Session">
+                <img src="https://jesseledesma88.github.io/angs/hero-img3.webp" alt="Equine Therapy Session">
             </div>
         </div>
     </section>
