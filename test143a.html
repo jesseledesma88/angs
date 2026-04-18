@@ -147,6 +147,25 @@
         
         .header-logo-img { max-width: 200px; height: auto; display: block; margin: 0 auto; }
 
+        /* Mobile Menu Button & Dropdown Styles */
+        .mobile-btn { display: none; background: none; border: none; cursor: pointer; color: var(--c-dark); padding: 0.5rem; margin-left: -0.5rem; }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(240, 231, 214, 0.98);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(67, 58, 36, 0.1);
+            padding: 2rem;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+        .mobile-menu.active { display: flex; flex-direction: column; gap: 1.5rem; align-items: center; }
+        .mobile-menu a { font-family: 'Artisan', var(--f-heading); font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; }
+        .mobile-menu .btn { font-family: var(--f-body); width: 100%; max-width: 300px; text-align: center; margin-top: 1rem; font-size: 1rem; }
+
         /* ==========================================================================
            HERO SECTION (Parallax)
            ========================================================================== */
@@ -341,12 +360,15 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; /* In Elementor, replace with hamburger menu */ }
-            .nav-right { display: none; }
-            .nav-center { text-align: left; }
+            .nav-links { display: none; }
+            .nav-right .desktop-btn { display: none; } /* Hide right button */
+            .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; } /* Align burger to the right */
+            .nav-left { flex: 1; } /* Keep as spacer so logo stays perfectly centered */
+            .mobile-btn { display: block; margin-left: 0; margin-right: -0.5rem; } /* Show hamburger icon */
+            .nav-center { text-align: center; }
             .services-grid, .exp-list, .footer-grid { grid-template-columns: 1fr; }
             .hero .container { padding-top: 2rem; }
-            .hero-floating-img { display: none; /* Hide on small screens to maintain focus on text & background video */ }
+            .hero-floating-img { display: none; }
         }
     </style>
 </head>
@@ -369,8 +391,19 @@
             </div>
             
             <div class="nav-right">
-                <a href="#contact" class="btn btn-outline">Contact Us</a>
+                <a href="#contact" class="btn btn-outline desktop-btn">Contact Us</a>
+                <!-- Hamburger Icon -->
+                <button class="mobile-btn" id="mobile-btn" aria-label="Toggle Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
             </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#services" class="mobile-link">Services</a>
+            <a href="#contact" class="btn btn-solid mobile-link">Contact Us</a>
         </div>
     </header>
 
@@ -650,6 +683,22 @@
             } else {
                 header.classList.remove('scrolled');
             }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
         });
 
         // Intersection Observer for fade-up animations
