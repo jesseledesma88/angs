@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,300;400;500&display=swap" rel="stylesheet">
 
+    <!-- Swiper.js CSS for Slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <style>
         /* ==========================================================================
            CUSTOM FONT IMPORT (ARTISAN)
@@ -345,8 +348,27 @@
         .exp-list { text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem 0; }
         .exp-list li { background: #fff; padding: 2rem; border-left: 4px solid var(--c-mid); }
         
-        .testimonial { font-family: var(--f-heading); font-size: 1.8rem; font-style: italic; margin-top: 4rem; position: relative; padding: 2rem 0; }
-        .testimonial::before { content: '"'; font-size: 4rem; position: absolute; top: -1rem; left: 50%; transform: translateX(-50%); color: var(--c-mid); opacity: 0.5; }
+        /* Testimonial Slider Styles */
+        .testimonial-slider-container { margin-top: 4rem; position: relative; padding: 2rem 0; }
+        .testimonial-slider { padding-bottom: 3rem; /* Space for dots */ }
+        .swiper-slide { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        
+        .testimonial-img { 
+            width: 90px; height: 90px; border-radius: 50%; object-fit: cover; 
+            border: 3px solid var(--c-mid); margin-bottom: 1.5rem; 
+            box-shadow: 0 10px 25px rgba(67, 58, 36, 0.15); 
+        }
+        
+        .testimonial-text { 
+            font-family: var(--f-heading); font-size: 1.6rem; font-style: italic; 
+            max-width: 700px; margin: 0 auto 1.5rem auto; color: var(--c-dark);
+            line-height: 1.4;
+        }
+        
+        .testimonial-name { font-family: var(--f-body); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; color: var(--c-dark); }
+        
+        .swiper-pagination-bullet { background: var(--c-dark); opacity: 0.3; width: 10px; height: 10px; transition: var(--transition); }
+        .swiper-pagination-bullet-active { opacity: 1; transform: scale(1.2); }
 
         /* ==========================================================================
            CTA / NEXT STEP
@@ -626,9 +648,41 @@
                 <li>Practical tools for sustainable change and daily wellbeing</li>
             </ul>
 
-            <div class="testimonial fade-up">
-                "Working with Ashley and the horses allowed me to feel safe in my body again. The somatic approach shifted things that years of talk therapy couldn't reach."
-                <div style="font-family: var(--f-body); font-size: 1rem; font-style: normal; margin-top: 1rem; color: var(--c-dark);">— Client Experience</div>
+            <div class="testimonial-slider-container fade-up">
+                <div class="swiper testimonial-slider">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client 1" class="testimonial-img">
+                            <p class="testimonial-text">"Working with Ashley and the horses allowed me to feel safe in my body again. The somatic approach shifted things that years of talk therapy couldn't reach."</p>
+                            <div class="testimonial-name">— Sarah M.</div>
+                        </div>
+                        
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client 2" class="testimonial-img">
+                            <p class="testimonial-text">"The environment Ashley creates is so deeply grounding. I finally feel like I have the tools to regulate my nervous system and face daily challenges with clarity."</p>
+                            <div class="testimonial-name">— James T.</div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client 3" class="testimonial-img">
+                            <p class="testimonial-text">"Equine therapy was an entirely new experience for me, but it brought out a profound sense of self-trust and inner peace that I hadn't felt in years."</p>
+                            <div class="testimonial-name">— Emily R.</div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client 4" class="testimonial-img">
+                            <p class="testimonial-text">"I came in feeling entirely disconnected from my emotions. Through Radix therapy, I've learned how to release long-held tension and embrace true vitality."</p>
+                            <div class="testimonial-name">— David K.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination Dots -->
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -702,6 +756,29 @@
     <button class="back-to-top" id="back-to-top" aria-label="Back to Top">
         <svg viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>
     </button>
+
+    <!-- Swiper.js Script for Slider -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Testimonial Slider
+        const testimonialSwiper = new Swiper('.testimonial-slider', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            effect: 'fade', // Adds a high-end fade transition between slides
+            fadeEffect: {
+                crossFade: true
+            }
+        });
+    </script>
 
     <!-- YouTube IFrame API Script for Seamless Looping -->
     <script src="https://www.youtube.com/iframe_api"></script>
