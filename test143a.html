@@ -145,6 +145,40 @@
         }
         .nav-links a:hover { color: #8a7a58; }
 
+        /* Desktop Dropdown Styles */
+        .dropdown { position: relative; }
+        .dropdown > a { display: flex; align-items: center; gap: 4px; }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--c-light);
+            border: 1px solid rgba(67, 58, 36, 0.1);
+            min-width: 240px;
+            padding: 0.5rem 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1; visibility: visible; transform: translateY(0);
+        }
+        .dropdown-menu li { margin: 0; }
+        .dropdown-menu a {
+            font-family: var(--f-body);
+            font-size: 1.05rem;
+            text-transform: none;
+            letter-spacing: normal;
+            padding: 0.8rem 1.5rem;
+            display: block;
+            border-bottom: 1px solid rgba(67, 58, 36, 0.05);
+            transition: padding-left 0.3s ease, background-color 0.3s ease;
+        }
+        .dropdown-menu li:last-child a { border-bottom: none; }
+        .dropdown-menu a:hover { background-color: rgba(67, 58, 36, 0.05); padding-left: 2rem; color: var(--c-dark); }
+
         .logo { font-family: var(--f-heading); font-size: 1.8rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; line-height: 1; display: inline-block; }
         .logo span { display: block; font-size: 0.9rem; letter-spacing: 4px; font-weight: 400; }
         
@@ -178,8 +212,18 @@
             transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .mobile-menu.active { left: 0; }
-        .mobile-menu a { font-family: 'Artisan', var(--f-heading); font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px; }
-        .mobile-menu .btn { font-family: var(--f-body); width: 100%; text-align: center; margin-top: auto; font-size: 1rem; }
+        .mobile-menu a, .mobile-dropdown-btn { font-family: 'Artisan', var(--f-heading); font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Mobile Dropdown Styles */
+        .mobile-dropdown { width: 100%; }
+        .mobile-dropdown-btn { display: flex; justify-content: space-between; align-items: center; width: 100%; border: none; background: none; color: var(--c-dark); padding: 0; cursor: pointer; }
+        .mobile-dropdown-btn svg { transition: transform 0.3s ease; width: 20px; height: 20px; }
+        .mobile-dropdown-content { display: none; flex-direction: column; gap: 1.2rem; padding-left: 1.5rem; margin-top: 1.5rem; border-left: 2px solid rgba(67, 58, 36, 0.2); }
+        .mobile-dropdown.active .mobile-dropdown-content { display: flex; }
+        .mobile-dropdown.active .mobile-dropdown-btn svg { transform: rotate(180deg); }
+        .mobile-dropdown-content a { font-family: var(--f-body); font-size: 1.15rem; text-transform: none; letter-spacing: normal; }
+
+        .mobile-menu .btn { font-family: var(--f-body); width: 100%; text-align: center; margin-top: auto; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;}
         
         .close-btn {
             position: absolute; top: 1.5rem; right: 1.5rem;
@@ -514,7 +558,14 @@
             <div class="nav-left">
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li class="dropdown">
+                        <a href="#services">Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#services">Counselling</a></li>
+                            <li><a href="#services">Equine Therapy</a></li>
+                            <li><a href="#services">Somatic Therapy</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             
@@ -543,7 +594,18 @@
             </button>
             
             <a href="#about" class="mobile-link">About</a>
-            <a href="#services" class="mobile-link">Services</a>
+            
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-btn">
+                    Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="#services" class="mobile-link">Counselling</a>
+                    <a href="#services" class="mobile-link">Equine Therapy</a>
+                    <a href="#services" class="mobile-link">Somatic Therapy</a>
+                </div>
+            </div>
+
             <a href="#contact" class="btn btn-solid mobile-link">Contact Us</a>
         </div>
     </header>
@@ -971,6 +1033,15 @@
         mobileLinks.forEach(link => {
             link.addEventListener('click', closeMenu);
         });
+
+        // Mobile Dropdown Accordion
+        const mobileDropdownBtn = document.querySelector('.mobile-dropdown-btn');
+        if (mobileDropdownBtn) {
+            mobileDropdownBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.currentTarget.parentElement.classList.toggle('active');
+            });
+        }
 
         // Intersection Observer for fade-up animations
         const observerOptions = {
