@@ -877,12 +877,22 @@
                     'iv_load_policy': 3,
                     'rel': 0,
                     'modestbranding': 1,
-                    'playsinline': 1
+                    'playsinline': 1,
+                    'loop': 1, // Backup native loop
+                    'playlist': '9o5srDgyMW4' // Required for native loop to work
                 },
                 events: {
-                    'onReady': onPlayerReady
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
                 }
             });
+        }
+
+        function onPlayerStateChange(event) {
+            // FAILSAFE: If the browser forces a pause or the video somehow ends, immediately play it again.
+            if (event.data === YT.PlayerState.ENDED || event.data === YT.PlayerState.PAUSED) {
+                event.target.playVideo();
+            }
         }
 
         function onPlayerReady(event) {
@@ -904,6 +914,7 @@
                 // If we are within 0.25 seconds of the end, jump back to start
                 if (duration > 0 && currentTime >= duration - 0.25) {
                     event.target.seekTo(0);
+                    event.target.playVideo(); // Ensure it keeps playing after seek
                 }
             }, 200);
         }
