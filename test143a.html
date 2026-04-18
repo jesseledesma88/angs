@@ -344,9 +344,65 @@
            TESTIMONIALS / EXPERIENCE
            ========================================================================== */
         .experience { text-align: center; }
-        .exp-content { max-width: 800px; margin: 0 auto; }
-        .exp-list { text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem 0; }
-        .exp-list li { background: #fff; padding: 2rem; border-left: 4px solid var(--c-mid); }
+        .exp-content { max-width: 900px; margin: 0 auto; } /* Widened slightly to give new cards breathing room */
+        
+        /* Premium Experience Cards */
+        .exp-list { text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin: 4rem 0; padding: 0; }
+        
+        .exp-card { 
+            background: #fff; 
+            padding: 2.5rem; 
+            border-radius: 16px; 
+            border: 1px solid rgba(216, 206, 187, 0.4);
+            box-shadow: 0 10px 30px rgba(67, 58, 36, 0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            transition: box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        
+        /* Organic, staggered gentle float effect */
+        .exp-card:nth-child(1) { animation: gentleFloat 6s ease-in-out infinite; }
+        .exp-card:nth-child(2) { animation: gentleFloat 7s ease-in-out infinite 1s; }
+        .exp-card:nth-child(3) { animation: gentleFloat 6.5s ease-in-out infinite 2s; }
+        .exp-card:nth-child(4) { animation: gentleFloat 7.5s ease-in-out infinite 0.5s; }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Pause float on hover so reading isn't interrupted */
+        .exp-card:hover {
+            animation-play-state: paused;
+            box-shadow: 0 15px 40px rgba(67, 58, 36, 0.12);
+            border-color: var(--c-mid);
+        }
+
+        .exp-icon {
+            background-color: var(--c-light);
+            color: var(--c-dark);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid rgba(67, 58, 36, 0.1);
+        }
+        
+        .exp-icon svg { 
+            width: 26px; 
+            height: 26px; 
+            fill: none; 
+            stroke: currentColor; 
+            stroke-width: 1.5; 
+            stroke-linecap: round; 
+            stroke-linejoin: round; 
+        }
+        
+        .exp-card p { margin: 0; font-size: 1.05rem; color: var(--c-dark); line-height: 1.6; padding-top: 0.25rem; font-weight: 400; }
         
         /* Testimonial Slider Styles */
         .testimonial-slider-container { margin-top: 4rem; position: relative; padding: 2rem 0; }
@@ -642,10 +698,34 @@
             <p>Therapy is a personal journey, but clients working with InBalance Therapies often notice profound shifts in their daily lives.</p>
             
             <ul class="exp-list">
-                <li>Greater calm, grounding, and emotional resilience</li>
-                <li>Increased awareness of needs, boundaries, and relational patterns</li>
-                <li>Stronger connection to self, body, and intuition</li>
-                <li>Practical tools for sustainable change and daily wellbeing</li>
+                <li class="exp-card fade-up">
+                    <div class="exp-icon">
+                        <!-- Grounding / Nature Icon -->
+                        <svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                    </div>
+                    <p>Greater calm, grounding, and emotional resilience</p>
+                </li>
+                <li class="exp-card fade-up" style="transition-delay: 0.1s;">
+                    <div class="exp-icon">
+                        <!-- Awareness / Target Icon -->
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </div>
+                    <p>Increased awareness of needs, boundaries, and relational patterns</p>
+                </li>
+                <li class="exp-card fade-up" style="transition-delay: 0.2s;">
+                    <div class="exp-icon">
+                        <!-- Connection / Heart Icon -->
+                        <svg viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                    </div>
+                    <p>Stronger connection to self, body, and intuition</p>
+                </li>
+                <li class="exp-card fade-up" style="transition-delay: 0.3s;">
+                    <div class="exp-icon">
+                        <!-- Guidance / Compass Icon -->
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                    </div>
+                    <p>Practical tools for sustainable change and daily wellbeing</p>
+                </li>
             </ul>
 
             <div class="testimonial-slider-container fade-up">
