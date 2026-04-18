@@ -1023,6 +1023,10 @@
         function closeMenu() {
             mobileMenu.classList.remove('active');
             menuOverlay.classList.remove('active');
+            
+            // Reset mobile dropdown to be collapsed by default when menu is closed
+            const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+            mobileDropdowns.forEach(dropdown => dropdown.classList.remove('active'));
         }
 
         mobileBtn.addEventListener('click', openMenu);
