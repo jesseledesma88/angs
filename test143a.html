@@ -142,6 +142,7 @@
             overflow: hidden;
             z-index: 0;
             pointer-events: none; /* Prevents user interaction with YouTube player */
+            background-color: var(--c-light); /* Base color behind video */
         }
 
         .hero-video-wrapper iframe {
@@ -154,6 +155,12 @@
             min-width: 177.77vh; /* 16:9 Aspect Ratio */
             transform: translate(-50%, -50%) scale(1.15); /* Scale up slightly to hide YouTube's forced edge branding */
             border: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out; /* Smooth fade in when video loads */
+        }
+        
+        .hero-video-wrapper iframe.video-ready {
+            opacity: 1;
         }
 
         .hero::before {
@@ -294,12 +301,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-video-wrapper">
-            <!-- playlist=VIDEO_ID is required for YouTube embeds to loop properly -->
-            <iframe 
-                src="https://www.youtube.com/embed/9o5srDgyMW4?autoplay=1&mute=1&loop=1&playlist=9o5srDgyMW4&controls=0&disablekb=1&fs=0&iv_load_policy=3&rel=0&modestbranding=1&playsinline=1" 
-                allow="autoplay; encrypted-media" 
-                allowfullscreen>
-            </iframe>
+            <!-- This div gets replaced by the YouTube IFrame API -->
+            <div id="yt-player"></div>
         </div>
         <div class="container">
             <div class="hero-content fade-up">
@@ -495,6 +498,55 @@
             </div>
         </div>
     </footer>
+
+    <!-- YouTube IFrame API Script for Seamless Looping -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        let player;
+        
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('yt-player', {
+                videoId: '9o5srDgyMW4',
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 0,
+                    'mute': 1,
+                    'disablekb': 1,
+                    'fs': 0,
+                    'iv_load_policy': 3,
+                    'rel': 0,
+                    'modestbranding': 1,
+                    'playsinline': 1
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Mute and play immediately to satisfy browser autoplay policies
+            event.target.mute();
+            event.target.playVideo();
+            
+            // Add a class to fade the video in nicely once it is loaded
+            document.getElementById('yt-player').classList.add('video-ready');
+
+            // SEAMLESS LOOP HACK:
+            // Check the video time every 200 milliseconds. 
+            // When it reaches 0.25 seconds from the end, seek back to 0. 
+            // This completely bypasses YouTube's internal reload flash.
+            setInterval(() => {
+                const currentTime = event.target.getCurrentTime();
+                const duration = event.target.getDuration();
+                
+                // If we are within 0.25 seconds of the end, jump back to start
+                if (duration > 0 && currentTime >= duration - 0.25) {
+                    event.target.seekTo(0);
+                }
+            }, 200);
+        }
+    </script>
 
     <!-- JavaScript for Scroll Effects -->
     <script>
