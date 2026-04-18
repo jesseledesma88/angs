@@ -19,7 +19,8 @@
             --c-mid: #d8cebb;   /* 15,15,26,0 */
             --c-dark: #433a24;  /* 57,59,81,57 */
             
-            --f-heading: 'Cormorant Garamond', serif; /* Fallback for Artisan */
+            /* Prioritizes your local Artisan font, falls back to Cormorant Garamond for others */
+            --f-heading: 'Artisan', 'Artisan Regular', 'Cormorant Garamond', serif; 
             --f-body: 'DM Sans', sans-serif;
             
             --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -116,7 +117,7 @@
         .nav-center { flex: 1; text-align: center; }
 
         .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a { font-family: var(--f-heading); font-size: 1.15rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 400; }
         .nav-links a:hover { color: #8a7a58; }
 
         .logo { font-family: var(--f-heading); font-size: 1.8rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; line-height: 1; display: inline-block; }
@@ -171,11 +172,40 @@
             z-index: 1;
         }
 
-        .hero-content { position: relative; z-index: 10; max-width: 600px; padding-top: 5rem; }
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            position: relative;
+            z-index: 10;
+            padding-top: 5rem;
+        }
+
+        .hero-content { max-width: 600px; }
         .hero h1 { color: var(--c-dark); margin-bottom: 1.5rem; }
         .hero p { font-size: 1.25rem; margin-bottom: 2.5rem; }
         
         .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .hero-floating-img {
+            max-width: 420px; /* Sweet spot width for floating right */
+            width: 100%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-floating-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px rgba(67, 58, 36, 0.2);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
 
         /* ==========================================================================
            LOGOS / ACCREDITATIONS BAR
@@ -282,6 +312,10 @@
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: 1fr 1fr; }
             h1 { font-size: 2.8rem; }
+            .hero .container { flex-direction: column; text-align: center; gap: 3rem; }
+            .hero-content { margin: 0 auto; }
+            .hero-btns { justify-content: center; }
+            .hero-floating-img { max-width: 320px; }
         }
 
         @media (max-width: 768px) {
@@ -289,7 +323,8 @@
             .nav-right { display: none; }
             .nav-center { text-align: left; }
             .services-grid, .exp-list, .footer-grid { grid-template-columns: 1fr; }
-            .hero-content { padding-top: 2rem; }
+            .hero .container { padding-top: 2rem; }
+            .hero-floating-img { display: none; /* Hide on small screens to maintain focus on text & background video */ }
         }
     </style>
 </head>
@@ -331,6 +366,10 @@
                     <a href="#contact" class="btn btn-solid">Start Your Journey</a>
                     <a href="#services" class="btn btn-outline">Explore Equine Therapy</a>
                 </div>
+            </div>
+
+            <div class="hero-floating-img fade-up" style="transition-delay: 0.2s;">
+                <img src="https://jesseledesma88.github.io/angs/hero-img2.webp" alt="Equine Therapy Session">
             </div>
         </div>
     </section>
