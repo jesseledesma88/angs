@@ -17,7 +17,6 @@
             --green: #28a745;
         }
 
-        /* Fixes the padding vs height issue so elements don't get pushed off screen */
         * {
             box-sizing: border-box;
         }
@@ -40,8 +39,9 @@
             display: flex;
             flex-direction: column;
             position: fixed;
-            height: 100vh; /* Changed to vh to stick to viewport height */
-            overflow-y: auto; /* Allows scrolling if screen is extremely short */
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
         }
 
         .sidebar h2 {
@@ -50,6 +50,12 @@
             margin-bottom: 40px;
             font-size: 1.5rem;
             letter-spacing: 1px;
+        }
+
+        .nav-links-wrapper {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .nav-link {
@@ -69,9 +75,13 @@
             border-left: 4px solid var(--brass);
         }
 
+        .sign-out {
+            margin-top: auto;
+        }
+
         /* Main Content Area */
         .main-content {
-            margin-left: 250px; /* Aligned with sidebar width */
+            margin-left: 250px;
             padding: 40px;
             flex: 1;
             max-width: 1200px;
@@ -153,13 +163,15 @@
             background: var(--white);
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            overflow: hidden;
+            overflow-x: auto; /* Makes tables horizontally scrollable */
             margin-bottom: 40px;
+            -webkit-overflow-scrolling: touch;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            min-width: 600px; /* Forces scrolling instead of squishing columns */
         }
 
         th, td {
@@ -234,17 +246,110 @@
         .btn-outline:hover { background-color: var(--navy); color: var(--white); }
         .btn-reject { background-color: transparent; border: 1px solid var(--red); color: var(--red); }
         .btn-reject:hover { background-color: var(--red); color: var(--white); }
+
+        /* ========================================= */
+        /* MOBILE RESPONSIVE MEDIA QUERIES           */
+        /* ========================================= */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            /* Convert sidebar to a top navigation bar */
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 15px 20px;
+                flex-direction: column;
+                align-items: center;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .sidebar h2 {
+                margin-bottom: 15px;
+                font-size: 1.3rem;
+            }
+
+            /* Make links scroll horizontally on mobile */
+            .nav-links-wrapper {
+                flex-direction: row;
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                gap: 10px;
+                padding-bottom: 5px;
+            }
+
+            .nav-link {
+                white-space: nowrap;
+                margin-bottom: 0;
+                padding: 8px 12px;
+                border-left: none;
+                border-bottom: 3px solid transparent;
+            }
+
+            .nav-link:hover, .nav-link.active {
+                border-left: none;
+                border-bottom: 3px solid var(--brass);
+            }
+
+            .sign-out {
+                margin-top: 0;
+                margin-left: 10px;
+            }
+
+            /* Adjust main content */
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            /* Stack header items */
+            .dashboard-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .account-manager-card {
+                width: 100%;
+            }
+
+            .page-title h1 {
+                font-size: 1.6rem;
+            }
+
+            /* Stack Order Cards */
+            .order-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .order-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .order-actions .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
 
     <nav class="sidebar">
         <h2>CHICAGO BRASS</h2>
-        <a class="nav-link active" onclick="switchTab('dashboard', this)">Dashboard</a>
-        <a class="nav-link" onclick="switchTab('projects', this)">My Projects</a>
-        <a class="nav-link" onclick="switchTab('orders', this)">Orders & Approvals</a>
-        <a class="nav-link" onclick="switchTab('invoices', this)">Invoices</a>
-        <a href="#" class="nav-link" style="margin-top: auto;">Sign Out</a>
+        <div class="nav-links-wrapper">
+            <a class="nav-link active" onclick="switchTab('dashboard', this)">Dashboard</a>
+            <a class="nav-link" onclick="switchTab('projects', this)">My Projects</a>
+            <a class="nav-link" onclick="switchTab('orders', this)">Orders & Approvals</a>
+            <a class="nav-link" onclick="switchTab('invoices', this)">Invoices</a>
+            <a href="#" class="nav-link sign-out">Sign Out</a>
+        </div>
     </nav>
 
     <main class="main-content">
