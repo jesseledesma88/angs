@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Little Biz Hints & Tips</title>
+    
+    <!-- Google Fonts: Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#1E3A8A',    /* Deep navy blue for headings */
+                            turquoise: '#0D9488', /* Teal/Turquoise for buttons & accents */
+                            light: '#F0FDF4',   /* Soft background for sections */
+                            gray: '#F8FAFC',    /* Light gray for card backgrounds */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Smooth scrolling and basic resets */
+        html { scroll-behavior: smooth; }
+        body { color: #334155; }
+        h1, h2, h3, h4, h5, h6 { color: #1E3A8A; font-weight: 700; }
+        
+        /* Card Hover Effects */
+        .hover-card { transition: all 0.3s ease; }
+        .hover-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="bg-white font-sans antialiased">
+
+    <!-- Header / Navbar Mockup -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="font-bold text-2xl text-brand-blue tracking-tight">Little Biz</a>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-gray-600">
+                <a href="#" class="hover:text-brand-turquoise transition">Home</a>
+                <a href="#" class="hover:text-brand-turquoise transition">About</a>
+                <a href="#" class="hover:text-brand-turquoise transition">Website Services</a>
+                <a href="#" class="text-brand-turquoise border-b-2 border-brand-turquoise pb-1">Blog</a>
+                <a href="#" class="hover:text-brand-turquoise transition">Contact</a>
+            </nav>
+            <!-- Mobile Menu Icon -->
+            <button class="md:hidden text-gray-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECTION 1: HERO -->
+        <section class="container mx-auto px-4 md:px-8 py-16 md:py-24">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Left Column (60%) -->
+                <div class="lg:w-3/5 space-y-6">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                        Not sure what to do with your website? Start here.
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed">
+                        If your website is live (or almost live) but you’re stuck on what to write, what to fix, or what to focus on next… you’re in the right place.
+                        <br><br>
+                        This blog is here to give you simple, practical guidance to help you build a website that actually works for your business – without the overwhelm.
+                    </p>
+                    
+                    <div class="pt-4 flex flex-col sm:flex-row flex-wrap gap-4">
+                        <a href="#content-cluster" class="inline-flex items-center justify-center gap-2 bg-brand-turquoise text-white font-semibold py-3 px-6 rounded-md hover:bg-teal-700 transition shadow-sm w-full sm:w-auto">
+                            <span>✏️</span> Write My Website Content
+                        </a>
+                        <a href="#fix-issues" class="inline-flex items-center justify-center gap-2 bg-brand-blue text-white font-semibold py-3 px-6 rounded-md hover:bg-blue-800 transition shadow-sm w-full sm:w-auto">
+                            <span>⚙️</span> Fix My Website Issues
+                        </a>
+                        <a href="#plan-strategy" class="inline-flex items-center justify-center gap-2 bg-brand-blue text-white font-semibold py-3 px-6 rounded-md hover:bg-blue-800 transition shadow-sm w-full sm:w-auto">
+                            <span>🚀</span> Plan My Website Strategy
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Column (40%) -->
+                <div class="lg:w-2/5 w-full">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Friendly professional working on laptop" class="rounded-2xl shadow-xl object-cover aspect-[4/3] w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: “START HERE” PATHWAYS -->
+        <section class="bg-brand-gray py-16 md:py-24">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="mb-12 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold">Start where you are</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover-card border border-gray-100 flex flex-col h-full">
+                        <div class="bg-teal-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6 text-brand-turquoise text-xl">✍️</div>
+                        <h3 class="text-xl font-bold mb-3 text-brand-blue">I need help writing my website</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Struggling to figure out what to say on your website? Start here.</p>
+                        <a href="#" class="text-brand-turquoise font-medium hover:text-teal-800 inline-flex items-center group mt-auto">
+                            Start Here <span class="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
+                        </a>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover-card border border-gray-100 flex flex-col h-full">
+                        <div class="bg-teal-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6 text-brand-turquoise text-xl">🏗️</div>
+                        <h3 class="text-xl font-bold mb-3 text-brand-blue">I’m building or updating my website</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Planning, structure, and strategy to get your website working properly.</p>
+                        <a href="#" class="text-brand-turquoise font-medium hover:text-teal-800 inline-flex items-center group mt-auto">
+                            Learn More <span class="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
+                        </a>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover-card border border-gray-100 flex flex-col h-full">
+                        <div class="bg-teal-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6 text-brand-turquoise text-xl">🔧</div>
+                        <h3 class="text-xl font-bold mb-3 text-brand-blue">My website isn’t working</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Not getting enquiries? Something feels off? Let’s fix that.</p>
+                        <a href="#" class="text-brand-turquoise font-medium hover:text-teal-800 inline-flex items-center group mt-auto">
+                            Fix My Website <span class="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
+                        </a>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover-card border border-gray-100 flex flex-col h-full">
+                        <div class="bg-teal-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6 text-brand-turquoise text-xl">💻</div>
+                        <h3 class="text-xl font-bold mb-3 text-brand-blue">I need help with the tech side</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Hosting, plugins, setup and all the behind-the-scenes bits explained simply.</p>
+                        <a href="#" class="text-brand-turquoise font-medium hover:text-teal-800 inline-flex items-center group mt-auto">
+                            See Tech Tips <span class="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: FEATURED POSTS -->
+        <section class="container mx-auto px-4 md:px-8 py-16 md:py-24">
+            <div class="max-w-3xl mb-12 text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Start with these</h2>
+                <p class="text-lg text-gray-600">If you’re not sure where to begin, these are the posts I recommend starting with.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Featured Post 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover-card flex flex-col">
+                    <img src="https://littlebiz.com.au/wp-content/uploads/2025/06/Start-Strong-Website-Content-Creator-Kit-2.jpg" alt="Writing content" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-brand-turquoise uppercase tracking-wider mb-2 block">Website Content & SEO</span>
+                        <h3 class="text-xl font-bold mb-3"><a href="#" class="hover:text-brand-turquoise transition">How to Write Your Website Content Without the Overwhelm</a></h3>
+                        <p class="text-gray-600 mb-4 text-sm flex-grow">Break down the daunting task of website copywriting into manageable, actionable steps.</p>
+                        <a href="#" class="text-brand-turquoise font-medium text-sm mt-auto inline-flex items-center">Read More &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Featured Post 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover-card flex flex-col">
+                    <img src="https://littlebiz.com.au/wp-content/uploads/2023/08/Approaching-Website-redesign-blog.jpg" alt="Homepage layout" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-brand-turquoise uppercase tracking-wider mb-2 block">Website Design & Strategy</span>
+                        <h3 class="text-xl font-bold mb-3"><a href="#" class="hover:text-brand-turquoise transition">Structuring Your Homepage Content</a></h3>
+                        <p class="text-gray-600 mb-4 text-sm flex-grow">Your homepage is your digital storefront. Learn exactly what sections you need to guide visitors.</p>
+                        <a href="#" class="text-brand-turquoise font-medium text-sm mt-auto inline-flex items-center">Read More &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Featured Post 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover-card flex flex-col">
+                    <img src="https://littlebiz.com.au/wp-content/uploads/2023/06/testimonials2.jpg" alt="About us team" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-brand-turquoise uppercase tracking-wider mb-2 block">Website Content & SEO</span>
+                        <h3 class="text-xl font-bold mb-3"><a href="#" class="hover:text-brand-turquoise transition">How to Write an 'About Us' Page People Actually Read</a></h3>
+                        <p class="text-gray-600 mb-4 text-sm flex-grow">Stop writing boring bios. Discover how to tell your brand story in a way that connects and converts.</p>
+                        <a href="#" class="text-brand-turquoise font-medium text-sm mt-auto inline-flex items-center">Read More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: CORE CLUSTER (YOUR MONEY MAKER) -->
+        <section id="content-cluster" class="bg-brand-light py-16 md:py-24">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-brand-blue">Website Content Made Simple</h2>
+                    <p class="text-lg text-gray-700">
+                        This is the exact process I walk my clients through when they’re stuck on their website content. 
+                        Follow these steps to go from “I have no idea what to write” to a website that feels clear, confident and ready to go.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md relative z-10 flex flex-col items-center text-center">
+                        <img src="https://littlebiz.com.au/wp-content/uploads/2023/11/Checklist-1-blog.jpg" alt="Step 1" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <div class="w-12 h-12 bg-brand-turquoise text-white rounded-full flex items-center justify-center text-xl font-bold mb-4 shadow-md border-4 border-white -mt-10 relative z-20">1</div>
+                        <h3 class="text-xl font-bold mb-3">Understand what to say</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Start here if you’re feeling overwhelmed and don’t know where to begin.</p>
+                        <a href="#" class="text-brand-turquoise font-medium hover:text-teal-800 transition">Read Step 1 &rarr;</a>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md relative z-10 flex flex-col items-center text-center">
+                        <img src="https://littlebiz.com.au/wp-content/uploads/2023/10/Cookie-cutter-blog2.jpg" alt="Step 2" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <div class="w-12 h-12 bg-brand-turquoise text-white rounded-full flex items-center justify-center text-xl font-bold mb-4 shadow-md border-4 border-white -mt-10 relative z-20">2</div>
+                        <h3 class="text-xl font-bold mb-3">Know what pages you need</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Get clarity on what your website actually needs (and what it doesn’t).</p>
+                        <a href="#" class="text-brand-turquoise font-medium hover:text-teal-800 transition">Read Step 2 &rarr;</a>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md relative z-10 flex flex-col items-center text-center">
+                        <img src="https://littlebiz.com.au/wp-content/uploads/2023/08/Spoonful-of-Sugar-Web-1000-×-600px.jpg" alt="Step 3" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <div class="w-12 h-12 bg-brand-turquoise text-white rounded-full flex items-center justify-center text-xl font-bold mb-4 shadow-md border-4 border-white -mt-10 relative z-20">3</div>
+                        <h3 class="text-xl font-bold mb-3">Plan it properly</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Put it all together with a simple structure that actually works.</p>
+                        <a href="#" class="text-brand-turquoise font-medium hover:text-teal-800 transition">Read Step 3 &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center bg-white p-8 rounded-xl shadow-sm border border-gray-100 max-w-2xl mx-auto flex flex-col items-center">
+                    <h4 class="text-xl font-bold mb-2">Ready to skip the guesswork?</h4>
+                    <p class="text-gray-600 mb-6">Get my proven templates and frameworks to write your site quickly.</p>
+                    <a href="#" class="inline-flex items-center justify-center gap-2 bg-brand-turquoise text-white font-bold py-4 px-8 rounded-md hover:bg-teal-700 transition shadow-md w-full sm:w-auto">
+                        Grab the Start Strong Website Content Kit &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: BROWSE BY CATEGORY -->
+        <section class="container mx-auto px-4 md:px-8 py-16 md:py-24">
+            <div class="mb-12 text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl font-bold">Browse by topic</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="#" class="group block p-6 border border-gray-200 rounded-xl hover:border-brand-turquoise hover:shadow-md transition bg-white">
+                    <h3 class="text-lg font-bold text-brand-blue mb-2 group-hover:text-brand-turquoise transition">Website Content & SEO</h3>
+                    <p class="text-sm text-gray-600">Learn how to write content that connects and gets found online.</p>
+                </a>
+                
+                <a href="#" class="group block p-6 border border-gray-200 rounded-xl hover:border-brand-turquoise hover:shadow-md transition bg-white">
+                    <h3 class="text-lg font-bold text-brand-blue mb-2 group-hover:text-brand-turquoise transition">Website Design & Strategy</h3>
+                    <p class="text-sm text-gray-600">Plan and structure a website that actually works for your business.</p>
+                </a>
+
+                <a href="#" class="group block p-6 border border-gray-200 rounded-xl hover:border-brand-turquoise hover:shadow-md transition bg-white">
+                    <h3 class="text-lg font-bold text-brand-blue mb-2 group-hover:text-brand-turquoise transition">Website Tech & Setup</h3>
+                    <p class="text-sm text-gray-600">Simple guides to help you understand the technical side of your site.</p>
+                </a>
+
+                <a href="#" class="group block p-6 border border-gray-200 rounded-xl hover:border-brand-turquoise hover:shadow-md transition bg-white">
+                    <h3 class="text-lg font-bold text-brand-blue mb-2 group-hover:text-brand-turquoise transition">Marketing for Small Business</h3>
+                    <p class="text-sm text-gray-600">Practical ways to get your website seen and used.</p>
+                </a>
+
+                <a href="#" class="group block p-6 border border-gray-200 rounded-xl hover:border-brand-turquoise hover:shadow-md transition bg-white lg:col-span-2">
+                    <h3 class="text-lg font-bold text-brand-blue mb-2 group-hover:text-brand-turquoise transition">Mindset & Business Growth</h3>
+                    <p class="text-sm text-gray-600">Support, encouragement and real talk for business owners.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION 6: BLOG GRID (LATEST POSTS) -->
+        <section class="bg-gray-50 py-16 md:py-24 border-t border-gray-100">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex justify-between items-end mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold">Latest Articles</h2>
+                    <a href="#" class="hidden md:inline-flex items-center justify-center bg-brand-blue text-white font-semibold py-3 px-8 rounded-md hover:bg-blue-800 transition shadow-sm">View All Posts &rarr;</a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Post 1 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm hover-card border border-gray-100 flex flex-col">
+                        <img src="https://littlebiz.com.au/wp-content/uploads/2023/06/Website-redesign-blog3.jpg" alt="Blog post image" class="w-full h-56 object-cover border-b border-gray-100">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-xs font-bold text-brand-turquoise uppercase tracking-wider mb-2 block">Website Design & Strategy</span>
+                            <h3 class="text-xl font-bold mb-3"><a href="#" class="hover:text-brand-turquoise transition">5 Reasons Why a Website Redesign is Worth Considering</a></h3>
+                            <p class="text-gray-600 mb-5 text-sm flex-grow line-clamp-2">If your site is feeling stale or isn't converting visitors into clients, it might be time for a fresh approach.</p>
+                            <a href="#" class="inline-flex items-center justify-center bg-white text-brand-blue border-2 border-brand-blue font-semibold py-2 px-6 rounded-md hover:bg-brand-blue hover:text-white transition text-sm self-start mt-auto">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Post 2 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm hover-card border border-gray-100 flex flex-col">
+                        <img src="https://littlebiz.com.au/wp-content/uploads/2024/02/Create-basic-marketing-strategy.jpg" alt="Blog post image" class="w-full h-56 object-cover border-b border-gray-100">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-xs font-bold text-brand-turquoise uppercase tracking-wider mb-2 block">Marketing for Small Business</span>
+                            <h3 class="text-xl font-bold mb-3"><a href="#" class="hover:text-brand-turquoise transition">Creating a Basic Marketing Strategy for Small Businesses</a></h3>
+                            <p class="text-gray-600 mb-5 text-sm flex-grow line-clamp-2">Marketing doesn't have to be complicated. Learn the fundamentals of getting your business seen by the right people.</p>
+                            <a href="#" class="inline-flex items-center justify-center bg-white text-brand-blue border-2 border-brand-blue font-semibold py-2 px-6 rounded-md hover:bg-brand-blue hover:text-white transition text-sm self-start mt-auto">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Post 3 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm hover-card border border-gray-100 flex flex-col">
+                        <img src="https://littlebiz.com.au/wp-content/uploads/2023/11/lessons-from-retreat.png" alt="Blog post image" class="w-full h-56 object-cover border-b border-gray-100">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-xs font-bold text-brand-turquoise uppercase tracking-wider mb-2 block">Mindset & Business Growth</span>
+                            <h3 class="text-xl font-bold mb-3"><a href="#" class="hover:text-brand-turquoise transition">Making Time To Relax For Small Business Owners</a></h3>
+                            <p class="text-gray-600 mb-5 text-sm flex-grow line-clamp-2">Burnout is real. Here are practical ways to step away from your desk and recharge your creative batteries.</p>
+                            <a href="#" class="inline-flex items-center justify-center bg-white text-brand-blue border-2 border-brand-blue font-semibold py-2 px-6 rounded-md hover:bg-brand-blue hover:text-white transition text-sm self-start mt-auto">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-10 text-center md:hidden">
+                    <a href="#" class="inline-flex items-center justify-center bg-white border-2 border-brand-blue text-brand-blue font-semibold py-3 px-8 rounded-md hover:bg-brand-blue hover:text-white transition w-full">View All Posts &rarr;</a>
+                </div>
+                
+                <!-- Pagination Mockup -->
+                <div class="mt-16 flex justify-center space-x-2">
+                    <span class="w-10 h-10 flex items-center justify-center bg-brand-turquoise text-white rounded-md font-medium">1</span>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-white border border-gray-200 text-gray-600 rounded-md hover:border-brand-turquoise hover:text-brand-turquoise transition">2</a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-white border border-gray-200 text-gray-600 rounded-md hover:border-brand-turquoise hover:text-brand-turquoise transition">3</a>
+                    <span class="w-10 h-10 flex items-center justify-center text-gray-400">...</span>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-white border border-gray-200 text-gray-600 rounded-md hover:border-brand-turquoise hover:text-brand-turquoise transition">&raquo;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: EMAIL OPT-IN -->
+        <section class="bg-brand-blue text-white py-20">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Want simple website tips (without the overwhelm)?</h2>
+                        <p class="text-blue-100 text-lg">
+                            Get practical, easy-to-follow website and marketing tips delivered straight to your inbox. No fluff. No jargon. Just helpful guidance you can actually use.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 w-full">
+                        <form class="bg-white p-6 md:p-8 rounded-xl shadow-lg flex flex-col gap-4">
+                            <div class="flex gap-4 flex-col sm:flex-row">
+                                <input type="text" placeholder="First Name" class="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-brand-turquoise focus:ring-1 focus:ring-brand-turquoise text-gray-800" required>
+                                <input type="text" placeholder="Last Name" class="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-brand-turquoise focus:ring-1 focus:ring-brand-turquoise text-gray-800">
+                            </div>
+                            <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-brand-turquoise focus:ring-1 focus:ring-brand-turquoise text-gray-800" required>
+                            <button type="submit" class="w-full bg-brand-turquoise text-white font-bold py-4 px-6 rounded-md hover:bg-teal-700 transition mt-2 shadow-md">
+                                Send Me the Tips &rarr;
+                            </button>
+                            <p class="text-xs text-center text-gray-500 mt-2">I promise I won't spam you with emails!</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Mockup -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-2xl font-bold mb-6 text-white">Little Biz</h2>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-gray-400 hover:text-white transition">Home</a>
+                <a href="#" class="text-gray-400 hover:text-white transition">About</a>
+                <a href="#" class="text-gray-400 hover:text-white transition">Services</a>
+                <a href="#" class="text-gray-400 hover:text-white transition">Contact</a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2026 Little Biz, All Rights Reserved. <a href="#" class="underline hover:text-white">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
