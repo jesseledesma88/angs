@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Ang's Savvy Travel Guide</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables based on your brand guide */
+        :root {
+            --brand-green: #7BAA5D;
+            --brand-blue: #4A9CAF;
+            --brand-gold: #D9A343;
+            --brand-sand: #F3EFE2;
+            --brand-charcoal: #3D3E3C;
+            --brand-white: #FFFFFF;
+            
+            --font-heading: 'Open Sans', sans-serif;
+            --font-body: 'Raleway', sans-serif;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--brand-charcoal);
+            background-color: var(--brand-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .nav-logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--brand-charcoal);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--brand-charcoal);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--brand-green);
+        }
+
+        /* Layout & Containers */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .bg-sand {
+            background-color: var(--brand-sand);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--brand-white);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            color: var(--brand-green);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            position: relative;
+        }
+
+        /* Custom underline hover from your snippet */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--brand-green);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--brand-charcoal);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 6rem 1rem;
+            background: linear-gradient(to bottom, var(--brand-sand), var(--brand-white));
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--brand-green);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Two Column Layout */
+        .split-section {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .split-content {
+            flex: 1;
+        }
+
+        .split-image {
+            flex: 1;
+            background-color: var(--brand-green);
+            height: 400px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-white);
+            font-style: italic;
+        }
+
+        /* Cards Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--brand-white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--brand-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--brand-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Core Values List */
+        .values-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .values-list li {
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .values-list li::before {
+            content: '✈';
+            position: absolute;
+            left: 0;
+            color: var(--brand-green);
+            font-size: 1.2rem;
+            top: 2px;
+        }
+
+        .values-list strong {
+            color: var(--brand-green);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--brand-charcoal);
+            color: var(--brand-sand);
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--brand-white);
+                padding: 2rem;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .split-section {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <a href="/" class="nav-logo">Ang's Savvy Travel Guide</a>
+            <button class="mobile-menu-btn" id="menuBtn">☰</button>
+            <div class="nav-links" id="navLinks">
+                <a href="#">Favourite Destinations</a>
+                <a href="#">Travel Resources</a>
+                <a href="#">Blog</a>
+                <a href="#">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container reveal">
+            <h1>About Saw Lin</h1>
+            <p>Empowering seasoned travelers to organize and enjoy their holidays with seamless ease.</p>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="split-section reveal">
+            <div class="split-content">
+                <h2 style="margin-bottom: 1.5rem; font-size: 2rem;">Meet Your Guide</h2>
+                <p style="margin-bottom: 1rem; font-size: 1.1rem;">
+                    <strong>Hi! I’m Saw Lin,</strong> and I believe that the best chapters of our lives are written with a passport in hand. After decades of exploring the world, I have learned that the secret to a great trip isn’t just where you go, but how prepared you feel.
+                </p>
+                <p style="font-size: 1.1rem;">
+                    I established Ang’s Savvy Travel Guide to help seasoned travelers like you reduce the stress and get straight to the magic. Whether you’re cruising down the River Seine, chasing the Northern Lights or finding the best Nyonya food in a hidden alleyway, I’m here to make sure you have the right gear, the right plan, and the confidence to say "yes" to the next adventure.
+                </p>
+            </div>
+            <div class="split-image">
+                [ Insert Saw Lin's Photo Here ]
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-sand">
+        <div class="container reveal">
+            <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 1rem;">My Purpose</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>The Why</h3>
+                    <p>I believe every active seasoned traveller deserves a seamless enriching travel experience where quality meets value.</p>
+                </div>
+                <div class="card">
+                    <h3>My Mission</h3>
+                    <p>My mission is to empower seasoned travelers to organize and enjoy their holidays with seamless ease by sharing smart tips and modern tools vetted through my experience.</p>
+                </div>
+                <div class="card">
+                    <h3>My Vision</h3>
+                    <p>I envision a world where travel for every active matured traveller is synonymous with confidence, personal fulfillment, and the joy of discovery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container reveal">
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem; text-align: center;">Core Values</h2>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto;">These are the guiding principles that shape my travels and the community I aim to build.</p>
+        
+        <ul class="values-list" style="max-width: 800px; margin: 3rem auto 0;">
+            <li>
+                <strong>Growth</strong>
+                Prioritise lifelong learning in anything to do with technology and any tools that will make travel life easier and reduce stress.
+            </li>
+            <li>
+                <strong>Respect</strong>
+                Treat people of all cultures and gender with kindness, with the hope to foster a compassionate environment and create a positive impact on those around me.
+            </li>
+            <li>
+                <strong>Social Responsibility</strong>
+                Own my environmental impact everywhere I travel.
+            </li>
+            <li>
+                <strong>Community</strong>
+                Connect a community of seasoned travellers through shared cultural and travel experiences.
+            </li>
+        </ul>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Ang's Savvy Travel Guide. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100; // when to trigger the animation
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+    </script>
+</body>
+</html>
