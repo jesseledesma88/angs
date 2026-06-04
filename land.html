@@ -3,28 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ang's Savvy Travel Guide | Free e-Guide[cite: 1]</title>
+    <title>Ang's Savvy Travel Guide | Free e-Guide</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            green: '#7BAA5D',
-                            blue: '#4A9CAF',
-                            gold: '#D9A343',
-                            sand: '#F3EFE2',
-                            charcoal: '#3D3E3C',
+                            green: '#7BAA5D',      /* Primary/Major Color */
+                            blue: '#4A9CAF',       /* Secondary */
+                            gold: '#D9A343',       /* Secondary */
+                            sand: '#F3EFE2',       /* Background */
+                            charcoal: '#3D3E3C',   /* Text/Dark Elements */
                             white: '#FFFFFF'
                         }
                     },
@@ -36,8 +33,7 @@
             }
         }
     </script>
-
-    <!-- Custom CSS -->
+    
     <style>
         html { scroll-behavior: smooth; }
         body { 
@@ -46,6 +42,7 @@
             font-size: 18px; 
             line-height: 1.6; 
         }
+        
         .hover-lift {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -53,6 +50,19 @@
             transform: translateY(-4px);
             box-shadow: 0 12px 24px rgba(61, 62, 60, 0.12);
         }
+
+        /* Shiny Border Animation */
+        @keyframes border-spin {
+            100% { transform: rotate(360deg); }
+        }
+        .animate-border-spin {
+            animation: border-spin 2.5s linear infinite;
+        }
+        .shiny-gradient {
+            background: conic-gradient(from 0deg, transparent 75%, rgba(255, 255, 255, 1) 100%);
+        }
+
+        /* Scroll Reveal Animation Classes */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -67,187 +77,189 @@
 </head>
 <body class="font-body antialiased selection:bg-brand-green selection:text-white">
 
-    <!-- Minimal Header (Logo Only for Landing Page Focus) -->
-    <header class="w-full bg-white border-b border-gray-100 shadow-sm py-4">
+    <!-- Simple Header for Landing Page -->
+    <header class="bg-white border-b border-gray-100 shadow-sm py-5 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
-            <img src="https://jesseledesma88.github.io/angs/Main%20Logo%20-%20Landscape@2x.png" alt="Ang's Savvy Travel Guide[cite: 1]" class="h-14 w-auto object-contain">
+            <img src="https://jesseledesma88.github.io/angs/Main%20Logo%20-%20Landscape@2x.png" alt="Ang's Savvy Travel Guide Logo" class="h-14 w-auto object-contain">
         </div>
     </header>
 
-    <!-- Hero / Lead Capture Section -->
-    <section class="py-16 md:py-24 bg-brand-sand overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll is-visible">
+    <!-- Hero Section -->
+    <section class="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden bg-brand-charcoal py-20">
+        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2070&auto=format&fit=crop" alt="Travel Background - Paris Architecture" class="absolute inset-0 w-full h-full object-cover z-0 opacity-40">
+        
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="flex flex-col lg:flex-row items-center gap-16">
                 
-                <!-- Content & Form -->
-                <div class="w-full lg:w-1/2">
-                    <span class="text-brand-gold font-bold uppercase tracking-wider text-sm mb-4 block">Free Mini e-Guide[cite: 1]</span>
-                    <h1 class="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-brand-charcoal mb-6 leading-tight">
-                        How Seasoned Travellers Get More Value From Every Holiday Booking[cite: 1]
+                <!-- Left Content -->
+                <div class="w-full lg:w-7/12 text-white">
+                    <h1 class="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight">
+                        How Seasoned Travellers Get More Value From Every Holiday Booking
                     </h1>
-                    <p class="font-body text-brand-charcoal text-xl leading-relaxed mb-6 font-semibold">
-                        Discover how to extract genuine value from accommodation, transport, experiences, and dining—so every penny works harder and your holiday exceeds expectations.[cite: 1]
+                    <p class="font-body text-xl md:text-2xl mb-8 font-semibold text-brand-sand">
+                        Discover how to extract genuine value from accommodation, transport, experiences, and dining—so every penny works harder and your holiday exceeds expectations.
                     </p>
-                    <p class="font-body text-brand-charcoal text-lg mb-4">
-                        Do you feel the stress of planning and booking your holidays? Eliminate that anxiety with my free mini e-Guide. This comprehensive resource offers essential pre and post-booking insights to help you seamlessly organise every detail of your trip.[cite: 1]
+                    <p class="font-body text-lg mb-4 text-brand-sand/90">
+                        Do you feel the stress of planning and booking your holidays? Eliminate that anxiety with my free mini e-Guide. This comprehensive resource offers essential pre and post-booking insights to help you seamlessly organise every detail of your trip.
                     </p>
-                    <p class="font-body text-brand-charcoal text-lg mb-10">
-                        Beyond just planning and organisation, this guide provides practical strategies to ensure your holiday budget stretches further, providing vital support during this time of global economic inflation.[cite: 1]
+                    <p class="font-body text-lg mb-8 text-brand-sand/90">
+                        Beyond just planning and organisation, this guide provides practical strategies to ensure your holiday budget stretches further, providing vital support during this time of global economic inflation.
                     </p>
-
-                    <!-- Opt-in Form -->
-                    <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
-                        <h3 class="font-heading font-bold text-2xl text-brand-charcoal mb-2">Get Your Free e-Guide[cite: 1]</h3>
-                        <p class="text-brand-charcoal/70 mb-6">Delivered to your inbox instantly[cite: 1]</p>
+                </div>
+                
+                <!-- Right Form -->
+                <div class="w-full lg:w-5/12 reveal-on-scroll is-visible">
+                    <div class="bg-white p-8 md:p-10 rounded-[2rem] shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-2 bg-brand-green"></div>
+                        <h3 class="font-heading font-bold text-3xl text-brand-charcoal mb-2 text-center">Get Your Free e-Guide</h3>
+                        <p class="text-brand-charcoal/60 mb-8 text-center font-body">Delivered to your inbox instantly</p>
                         
-                        <form class="flex flex-col gap-4">
-                            <input type="text" placeholder="First Name[cite: 1]" required class="w-full px-6 py-4 rounded-xl font-body text-brand-charcoal focus:outline-none focus:ring-2 focus:ring-brand-green bg-brand-sand/30 border border-gray-200">
-                            <input type="email" placeholder="Email Address[cite: 1]" required class="w-full px-6 py-4 rounded-xl font-body text-brand-charcoal focus:outline-none focus:ring-2 focus:ring-brand-green bg-brand-sand/30 border border-gray-200">
-                            <button type="submit" class="w-full bg-brand-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-brand-charcoal hover:-translate-y-1 transition-all duration-300 shadow-md mt-2">
-                                Unlock My Free e-Guide[cite: 1]
+                        <form class="flex flex-col gap-5">
+                            <input type="text" placeholder="First Name" required class="w-full px-6 py-4 rounded-full font-body text-brand-charcoal focus:outline-none focus:ring-2 focus:ring-brand-green bg-brand-sand/50 border border-gray-200 shadow-inner">
+                            <input type="email" placeholder="Email Address" required class="w-full px-6 py-4 rounded-full font-body text-brand-charcoal focus:outline-none focus:ring-2 focus:ring-brand-green bg-brand-sand/50 border border-gray-200 shadow-inner">
+                            
+                            <button type="submit" class="relative inline-flex overflow-hidden rounded-full p-[2px] group hover:-translate-y-1 transition-transform duration-300 mt-2 shadow-lg">
+                                <span class="absolute inset-[-1000%] animate-border-spin shiny-gradient opacity-80 group-hover:opacity-100 transition-opacity"></span>
+                                <span class="relative flex items-center justify-center px-8 py-4 bg-brand-green text-white rounded-full font-bold text-xl w-full h-full group-hover:bg-[#6A964D] transition-colors">
+                                    Unlock My Free e-Guide
+                                </span>
                             </button>
                         </form>
-                        <p class="text-xs text-brand-charcoal/50 mt-4 text-center">We respect your privacy. Unsubscribe anytime.[cite: 1]</p>
+                        <p class="text-xs text-brand-charcoal/40 mt-6 text-center">We respect your privacy. Unsubscribe anytime.</p>
                     </div>
                 </div>
-
-                <!-- Book Graphic -->
-                <div class="w-full lg:w-1/2 flex justify-center">
-                    <div class="relative w-full max-w-md aspect-[4/5] bg-brand-charcoal rounded-3xl shadow-2xl flex flex-col items-center justify-center p-8 text-center border-4 border-brand-green/20 hover-lift group">
-                        <div class="text-6xl mb-6 group-hover:scale-110 transition-transform">📚[cite: 1]</div>
-                        <h3 class="font-heading font-bold text-2xl text-white mb-4">Your custom travel guide graphic will appear here[cite: 1]</h3>
-                        <p class="text-brand-sand/70 border border-brand-sand/30 px-6 py-2 rounded-full text-sm">Replace with your branded design[cite: 1]</p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- What This Guide Covers Grid -->
-    <section class="py-24 bg-white overflow-hidden">
+    <!-- Graphic / Visual Section -->
+    <section class="py-20 bg-brand-sand border-b border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 text-center reveal-on-scroll">
+            <div class="relative rounded-3xl shadow-2xl overflow-hidden hover-lift border-8 border-white group">
+                <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?q=80&w=1000&auto=format&fit=crop" alt="Travel Planning Map and Guide" class="w-full h-auto max-h-[450px] object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/30 to-transparent flex flex-col justify-end p-8 md:p-12 text-left">
+                    <span class="text-brand-gold font-bold uppercase tracking-wider text-sm mb-2 drop-shadow-md">Exclusive Resource</span>
+                    <h3 class="font-heading font-bold text-3xl md:text-4xl text-white mb-3 drop-shadow-lg">The Savvy Travel e-Guide</h3>
+                    <p class="text-white/90 font-body text-lg max-w-lg drop-shadow-md">Your digital companion for smarter bookings and unforgettable journeys.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What This e-Guide Covers -->
+    <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
             <div class="text-center mb-16">
-                <h2 class="font-heading font-bold text-4xl text-brand-charcoal mb-4">What This e-Guide Covers[cite: 1]</h2>
-                <div class="w-24 h-1 bg-brand-green mx-auto rounded-full"></div>
+                <h2 class="font-heading font-bold text-4xl text-brand-charcoal mb-4">What This e-Guide Covers</h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto rounded-full"></div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-brand-sand rounded-2xl p-8 border border-gray-100 hover-lift">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green mb-6 shadow-sm">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-2xl text-brand-charcoal mb-3">Pre-Booking Essentials[cite: 1]</h3>
-                    <p class="font-body text-brand-charcoal/80">Learn the critical steps to take before you book anything. Avoid the mistakes that waste money and time.[cite: 1]</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <div class="bg-brand-sand rounded-2xl p-8 hover-lift border border-gray-100">
+                    <h3 class="font-heading font-bold text-2xl text-brand-charcoal mb-4 border-b-2 border-brand-green pb-2 inline-block">Pre-Booking Essentials</h3>
+                    <p class="font-body text-brand-charcoal/80 text-lg">Learn the critical steps to take before you book anything. Avoid the mistakes that waste money and time.</p>
+                </div>
+                
+                <div class="bg-brand-sand rounded-2xl p-8 hover-lift border border-gray-100">
+                    <h3 class="font-heading font-bold text-2xl text-brand-charcoal mb-4 border-b-2 border-brand-green pb-2 inline-block">Getting Maximum Value</h3>
+                    <p class="font-body text-brand-charcoal/80 text-lg">Discover strategies to extract genuine value from every booking—flights, accommodation, experiences, and dining.</p>
+                </div>
+                
+                <div class="bg-brand-sand rounded-2xl p-8 hover-lift border border-gray-100">
+                    <h3 class="font-heading font-bold text-2xl text-brand-charcoal mb-4 border-b-2 border-brand-green pb-2 inline-block">Post-Booking Insights</h3>
+                    <p class="font-body text-brand-charcoal/80 text-lg">Understand what happens after you book. Protect your investment and prepare for a seamless experience.</p>
+                </div>
+                
+                <div class="bg-brand-sand rounded-2xl p-8 hover-lift border border-gray-100">
+                    <h3 class="font-heading font-bold text-2xl text-brand-charcoal mb-4 border-b-2 border-brand-green pb-2 inline-block">Budget Optimisation</h3>
+                    <p class="font-body text-brand-charcoal/80 text-lg">Practical tips to ensure your travel budget works harder, so you get more experience and fewer regrets.</p>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="bg-brand-sand rounded-2xl p-8 border border-gray-100 hover-lift">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-gold mb-6 shadow-sm">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-2xl text-brand-charcoal mb-3">Getting Maximum Value[cite: 1]</h3>
-                    <p class="font-body text-brand-charcoal/80">Discover strategies to extract genuine value from every booking—flights, accommodation, experiences, and dining.[cite: 1]</p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-brand-sand rounded-2xl p-8 border border-gray-100 hover-lift">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-blue mb-6 shadow-sm">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-2xl text-brand-charcoal mb-3">Post-Booking Insights[cite: 1]</h3>
-                    <p class="font-body text-brand-charcoal/80">Understand what happens after you book. Protect your investment and prepare for a seamless experience.[cite: 1]</p>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="bg-brand-sand rounded-2xl p-8 border border-gray-100 hover-lift">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green mb-6 shadow-sm">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-2xl text-brand-charcoal mb-3">Budget Optimisation[cite: 1]</h3>
-                    <p class="font-body text-brand-charcoal/80">Practical tips to ensure your travel budget works harder, so you get more experience and fewer regrets.[cite: 1]</p>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Insider Knowledge List -->
-    <section class="py-24 bg-brand-charcoal text-white overflow-hidden">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
-            <h2 class="font-heading font-bold text-3xl md:text-4xl text-center mb-12">Insider Knowledge for Seasoned Travellers[cite: 1]</h2>
-            
-            <div class="space-y-6">
-                <!-- List Items -->
-                <div class="flex items-start bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                    <span class="text-brand-green text-2xl mr-4 mt-1 font-bold">✓[cite: 1]</span>
-                    <div>
-                        <h4 class="font-heading font-bold text-xl mb-1">Accommodation Strategy[cite: 1]</h4>
-                        <p class="font-body text-brand-sand/80">How to assess real value in hotels, Airbnb, and boutique stays beyond price tags.[cite: 1]</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                    <span class="text-brand-green text-2xl mr-4 mt-1 font-bold">✓[cite: 1]</span>
-                    <div>
-                        <h4 class="font-heading font-bold text-xl mb-1">Transport Hacks[cite: 1]</h4>
-                        <p class="font-body text-brand-sand/80">Book flights and ground transport without leaving money on the table.[cite: 1]</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                    <span class="text-brand-green text-2xl mr-4 mt-1 font-bold">✓[cite: 1]</span>
-                    <div>
-                        <h4 class="font-heading font-bold text-xl mb-1">Experience Planning[cite: 1]</h4>
-                        <p class="font-body text-brand-sand/80">Select tours and activities that genuinely enrich your trip—not just fill the itinerary.[cite: 1]</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                    <span class="text-brand-green text-2xl mr-4 mt-1 font-bold">✓[cite: 1]</span>
-                    <div>
-                        <h4 class="font-heading font-bold text-xl mb-1">Dining Like a Local[cite: 1]</h4>
-                        <p class="font-body text-brand-sand/80">Find authentic restaurants where your money goes towards quality, not just atmosphere.[cite: 1]</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                    <span class="text-brand-green text-2xl mr-4 mt-1 font-bold">✓[cite: 1]</span>
-                    <div>
-                        <h4 class="font-heading font-bold text-xl mb-1">Travel Insurance Essentials[cite: 1]</h4>
-                        <p class="font-body text-brand-sand/80">Protect your investment with coverage that actually matters to seasoned travellers.[cite: 1]</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                    <span class="text-brand-green text-2xl mr-4 mt-1 font-bold">✓[cite: 1]</span>
-                    <div>
-                        <h4 class="font-heading font-bold text-xl mb-1">The Planning Checklist[cite: 1]</h4>
-                        <p class="font-body text-brand-sand/80">A step-by-step framework so you never forget a crucial detail before departure.[cite: 1]</p>
-                    </div>
-                </div>
+    <!-- Insider Knowledge Checklist -->
+    <section class="py-24 bg-brand-sand overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
+            <div class="text-center mb-16">
+                <h2 class="font-heading font-bold text-4xl text-brand-charcoal mb-4">Insider Knowledge for Seasoned Travellers</h2>
+                <div class="w-24 h-1 bg-brand-blue mx-auto rounded-full"></div>
             </div>
-            
-            <div class="mt-12 text-center">
-                 <button onclick="window.scrollTo(0,0)" class="bg-brand-green text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-brand-charcoal transition-colors shadow-lg">
-                    I'm Ready For My Free Guide
-                </button>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 max-w-5xl mx-auto">
+                
+                <div class="flex items-start bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover-lift">
+                    <span class="text-brand-green text-2xl mr-4 font-bold mt-1">✓</span>
+                    <div>
+                        <h4 class="font-heading font-bold text-xl mb-1 text-brand-charcoal">Accommodation Strategy</h4>
+                        <p class="font-body text-brand-charcoal/70">How to assess real value in hotels, Airbnb, and boutique stays beyond price tags.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover-lift">
+                    <span class="text-brand-green text-2xl mr-4 font-bold mt-1">✓</span>
+                    <div>
+                        <h4 class="font-heading font-bold text-xl mb-1 text-brand-charcoal">Transport Hacks</h4>
+                        <p class="font-body text-brand-charcoal/70">Book flights and ground transport without leaving money on the table.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover-lift">
+                    <span class="text-brand-green text-2xl mr-4 font-bold mt-1">✓</span>
+                    <div>
+                        <h4 class="font-heading font-bold text-xl mb-1 text-brand-charcoal">Experience Planning</h4>
+                        <p class="font-body text-brand-charcoal/70">Select tours and activities that genuinely enrich your trip—not just fill the itinerary.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover-lift">
+                    <span class="text-brand-green text-2xl mr-4 font-bold mt-1">✓</span>
+                    <div>
+                        <h4 class="font-heading font-bold text-xl mb-1 text-brand-charcoal">Dining Like a Local</h4>
+                        <p class="font-body text-brand-charcoal/70">Find authentic restaurants where your money goes towards quality, not just atmosphere.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover-lift">
+                    <span class="text-brand-green text-2xl mr-4 font-bold mt-1">✓</span>
+                    <div>
+                        <h4 class="font-heading font-bold text-xl mb-1 text-brand-charcoal">Travel Insurance Essentials</h4>
+                        <p class="font-body text-brand-charcoal/70">Protect your investment with coverage that actually matters to seasoned travellers.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover-lift">
+                    <span class="text-brand-green text-2xl mr-4 font-bold mt-1">✓</span>
+                    <div>
+                        <h4 class="font-heading font-bold text-xl mb-1 text-brand-charcoal">The Planning Checklist</h4>
+                        <p class="font-body text-brand-charcoal/70">A step-by-step framework so you never forget a crucial detail before departure.</p>
+                    </div>
+                </div>
+
             </div>
+
+            <div class="mt-16 text-center">
+                <button onclick="window.scrollTo(0,0)" class="bg-brand-charcoal text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-brand-green transition-colors shadow-lg">
+                   Claim Your Free Guide Now
+               </button>
+           </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-brand-charcoal pt-12 pb-8 text-brand-sand border-t border-white/5">
+    <!-- Simple Footer -->
+    <footer class="bg-brand-charcoal py-8 text-brand-sand border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-sm font-body text-brand-sand/50">
-                &copy; 2026 Ang's Savvy Travel Guide. All rights reserved.[cite: 1]
-            </p>
+            <p class="text-sm font-body text-brand-sand/50">&copy; 2026 Ang's Savvy Travel Guide. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scroll Reveal Script -->
+    <!-- Scripts -->
     <script>
+        // Scroll Reveal Observer Logic
         const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        
         const revealOptions = {
             root: null,
             threshold: 0.15,
