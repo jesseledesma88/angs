@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html class="h-full" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apextra — Australia's Go-To-Market Partner for Marketing & Sales Execution</title>
+  <meta name="description" content="Apextra helps Australian businesses grow by combining high-performance marketing with outbound sales activation. We deliver leads, qualified appointments, and reliable pipeline movement." />
+  <meta name="language" content="en" />
+  
+  <meta property="og:title" content="Apextra — Australia's Go-To-Market Partner for Marketing & Sales Execution" />
+  <meta property="og:description" content="We help Australian businesses grow by delivering consistent leads, qualified appointments, and reliable pipeline movement with marketing and sales services." />
+  <meta property="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Apextra — Australia's Go-To-Market Partner for Marketing & Sales Execution" />
+  <meta name="twitter:description" content="Combining high-performance marketing with sales activation for measurable growth and reliable business scaling." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link id="google-fonts-link" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <script src="https://kit.fontawesome.com/8e98006f77.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --card-dark: #1A0C28;
+      --gradient-1: linear-gradient(135deg, #6536FF 0%, #4E0D8A 50%, #2D0D64 100%);
+      --gradient-2: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
+      --text-white: #FFFFFF;
+      --accent-blue: #3AB8FF;
+      --accent-cyan: #4ED0FF;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --deep-purple: #14061F;
+      --card-surface: rgba(26, 12, 40, 0.6);
+      --hero-overlay: linear-gradient(180deg, rgba(36,12,56,0.82) 0%, rgba(33,11,51,0.85) 30%, rgba(20,6,31,0.95) 80%, rgba(20,6,31,1) 100%);
+      --text-subdued: rgba(255, 255, 255, 0.8);
+      --accent-lavender: #C1B7FF;
+      --midnight-purple: #14061F;
+      --section-spacing: 140px;
+      --text-soft-white: rgba(255, 255, 255, 0.85);
+      --button-padding-x: 28px;
+      --button-padding-y: 14px;
+      --font-family-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --content-max-width: 1200px;
+      --card-rounded-radius: 16px;
+      --font-family-heading: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --button-rounded-radius: 10px;
+      --button-gradient-primary: linear-gradient(135deg, #6536FF 0%, #4E0D8A 50%, #2D0D64 100%);
+      --button-gradient-secondary: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
+    }
+
+    .hovered-element {
+      outline: #3871E0 dashed 2px;
+    }
+    .clicked-element {
+      outline: #3871E0 solid 2px;
+    }
+    .clicked-code-section {
+      border: #3B82F6 solid 2px;
+    }
+  </style>
+</head>
+
+<body class="h-full bg-white">
+  <div class="frame-root">
+    <div class="frame-content">
+      <div class="[font-family:var(--font-family-body)]">
+        <div>
+          <!-- Header Section -->
+          <header id="global-header" class="code-section bg-[#14061F] shadow-lg sticky top-0 z-50 border-b border-white/10">
+            <div class="container mx-auto px-4">
+              <div class="flex items-center justify-between h-28">
+                <!-- Logo -->
+                <a href="/" class="flex-shrink-0">
+                  <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/42ac0c3d-0462-48e4-4be7-2c2a71992d00/publicContain" alt="Apextra Sales & Marketing" class="h-24 lg:h-28 py-2" />
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                  <a href="/" class="text-white hover:text-[#4ED0FF] font-[var(--font-family-heading)] font-medium transition-colors duration-200">Home</a>
+                  <a href="/about" class="text-white hover:text-[#4ED0FF] font-[var(--font-family-heading)] font-medium transition-colors duration-200">About Us</a>
+
+                  <!-- Services Dropdown -->
+                  <div class="relative group">
+                    <a href="/services" class="text-white hover:text-[#4ED0FF] font-[var(--font-family-heading)] font-medium transition-colors duration-200 flex items-center gap-1">
+                      Services
+                      <i class="fas fa-chevron-down text-xs transition-transform duration-200 group-hover:rotate-180"></i>
+                    </a>
+                    <div class="absolute top-full left-0 mt-2 w-56 bg-[#1A0C28] border border-white/10 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+                      <a href="/marketing-components" class="block px-6 py-3 text-white hover:text-[#4ED0FF] hover:bg-white/5 font-[var(--font-family-heading)] font-medium transition-colors duration-200">Marketing</a>
+                      <a href="/sales-components" class="block px-6 py-3 text-white hover:text-[#4ED0FF] hover:bg-white/5 font-[var(--font-family-heading)] font-medium transition-colors duration-200">Sales</a>
+                      <a href="/optimisation-components" class="block px-6 py-3 text-white hover:text-[#4ED0FF] hover:bg-white/5 font-[var(--font-family-heading)] font-medium transition-colors duration-200">Optimisation</a>
+                    </div>
+                  </div>
+
+                  <a href="/careers" class="text-white hover:text-[#4ED0FF] font-[var(--font-family-heading)] font-medium transition-colors duration-200">Careers</a>
+                  <a href="/contact" class="text-white hover:text-[#4ED0FF] font-[var(--font-family-heading)] font-medium transition-colors duration-200">Contact</a>
+                  <a href="/book-consultation" class="bg-gradient-to-r from-[#D946EF] to-[#A855F7] text-white px-6 py-3 rounded-[var(--button-rounded-radius)] hover:brightness-110 hover:scale-105 transition-all duration-200 font-[var(--font-family-heading)] font-semibold shadow-lg">Book a Call</a>
+                </nav>
+
+                <!-- Mobile Menu Toggle -->
+                <button data-landingsite-mobile-menu-toggle="" class="lg:hidden text-white focus:outline-none">
+                  <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+                </button>
+              </div>
+
+              <!-- Mobile Navigation -->
+              <nav data-landingsite-mobile-menu="" class="hidden lg:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                  <a href="/" class="text-white hover:text-[#4ED0FF] font-[var(--font-family-heading)] font-medium py-2 transition-colors duration-200">Home</a>
+                  <a href="/about" class="text-white hover:text-[#4ED0FF] font-[var(--font-family-heading)] font-medium py-2 transition-colors duration-200">About Us</a>
+                  <a href="/services" class="text-white hover:text-[#4ED0FF] font-[var(--font-family-heading)] font-medium py-2 transition-colors duration-200">Services</a>
+                  <a href="/marketing-components" class="text-white hover:text-[#4ED0FF] font-[var(--font-family-heading)] font-medium py-2 pl-4 transition-colors duration-200">• Marketing</a>
+                  <a href="/sales-components" class="text-white hover:text-[#4ED0FF] font-[var(--font-family-heading)] font-medium py-2 pl-4 transition-colors duration-200">• Sales</a>
+                  <a href="/optimisation-components" class="text-white hover:text-[#4ED0FF] font-[var(--font-family-heading)] font-medium py-2 pl-4 transition-colors duration-200">• Optimisation</a>
+                  <a href="/careers" class="text-white hover:text-[#4ED0FF] font-[var(--font-family-heading)] font-medium py-2 transition-colors duration-200">Careers</a>
+                  <a href="/contact" class="text-white hover:text-[#4ED0FF] font-[var(--font-family-heading)] font-medium py-2 transition-colors duration-200">Contact</a>
+                  <a href="/book-consultation" class="bg-gradient-to-r from-[#D946EF] to-[#A855F7] text-white px-6 py-3 rounded-[var(--button-rounded-radius)] hover:brightness-110 transition-all duration-200 font-[var(--font-family-heading)] font-semibold text-center shadow-lg">Book a Call</a>
+                </div>
+              </nav>
+            </div>
+          </header>
+        </div>
+
+        <div>
+          <!-- Hero Section -->
+          <section class="code-section relative bg-gradient-to-br from-[#14061F] via-[#1A0C28] to-[#2D0D64] text-white py-20 lg:py-32 overflow-hidden" id="s7vem">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 opacity-20">
+              <div class="absolute top-20 right-20 w-96 h-96 bg-[#6536FF] rounded-full blur-3xl"></div>
+              <div class="absolute bottom-20 left-20 w-96 h-96 bg-[#8E2DE2] rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10">
+              <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="text-center lg:text-left">
+                  <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-[var(--font-family-heading)] mb-6 leading-tight tracking-tight text-white">
+                    We Scale Your Sales — Without the Stress
+                  </h1>
+                  <p class="text-xl sm:text-2xl mb-6 leading-relaxed font-[var(--font-family-body)] font-normal" style="color: rgba(255, 255, 255, 0.85);">
+                    Apextra is your outsourced growth partner, combining AI-led marketing
+                    and human sales teams to generate demand, fill calendars and help
+                    close more of the right deals.
+                  </p>
+
+                  <!-- Bullets -->
+                  <ul class="space-y-3 mb-8 text-left">
+                    <li class="flex items-start">
+                      <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 flex-shrink-0 text-xl" aria-hidden="true"></i>
+                      <span class="text-lg font-[var(--font-family-body)] font-normal" style="color: rgba(255, 255, 255, 0.85);">
+                        <strong class="text-white">Marketing:</strong> Data-driven PPC,
+                        LinkedIn and database reactivation campaigns that attract ideal
+                        B2B and B2C customers.
+                      </span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 flex-shrink-0 text-xl" aria-hidden="true"></i>
+                      <span class="text-lg font-[var(--font-family-body)] font-normal" style="color: rgba(255, 255, 255, 0.85);">
+                        <strong class="text-white">Sales:</strong> Fully managed SDR and
+                        Sales Closer teams you don't have to hire, train or manage.
+                      </span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 flex-shrink-0 text-xl" aria-hidden="true"></i>
+                      <span class="text-lg font-[var(--font-family-body)] font-normal" style="color: rgba(255, 255, 255, 0.85);">
+                        <strong class="text-white">Optimisation:</strong> AI-assisted
+                        coaching, compliance and ongoing optimisation across every
+                        campaign.
+                      </span>
+                    </li>
+                  </ul>
+
+                  <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="/contact" class="bg-gradient-to-r from-[#D946EF] to-[#A855F7] text-white px-8 py-4 rounded-lg hover:brightness-110 hover:scale-105 transition-all duration-200 font-[var(--font-family-heading)] font-semibold text-lg shadow-xl">
+                      Book a Call
+                    </a>
+                  </div>
+                  <p class="text-sm mt-4 italic font-[var(--font-family-body)] font-normal" style="color: rgba(255, 255, 255, 0.7);">
+                    No hard pitch - we'll map your ideal go-to-market strategy and show
+                    you what's possible.
+                  </p>
+                </div>
+
+                <!-- Right Image -->
+                <div class="hidden lg:block">
+                  <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#6536FF] to-[#8E2DE2] rounded-2xl blur-2xl opacity-40"></div>
+                    <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/77390cc7-c878-4cac-2ed1-c6ee66cbb800/public" alt="Digital Marketing development and goals strategy.Attract organic traffic for big sales. Digital marketing for promotion of products with social media, email, website and channel search engine" class="relative rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Wave -->
+            <div class="absolute bottom-0 left-0 right-0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full">
+                <path fill="#14061F" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+              </svg>
+            </div>
+          </section>
+
+          <!-- Platforms Section -->
+          <section class="code-section bg-[#14061F] py-8" id="s6jsg6">
+            <div class="container mx-auto px-4">
+              <div class="text-center mb-8">
+                <p class="font-[var(--font-family-heading)] text-sm uppercase tracking-wider font-semibold" style="color: rgba(255, 255, 255, 0.6);">
+                  TRUSTED PLATFORMS WE BUILD ON
+                </p>
+              </div>
+
+              <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-10 gap-6 items-center justify-items-center">
+                <div class="transition-all duration-300 opacity-70 hover:opacity-100"><i class="fab fa-google text-5xl text-white" aria-hidden="true"></i></div>
+                <div class="transition-all duration-300 opacity-70 hover:opacity-100"><i class="fab fa-meta text-5xl text-white" aria-hidden="true"></i></div>
+                <div class="transition-all duration-300 opacity-70 hover:opacity-100"><i class="fab fa-linkedin text-5xl text-white" aria-hidden="true"></i></div>
+                <div class="transition-all duration-300 opacity-70 hover:opacity-100"><i class="fab fa-wordpress text-5xl text-white" aria-hidden="true"></i></div>
+                <div class="transition-all duration-300 opacity-70 hover:opacity-100"><i class="fab fa-stripe text-5xl text-white" aria-hidden="true"></i></div>
+                <div class="transition-all duration-300 opacity-70 hover:opacity-100"><i class="fas fa-robot text-5xl text-white" aria-hidden="true"></i></div>
+                <div class="transition-all duration-300 opacity-70 hover:opacity-100"><i class="fas fa-sms text-5xl text-white" aria-hidden="true"></i></div>
+                <div class="transition-all duration-300 opacity-70 hover:opacity-100"><i class="fab fa-tiktok text-5xl text-white" aria-hidden="true"></i></div>
+                <div class="transition-all duration-300 opacity-70 hover:opacity-100"><i class="fas fa-bolt text-5xl text-white" aria-hidden="true"></i></div>
+                <div class="transition-all duration-300 opacity-70 hover:opacity-100"><i class="fas fa-database text-5xl text-white" aria-hidden="true"></i></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Our Approach Section -->
+          <section class="code-section bg-[#14061F] py-20 lg:py-32 relative overflow-hidden" id="sst185b">
+            <div class="absolute inset-0 opacity-20">
+              <div class="absolute top-20 left-10 w-72 h-72 bg-[#6536FF] rounded-full mix-blend-multiply filter blur-3xl" style="animation: blob 7s infinite;"></div>
+              <div class="absolute top-40 right-10 w-72 h-72 bg-[#3AB8FF] rounded-full mix-blend-multiply filter blur-3xl" style="animation: blob 7s infinite 2s;"></div>
+              <div class="absolute bottom-20 left-1/2 w-72 h-72 bg-[#8E2DE2] rounded-full mix-blend-multiply filter blur-3xl" style="animation: blob 7s infinite 4s;"></div>
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10">
+              <div class="text-center mb-16 relative z-10">
+                <p class="text-sm uppercase tracking-widest mb-4 font-[var(--font-family-body)] font-medium" style="color: rgba(255, 255, 255, 0.6);">
+                  OUR APPROACH
+                </p>
+                <h2 class="text-4xl lg:text-6xl font-bold font-[var(--font-family-heading)] text-white mb-6 tracking-tight">
+                  How We Scale Your Business
+                </h2>
+                <p class="text-lg font-[var(--font-family-body)] font-normal max-w-3xl mx-auto leading-relaxed" style="color: rgba(255, 255, 255, 0.85);">
+                  Our work is built around three pillars that plug together as one system:
+                  <strong class="bg-gradient-to-r from-[#6536FF] via-[#8E2DE2] to-[#3AB8FF] text-transparent bg-clip-text">Marketing, Sales and Optimisation</strong>. You can tap into one, or plug in all three for a fully managed growth
+                  engine.
+                </p>
+              </div>
+
+              <!-- Three Pillars Grid -->
+              <div class="grid lg:grid-cols-3 gap-8 lg:gap-6 mb-12">
+                <!-- Pillar 1: Marketing -->
+                <div class="group bg-[#1A0C28] backdrop-blur-xl rounded-3xl shadow-2xl p-8 lg:p-10 hover:shadow-[0_0_60px_rgba(101,54,255,0.5)] transition-all duration-500 border border-white/10 hover:border-[#6536FF]/50 flex flex-col relative overflow-hidden hover:-translate-y-3">
+                  <div class="absolute inset-0 bg-gradient-to-br from-[#6536FF]/0 to-[#6536FF]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div class="relative z-10 flex flex-col h-full">
+                    <div class="flex items-center mb-8">
+                      <div class="bg-gradient-to-br from-[#6536FF] to-[#4E0D8A] p-5 rounded-2xl mr-5 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                        <i class="fas fa-bullhorn text-4xl text-white" aria-hidden="true"></i>
+                      </div>
+                      <div>
+                        <h3 class="text-3xl font-bold font-[var(--font-family-heading)] text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#6536FF] group-hover:to-[#3AB8FF] group-hover:bg-clip-text transition-all duration-300">
+                          Marketing
+                        </h3>
+                        <div class="h-1 w-16 bg-gradient-to-r from-[#6536FF] to-[#3AB8FF] rounded-full mt-2 group-hover:w-24 transition-all duration-500"></div>
+                      </div>
+                    </div>
+                    <p class="text-white font-[var(--font-family-body)] font-normal mb-8 text-lg leading-relaxed">
+                      Attract the right customers and warm them up for sales.
+                    </p>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">PPC management across Google, Meta and other key channels</span>
+                      </li>
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">High-converting landing pages and microsites</span>
+                      </li>
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">LinkedIn outreach and nurture campaigns</span>
+                      </li>
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">Database Reactivation (DBR) to revive warm and lapsed leads</span>
+                      </li>
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">Local SEO and review-generation to build your online reputation</span>
+                      </li>
+                    </ul>
+                    <div class="border-t border-white/10 pt-6 mb-6">
+                      <p class="text-[#C1B7FF] font-[var(--font-family-body)] font-medium italic text-base flex items-center">
+                        <i class="fas fa-quote-left text-sm mr-2 opacity-50" aria-hidden="true"></i>
+                        Attract the right people, not just more clicks.
+                      </p>
+                    </div>
+                    <a href="/marketing-components" class="inline-block bg-gradient-to-r from-[#6536FF] via-[#4E0D8A] to-[#2D0D64] text-white px-8 py-4 rounded-xl hover:brightness-110 hover:shadow-[0_0_30px_rgba(101,54,255,0.6)] transition-all duration-300 font-[var(--font-family-heading)] font-semibold w-full text-center mt-auto group-hover:scale-105">
+                      View Marketing <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Pillar 2: Sales -->
+                <div class="group bg-[#1A0C28] backdrop-blur-xl rounded-3xl shadow-2xl p-8 lg:p-10 hover:shadow-[0_0_60px_rgba(142,45,226,0.5)] transition-all duration-500 border border-white/10 hover:border-[#8E2DE2]/50 flex flex-col relative overflow-hidden hover:-translate-y-3">
+                  <div class="absolute inset-0 bg-gradient-to-br from-[#8E2DE2]/0 to-[#8E2DE2]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div class="relative z-10 flex flex-col h-full">
+                    <div class="flex items-center mb-8">
+                      <div class="bg-gradient-to-br from-[#4A00E0] to-[#8E2DE2] p-5 rounded-2xl mr-5 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                        <i class="fas fa-phone-volume text-4xl text-white" aria-hidden="true"></i>
+                      </div>
+                      <div>
+                        <h3 class="text-3xl font-bold font-[var(--font-family-heading)] text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#8E2DE2] group-hover:to-[#C1B7FF] group-hover:bg-clip-text transition-all duration-300">
+                          Sales
+                        </h3>
+                        <div class="h-1 w-16 bg-gradient-to-r from-[#8E2DE2] to-[#C1B7FF] rounded-full mt-2 group-hover:w-24 transition-all duration-500"></div>
+                      </div>
+                    </div>
+                    <p class="text-white font-[var(--font-family-body)] font-normal mb-8 text-lg leading-relaxed">
+                      Turn qualified demand into booked meetings and new customers.
+                    </p>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">SDRs and Sales Closers for inbound and outbound campaigns</span>
+                      </li>
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">Outbound phone, SMS and email sequences that follow up every lead</span>
+                      </li>
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">Lead qualification and routing for B2B and B2C opportunities</span>
+                      </li>
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">Appointment setting, reminders and rescheduling to keep calendars full</span>
+                      </li>
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">Door-to-door teams for targeted field campaigns</span>
+                      </li>
+                    </ul>
+                    <div class="border-t border-white/10 pt-6 mb-6">
+                      <p class="text-[#C1B7FF] font-[var(--font-family-body)] font-medium italic text-base flex items-center">
+                        <i class="fas fa-quote-left text-sm mr-2 opacity-50" aria-hidden="true"></i>
+                        Every lead actioned. Every opportunity converted.
+                      </p>
+                    </div>
+                    <a href="/sales-components" class="inline-block bg-gradient-to-r from-[#4A00E0] to-[#8E2DE2] text-white px-8 py-4 rounded-xl hover:brightness-110 hover:shadow-[0_0_30px_rgba(142,45,226,0.6)] transition-all duration-300 font-[var(--font-family-heading)] font-semibold w-full text-center mt-auto group-hover:scale-105">
+                      View Sales <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Pillar 3: Optimisation -->
+                <div class="group bg-[#1A0C28] backdrop-blur-xl rounded-3xl shadow-2xl p-8 lg:p-10 hover:shadow-[0_0_60px_rgba(58,184,255,0.5)] transition-all duration-500 border border-white/10 hover:border-[#3AB8FF]/50 flex flex-col relative overflow-hidden hover:-translate-y-3">
+                  <div class="absolute inset-0 bg-gradient-to-br from-[#3AB8FF]/0 to-[#3AB8FF]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div class="relative z-10 flex flex-col h-full">
+                    <div class="flex items-center mb-8">
+                      <div class="bg-gradient-to-br from-[#3AB8FF] to-[#4ED0FF] p-5 rounded-2xl mr-5 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                        <i class="fas fa-gear text-4xl text-white" aria-hidden="true"></i>
+                      </div>
+                      <div>
+                        <h3 class="text-3xl font-bold font-[var(--font-family-heading)] text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#3AB8FF] group-hover:to-[#4ED0FF] group-hover:bg-clip-text transition-all duration-300">
+                          Optimisation &amp; AI
+                        </h3>
+                        <div class="h-1 w-16 bg-gradient-to-r from-[#3AB8FF] to-[#4ED0FF] rounded-full mt-2 group-hover:w-24 transition-all duration-500"></div>
+                      </div>
+                    </div>
+                    <p class="text-white font-[var(--font-family-body)] font-normal mb-8 text-lg leading-relaxed">
+                      Make every campaign smarter, safer and more profitable over time
+                      using AI-powered systems and continuous optimisation.
+                    </p>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">AI agents for qualification, FAQs and appointment handling</span>
+                      </li>
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">AI-powered sales call review &amp; performance coaching</span>
+                      </li>
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">Quality assurance, compliance &amp; script adherence</span>
+                      </li>
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">Automation for follow-up, lead routing &amp; lifecycle workflows</span>
+                      </li>
+                      <li class="flex items-start group/item">
+                        <i class="fas fa-check-circle text-[#4ED0FF] mt-1 mr-3 text-lg group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true"></i>
+                        <span class="font-[var(--font-family-body)] font-normal group-hover/item:text-white transition-colors duration-300" style="color: rgba(255, 255, 255, 0.85);">Continuous optimisation across all marketing &amp; sales campaigns</span>
+                      </li>
+                    </ul>
+                    <div class="border-t border-white/10 pt-6 mb-6">
+                      <p class="text-[#C1B7FF] font-[var(--font-family-body)] font-medium italic text-base flex items-center">
+                        <i class="fas fa-quote-left text-sm mr-2 opacity-50" aria-hidden="true"></i>
+                        Your revenue engine — smarter every day.
+                      </p>
+                    </div>
+                    <a href="/optimisation-components" class="inline-block bg-gradient-to-r from-[#3AB8FF] to-[#4ED0FF] text-white px-8 py-4 rounded-xl hover:brightness-110 hover:shadow-[0_0_30px_rgba(58,184,255,0.6)] transition-all duration-300 font-[var(--font-family-heading)] font-semibold w-full text-center mt-auto group-hover:scale-105">
+                      View Optimisation <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Industries Section -->
+          <section class="code-section bg-[#14061F] py-20" id="sqekq3h">
+            <div class="container mx-auto px-4">
+              <div class="text-center mb-16">
+                <p class="text-sm uppercase tracking-widest text-[#4ED0FF] mb-4 font-[var(--font-family-body)] font-medium">
+                  TRUSTED ACROSS INDUSTRIES
+                </p>
+                <h2 class="text-4xl lg:text-5xl font-bold font-[var(--font-family-heading)] text-white mb-6 tracking-tight">
+                  Industries We Support
+                </h2>
+                <p class="text-lg text-white/80 font-[var(--font-family-body)] font-normal max-w-3xl mx-auto mb-8 leading-relaxed">
+                  Proven experience delivering results across regulated and
+                  relationship-driven sectors.
+                </p>
+              </div>
+
+              <!-- Industries Grid -->
+              <div class="max-w-6xl mx-auto">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                  <!-- Property, Conveyancing & Finance -->
+                  <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl shadow-2xl hover:shadow-[0_0_30px_rgba(101,54,255,0.3)] transition-all duration-300 transform hover:-translate-y-2 border border-white/10 hover:border-[#6536FF]">
+                    <div class="bg-gradient-to-br from-[#6536FF] via-[#4E0D8A] to-[#2D0D64] w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                      <i class="fas fa-home text-3xl text-white" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold font-[var(--font-family-heading)] text-white mb-2">
+                      Property, Conveyancing &amp; Finance
+                    </h3>
+                    <p class="text-sm text-[#B8A4FF] font-[var(--font-family-body)] font-normal italic">
+                      Compliance-ready outreach &amp; appointment setting
+                    </p>
+                  </div>
+
+                  <!-- Legal & Professional Services -->
+                  <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl shadow-2xl hover:shadow-[0_0_30px_rgba(78,208,255,0.3)] transition-all duration-300 transform hover:-translate-y-2 border border-white/10 hover:border-[#4ED0FF]">
+                    <div class="bg-gradient-to-br from-[#4ED0FF] to-[#00B8D4] w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                      <i class="fas fa-balance-scale text-3xl text-white" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold font-[var(--font-family-heading)] text-white mb-2">
+                      Legal &amp; Professional Services
+                    </h3>
+                    <p class="text-sm text-[#4ED0FF] font-[var(--font-family-body)] font-normal italic">
+                      Trust-building growth &amp; regulated lead handling
+                    </p>
+                  </div>
+
+                  <!-- Clinics & Healthcare -->
+                  <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl shadow-2xl hover:shadow-[0_0_30px_rgba(184,164,255,0.3)] transition-all duration-300 transform hover:-translate-y-2 border border-white/10 hover:border-[#B8A4FF]">
+                    <div class="bg-gradient-to-br from-[#B8A4FF] to-[#6536FF] w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                      <i class="fas fa-heartbeat text-3xl text-white" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold font-[var(--font-family-heading)] text-white mb-2">
+                      Clinics &amp; Healthcare
+                    </h3>
+                    <p class="text-sm text-[#B8A4FF] font-[var(--font-family-body)] font-normal italic">
+                      AHPRA-compliant acquisition &amp; follow-up
+                    </p>
+                  </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+                  <!-- Solar, Utilities & Home Improvement -->
+                  <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl shadow-2xl hover:shadow-[0_0_30px_rgba(78,208,255,0.3)] transition-all duration-300 transform hover:-translate-y-2 border border-white/10 hover:border-[#4ED0FF]">
+                    <div class="bg-gradient-to-br from-[#4ED0FF] to-[#00B8D4] w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                      <i class="fas fa-solar-panel text-3xl text-white" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold font-[var(--font-family-heading)] text-white mb-2">
+                      Solar, Utilities &amp; Home Improvement
+                    </h3>
+                    <p class="text-sm text-[#4ED0FF] font-[var(--font-family-body)] font-normal italic">
+                      Inbound demand &amp; outbound appointment setting
+                    </p>
+                  </div>
+
+                  <!-- Charity & Fundraising -->
+                  <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl shadow-2xl hover:shadow-[0_0_30px_rgba(101,54,255,0.3)] transition-all duration-300 transform hover:-translate-y-2 border border-white/10 hover:border-[#6536FF]">
+                    <div class="bg-gradient-to-br from-[#6536FF] to-[#4ED0FF] w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                      <i class="fas fa-hand-holding-heart text-3xl text-white" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold font-[var(--font-family-heading)] text-white mb-2">
+                      Charity &amp; Fundraising (D2D)
+                    </h3>
+                    <p class="text-sm text-[#B8A4FF] font-[var(--font-family-body)] font-normal italic">
+                      Values-led donor acquisition teams
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA Button -->
+              <div class="text-center">
+                <a href="/contact" class="inline-block bg-gradient-to-r from-[#D946EF] to-[#A855F7] text-white px-8 py-4 rounded-lg hover:brightness-110 hover:scale-105 transition-all duration-200 font-[var(--font-family-heading)] font-semibold text-lg shadow-xl">
+                  Book a Call
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <!-- Why Choose Us -->
+          <section class="code-section bg-[#1A0C28] text-white py-20 relative overflow-hidden" id="sxq31">
+            <div class="absolute inset-0">
+              <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/d2b02018-dd8c-45d1-04f7-dfb80bc6ab00/public" alt="Digital Marketing development and goals strategy" class="w-full h-full object-cover opacity-5" />
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10">
+              <div class="text-center mb-16">
+                <p class="text-sm uppercase tracking-widest text-[#4ED0FF] mb-4 font-[var(--font-family-body)] font-medium">
+                  WHY CHOOSE US
+                </p>
+                <h2 class="text-4xl lg:text-5xl font-bold font-[var(--font-family-heading)] text-white mb-6 leading-tight tracking-tight">
+                  Why Australian Businesses Choose Apextra
+                </h2>
+              </div>
+
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-xl hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-[#6536FF]">
+                  <h3 class="text-2xl font-semibold font-[var(--font-family-heading)] mb-3 text-white">Australian-Based Team</h3>
+                  <p class="text-white/80 font-[var(--font-family-body)] font-normal text-lg leading-relaxed">
+                    Local operators, local hours and real accountability. Your leads are handled by professionals who understand your market.
+                  </p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-xl hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-[#B8A4FF]">
+                  <h3 class="text-2xl font-semibold font-[var(--font-family-heading)] mb-3 text-white">Full-Funnel Capability</h3>
+                  <p class="text-white/80 font-[var(--font-family-body)] font-normal text-lg leading-relaxed">
+                    We build and operate your entire growth engine — from demand generation to outbound activation to AI-powered optimisation.
+                  </p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-xl hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-[#4ED0FF]">
+                  <h3 class="text-2xl font-semibold font-[var(--font-family-heading)] mb-3 text-white">Execution Over Complexity</h3>
+                  <p class="text-white/80 font-[var(--font-family-body)] font-normal text-lg leading-relaxed">
+                    We don't just advise — we implement, optimise and operate your full marketing and sales system for you.
+                  </p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-xl hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-[#6536FF]">
+                  <h3 class="text-2xl font-semibold font-[var(--font-family-heading)] mb-3 text-white">Clarity &amp; Transparency</h3>
+                  <p class="text-white/80 font-[var(--font-family-body)] font-normal text-lg leading-relaxed">
+                    Clear reporting, activity metrics and dashboards so you always know what's happening across your pipeline.
+                  </p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-xl hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-[#B8A4FF]">
+                  <h3 class="text-2xl font-semibold font-[var(--font-family-heading)] mb-3 text-white">Compliance-Focused</h3>
+                  <p class="text-white/80 font-[var(--font-family-body)] font-normal text-lg leading-relaxed">
+                    Experience operating in regulated industries including property, conveyancing, finance, legal and healthcare.
+                  </p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-xl hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-[#4ED0FF]">
+                  <h3 class="text-2xl font-semibold font-[var(--font-family-heading)] mb-3 text-white">Flexible &amp; Scalable</h3>
+                  <p class="text-white/80 font-[var(--font-family-body)] font-normal text-lg leading-relaxed">
+                    Grow your marketing or sales capacity without hiring internally or expanding headcount.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Our Commitments -->
+          <section class="code-section bg-[#14061F] py-20 relative" id="sb8ny">
+            <div class="container mx-auto px-4">
+              <div class="text-center mb-12">
+                <p class="text-sm uppercase tracking-widest text-[#4ED0FF] mb-4 font-[var(--font-family-body)] font-medium">
+                  OUR COMMITMENTS
+                </p>
+                <h2 class="text-4xl lg:text-5xl font-bold font-[var(--font-family-heading)] text-white mb-6 tracking-tight">
+                  What You Can Expect From Apextra
+                </h2>
+              </div>
+
+              <div class="max-w-4xl mx-auto bg-white/5 backdrop-blur-md p-8 lg:p-12 rounded-xl border border-white/10 shadow-2xl">
+                <ul class="space-y-6">
+                  <li class="flex items-start border-b border-white/10 pb-6 last:border-b-0 last:pb-0">
+                    <div class="mr-4 mt-1 flex-shrink-0"><div class="w-2 h-2 rounded-full bg-gradient-to-r from-[#6536FF] to-[#B8A4FF]"></div></div>
+                    <div>
+                      <h3 class="text-xl font-semibold font-[var(--font-family-heading)] text-white mb-2">Same-Day Lead Follow-Up</h3>
+                      <p class="text-white/80 font-[var(--font-family-body)] font-normal leading-relaxed">We action all inbound leads and tasks within agreed SLAs.</p>
+                    </div>
+                  </li>
+
+                  <li class="flex items-start border-b border-white/10 pb-6 last:border-b-0 last:pb-0">
+                    <div class="mr-4 mt-1 flex-shrink-0"><div class="w-2 h-2 rounded-full bg-gradient-to-r from-[#B8A4FF] to-[#6536FF]"></div></div>
+                    <div>
+                      <h3 class="text-xl font-semibold font-[var(--font-family-heading)] text-white mb-2">100% Pipeline Coverage</h3>
+                      <p class="text-white/80 font-[var(--font-family-body)] font-normal leading-relaxed">Every lead is contacted and nurtured — nothing is left untouched.</p>
+                    </div>
+                  </li>
+
+                  <li class="flex items-start border-b border-white/10 pb-6 last:border-b-0 last:pb-0">
+                    <div class="mr-4 mt-1 flex-shrink-0"><div class="w-2 h-2 rounded-full bg-gradient-to-r from-[#4ED0FF] to-[#00B8D4]"></div></div>
+                    <div>
+                      <h3 class="text-xl font-semibold font-[var(--font-family-heading)] text-white mb-2">Transparent Reporting</h3>
+                      <p class="text-white/80 font-[var(--font-family-body)] font-normal leading-relaxed">You'll always know what's happening inside your marketing and sales engine.</p>
+                    </div>
+                  </li>
+
+                  <li class="flex items-start border-b border-white/10 pb-6 last:border-b-0 last:pb-0">
+                    <div class="mr-4 mt-1 flex-shrink-0"><div class="w-2 h-2 rounded-full bg-gradient-to-r from-[#6536FF] to-[#4ED0FF]"></div></div>
+                    <div>
+                      <h3 class="text-xl font-semibold font-[var(--font-family-heading)] text-white mb-2">Structured Outbound Execution</h3>
+                      <p class="text-white/80 font-[var(--font-family-body)] font-normal leading-relaxed">Every campaign uses approved scripts, workflows and compliance-based messaging.</p>
+                    </div>
+                  </li>
+
+                  <li class="flex items-start border-b border-white/10 pb-6 last:border-b-0 last:pb-0">
+                    <div class="mr-4 mt-1 flex-shrink-0"><div class="w-2 h-2 rounded-full bg-gradient-to-r from-[#B8A4FF] to-[#4ED0FF]"></div></div>
+                    <div>
+                      <h3 class="text-xl font-semibold font-[var(--font-family-heading)] text-white mb-2">Consistent Daily Activity</h3>
+                      <p class="text-white/80 font-[var(--font-family-body)] font-normal leading-relaxed">Our team delivers predictable, measurable outbound touches across all channels.</p>
+                    </div>
+                  </li>
+
+                  <li class="flex items-start">
+                    <div class="mr-4 mt-1 flex-shrink-0"><div class="w-2 h-2 rounded-full bg-gradient-to-r from-[#4ED0FF] to-[#6536FF]"></div></div>
+                    <div>
+                      <h3 class="text-xl font-semibold font-[var(--font-family-heading)] text-white mb-2">GTM-Aligned Messaging</h3>
+                      <p class="text-white/80 font-[var(--font-family-body)] font-normal leading-relaxed">Your marketing and sales communications stay consistent across the funnel.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Client Success Stories -->
+          <section class="code-section bg-gradient-to-br from-[#14061F] via-[#1A0C28] to-[#14061F] py-24 relative overflow-hidden" id="sors31n">
+            <div class="absolute inset-0 opacity-10">
+              <div class="absolute top-20 left-20 w-72 h-72 bg-[#6536FF] rounded-full blur-3xl animate-pulse"></div>
+              <div class="absolute bottom-20 right-20 w-96 h-96 bg-[#B8A4FF] rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10">
+              <div class="text-center mb-20">
+                <div class="inline-block mb-6">
+                  <span class="bg-gradient-to-r from-[#6536FF] to-[#B8A4FF] text-white px-6 py-2 rounded-full text-sm font-[var(--font-family-heading)] font-semibold uppercase tracking-wider shadow-lg">
+                    CLIENT SUCCESS STORIES
+                  </span>
+                </div>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-[var(--font-family-heading)] text-white mb-6 tracking-tight leading-tight">
+                  What Our Clients Say
+                </h2>
+                <div class="flex items-center justify-center gap-2 text-[#4ED0FF]">
+                  <i class="fas fa-star text-xl" aria-hidden="true"></i>
+                  <i class="fas fa-star text-xl" aria-hidden="true"></i>
+                  <i class="fas fa-star text-xl" aria-hidden="true"></i>
+                  <i class="fas fa-star text-xl" aria-hidden="true"></i>
+                  <i class="fas fa-star text-xl" aria-hidden="true"></i>
+                  <span class="ml-2 text-white font-[var(--font-family-body)] font-medium">5.0 Client Rating</span>
+                </div>
+              </div>
+
+              <!-- Carousel -->
+              <div class="relative max-w-6xl mx-auto">
+                <div class="overflow-hidden rounded-3xl">
+                  <div class="flex transition-transform duration-500 ease-in-out" data-landingsite-carousel="" style="transform: translateX(0px);">
+                    
+                    <!-- Testimonial 1 -->
+                    <div class="relative flex w-full flex-shrink-0 group" data-landingsite-carousel-item="">
+                      <div class="w-full bg-white/5 backdrop-blur-xl p-10 lg:p-16 rounded-3xl border-2 border-[#6536FF]/30 shadow-2xl hover:border-[#6536FF] transition-all duration-300 hover:shadow-[0_0_50px_rgba(101,54,255,0.5)]">
+                        <div class="absolute top-8 right-8 bg-gradient-to-br from-[#6536FF] to-[#B8A4FF] w-16 h-16 rounded-2xl flex items-center justify-center opacity-20 rotate-12">
+                          <i class="fas fa-quote-right text-3xl text-white" aria-hidden="true"></i>
+                        </div>
+                        <p class="text-white font-[var(--font-family-body)] font-normal text-xl lg:text-2xl leading-relaxed mb-10 relative z-10">
+                          "Apextra has had a huge impact on our business. Before working
+                          with them, we weren't making the most of the database we'd built
+                          over the years. Apextra ran a full DBR campaign and helped us
+                          reactivate old conversations. They also helped us lift our
+                          reviews and strengthen our online presence, which has improved
+                          the quality of our enquiries. The systems and follow-up
+                          processes Apextra put in place have brought consistency to our
+                          pipeline.
+                          <br /><br /> Would highly recommend working with the Apextra Team."
+                        </p>
+                        <div class="flex items-center pt-6 border-t border-[#6536FF]/20">
+                          <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-[#6536FF] to-[#B8A4FF] rounded-full blur-md opacity-50"></div>
+                            <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/8de98c2d-0ad5-40ea-35bb-6f035ede4700/public" alt="Darren Law" class="w-16 h-16 rounded-full object-cover mr-5 relative border-2 border-[#6536FF]" />
+                          </div>
+                          <div>
+                            <p class="text-white font-[var(--font-family-heading)] font-bold text-xl mb-1">Darren Law</p>
+                            <p class="text-[#4ED0FF] font-[var(--font-family-body)] font-medium text-base">FUNDD</p>
+                            <div class="flex gap-1 mt-2">
+                              <i class="fas fa-star text-[#B8A4FF] text-sm" aria-hidden="true"></i>
+                              <i class="fas fa-star text-[#B8A4FF] text-sm" aria-hidden="true"></i>
+                              <i class="fas fa-star text-[#B8A4FF] text-sm" aria-hidden="true"></i>
+                              <i class="fas fa-star text-[#B8A4FF] text-sm" aria-hidden="true"></i>
+                              <i class="fas fa-star text-[#B8A4FF] text-sm" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Premium Navigation Controls -->
+                <div class="flex items-center justify-center gap-6 mt-12">
+                  <button data-landingsite-carousel-controls-left="" class="bg-gradient-to-br from-[#6536FF] to-[#B8A4FF] hover:from-[#B8A4FF] hover:to-[#6536FF] text-white w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-[0_0_30px_rgba(101,54,255,0.6)]" aria-label="Previous testimonial">
+                    <i class="fas fa-chevron-left text-xl" aria-hidden="true"></i>
+                  </button>
+
+                  <ul class="flex items-center justify-center gap-3" data-landingsite-carousel-controls-index="">
+                    <li class="h-5 w-5 rounded-full cursor-pointer transition-colors border border-white/30 bg-[#6536FF]"></li>
+                    <li class="h-5 w-5 rounded-full cursor-pointer transition-colors border border-white/30 bg-white/30"></li>
+                    <li class="h-5 w-5 rounded-full cursor-pointer transition-colors border border-white/30 bg-white/30"></li>
+                    <li class="h-5 w-5 rounded-full cursor-pointer transition-colors border border-white/30 bg-white/30"></li>
+                  </ul>
+
+                  <button data-landingsite-carousel-controls-right="" class="bg-gradient-to-br from-[#6536FF] to-[#B8A4FF] hover:from-[#B8A4FF] hover:to-[#6536FF] text-white w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-[0_0_30px_rgba(101,54,255,0.6)]" aria-label="Next testimonial">
+                    <i class="fas fa-chevron-right text-xl" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Call to Action -->
+          <section class="code-section bg-gradient-to-r from-[#D946EF] to-[#A855F7] py-20 relative overflow-hidden" id="srycb3p">
+            <div class="absolute inset-0 opacity-20">
+              <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+              <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="container mx-auto px-4 text-center relative z-10">
+              <p class="text-sm uppercase tracking-widest text-white/80 mb-4 font-[var(--font-family-body)] font-medium">
+                READY TO SCALE?
+              </p>
+              <h2 class="text-4xl lg:text-5xl font-bold font-[var(--font-family-heading)] text-white mb-6 tracking-tight">
+                Ready to Build Your Marketing &amp; Sales Engine?
+              </h2>
+              <p class="text-xl lg:text-2xl text-white font-[var(--font-family-body)] font-normal mb-10 max-w-3xl mx-auto opacity-90 leading-relaxed">
+                Whether you want more leads, more conversations, or a complete GTM partner
+                — Apextra can help.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact" class="bg-white text-[#14061F] px-10 py-5 rounded-lg hover:bg-white/90 hover:scale-105 transition-all duration-200 font-[var(--font-family-heading)] font-semibold text-lg shadow-2xl">
+                  Book a Call
+                </a>
+                <a href="/contact" class="bg-transparent border-2 border-white text-white px-10 py-5 rounded-lg hover:bg-white hover:text-[#14061F] transition-all duration-200 font-[var(--font-family-heading)] font-semibold text-lg">
+                  Contact Us
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div>
+          <!-- Footer Section -->
+          <footer id="global-footer" class="code-section bg-[#1a0327] text-white py-16 border-t border-[var(--dark-border-color)]">
+            <div class="container mx-auto px-4">
+              <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+                <div class="lg:col-span-2">
+                  <a href="/" class="inline-block mb-6">
+                    <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/5b89420f-539d-4b76-2182-10741519d700/publicContain" alt="Apextra Sales & Marketing" class="h-20" />
+                  </a>
+                  <p class="text-[#f5f5ff] font-[var(--font-family-body)] font-normal mb-6 max-w-sm leading-relaxed">
+                    Australia's Go-To-Market Partner for Marketing &amp; Sales Execution.
+                    We combine high-performance marketing with outbound sales activation.
+                  </p>
+                  <a href="/book-consultation" class="inline-block bg-gradient-to-r from-[#D946EF] to-[#A855F7] text-white px-6 py-3 rounded-lg hover:brightness-110 hover:scale-105 transition-all duration-200 font-[var(--font-family-heading)] font-semibold shadow-lg">
+                    Book a Call
+                  </a>
+                </div>
+
+                <div>
+                  <h4 class="text-lg font-semibold font-[var(--font-family-heading)] mb-4 text-[#f5f5ff]">
+                    Company
+                  </h4>
+                  <ul class="space-y-3">
+                    <li><a href="/" class="text-[#f5f5ff] hover:text-[#b6e7eb] font-[var(--font-family-body)] font-normal transition-colors duration-200">Home</a></li>
+                    <li><a href="/about" class="text-[#f5f5ff] hover:text-[#b6e7eb] font-[var(--font-family-body)] font-normal transition-colors duration-200">About</a></li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="text-lg font-semibold font-[var(--font-family-heading)] mb-4 text-[#f5f5ff]">
+                    Services
+                  </h4>
+                  <ul class="space-y-3">
+                    <li><a href="/services" class="text-[#f5f5ff] hover:text-[#b6e7eb] font-[var(--font-family-body)] font-normal transition-colors duration-200">Services</a></li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="text-lg font-semibold font-[var(--font-family-heading)] mb-4 text-[#f5f5ff]">
+                    Resources
+                  </h4>
+                  <ul class="space-y-3">
+                    <li><a href="/careers" class="text-[#f5f5ff] hover:text-[#b6e7eb] font-[var(--font-family-body)] font-normal transition-colors duration-200">Careers</a></li>
+                    <li><a href="/contact" class="text-[#f5f5ff] hover:text-[#b6e7eb] font-[var(--font-family-body)] font-normal transition-colors duration-200">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Bottom Bar -->
+              <div class="border-t border-[var(--dark-border-color)] pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                  <p class="text-[#717074] font-[var(--font-family-body)] font-normal text-sm text-center md:text-left">
+                    © 2025 Apextra Sales & Marketing. All rights reserved.
+                  </p>
+                  <div class="flex gap-6">
+                    <a href="/privacy-policy" class="text-[#f5f5ff] hover:text-[#b6e7eb] font-[var(--font-family-body)] font-normal text-sm transition-colors duration-200">Privacy Policy</a>
+                    <a href="/terms-of-service" class="text-[#f5f5ff] hover:text-[#b6e7eb] font-[var(--font-family-body)] font-normal text-sm transition-colors duration-200">Terms</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
