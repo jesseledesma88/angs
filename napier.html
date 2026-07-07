@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | Napier Street Psychology</title>
+    
+    <!-- Google Fonts based on reference -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@400;500;700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Configuration & Custom Styles -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            purple: '#993399',
+                            teal: '#00c1c1',
+                            lightTeal: '#adebeb',
+                            borderTeal: '#63bdc9',
+                            dark: '#333333',
+                            gray: '#55595c'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Work Sans"', 'sans-serif'],
+                        accent: ['"Arima Madurai"', 'cursive'],
+                    },
+                    maxWidth: {
+                        'boxed': '1200px', // Standard Elementor boxed width
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Blog Content Styling to match brand */
+        .prose h2, .prose h3 {
+            color: #333333;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .prose h2 { font-size: 1.875rem; }
+        .prose h3 { font-size: 1.5rem; color: #993399; } /* Accent sub-headings */
+        
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+            color: #55595c;
+        }
+        
+        .prose a {
+            color: #993399;
+            text-decoration: underline;
+            text-decoration-color: #adebeb;
+            text-decoration-thickness: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .prose a:hover {
+            color: #00c1c1;
+            text-decoration-color: #00c1c1;
+        }
+
+        .prose ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #55595c;
+        }
+        
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+
+        .prose blockquote {
+            border-left: 4px solid #63bdc9;
+            background-color: #f0fafa; /* Very light teal based on #adebeb */
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #333;
+        }
+
+        .highlight-text {
+            color: #00c1c1;
+            font-weight: 600;
+            font-style: italic;
+            font-family: 'Arima Madurai', cursive;
+            font-size: 1.1em;
+        }
+        
+        /* Mobile menu toggle logic */
+        #mobile-menu { display: none; }
+        #mobile-menu.active { display: flex; }
+    </style>
+</head>
+<body class="font-sans text-brand-gray bg-[#fbfbfb] antialiased">
+
+    <!-- Top Bar (Contact Info) -->
+    <div class="hidden md:block bg-white border-b border-gray-100">
+        <div class="max-w-boxed mx-auto px-4 py-2 flex justify-between items-center text-sm text-gray-500">
+            <div class="flex items-center gap-2">
+                <i class="far fa-clock text-brand-teal"></i>
+                <span>Mon-Thurs: 9.00-20.00 | Friday: 9.00-15.00</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="mailto:info@napierstreetpsychology.com.au" class="hover:text-brand-purple transition-colors flex items-center gap-2">
+                    <i class="fas fa-envelope text-black"></i> info@napierstreetpsychology.com.au
+                </a>
+                <a href="tel:0394822400" class="hover:text-brand-purple transition-colors flex items-center gap-2">
+                    <i class="fas fa-phone-alt text-black"></i> (03) 9482 2400
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-boxed mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo Area -->
+            <a href="#" class="flex-shrink-0 flex items-center gap-3">
+                <!-- Using a placeholder logo shape using brand colors -->
+                <div class="w-10 h-10 bg-brand-lightTeal rounded-full flex items-center justify-center text-brand-purple font-bold text-xl">
+                    NP
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-semibold text-brand-dark leading-none">Napier Street</span>
+                    <span class="text-sm text-brand-teal tracking-widest uppercase mt-1">Psychology</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#" class="text-brand-dark hover:text-brand-purple font-medium transition-colors">Home</a>
+                <a href="#" class="text-brand-dark hover:text-brand-purple font-medium transition-colors">Referring to us</a>
+                <a href="#" class="text-brand-dark hover:text-brand-purple font-medium transition-colors">Services</a>
+                <a href="#" class="text-brand-purple font-semibold border-b-2 border-brand-purple">Blog</a>
+                <a href="#" class="text-brand-dark hover:text-brand-purple font-medium transition-colors">Our Team</a>
+                <a href="#" class="text-brand-dark hover:text-brand-purple font-medium transition-colors">FAQs</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="#" class="bg-brand-dark text-white px-6 py-2.5 rounded hover:bg-brand-purple transition-colors text-sm font-medium uppercase tracking-wide">
+                    Contact Us
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-2xl text-brand-dark focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="flex-col bg-white border-t border-gray-100 px-4 py-4 space-y-4 shadow-lg absolute w-full left-0">
+            <a href="#" class="text-brand-dark font-medium block">Home</a>
+            <a href="#" class="text-brand-dark font-medium block">Referring to us</a>
+            <a href="#" class="text-brand-dark font-medium block">Services</a>
+            <a href="#" class="text-brand-purple font-semibold block">Blog</a>
+            <a href="#" class="text-brand-dark font-medium block">Our Team</a>
+            <a href="#" class="text-brand-dark font-medium block">Contact</a>
+        </div>
+    </header>
+
+    <!-- Blog Header / Hero -->
+    <div class="bg-brand-lightTeal/30 py-16 md:py-24 border-b border-brand-borderTeal">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <div class="mb-4">
+                <span class="bg-brand-teal text-white text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full">Autism</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-brand-dark mb-6 leading-tight">
+                Is this Autistic Burnout? Why "Just Rest" or "Focus on the Positive" Often Misses the Point
+            </h1>
+            <div class="flex items-center justify-center gap-4 text-sm text-gray-600">
+                <div class="flex items-center gap-2">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Dr Annabel Avraham" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm">
+                    <span class="font-medium text-brand-dark">Dr Annabel Avraham</span>
+                </div>
+                <span>&bull;</span>
+                <span>October 30, 2024</span>
+                <span>&bull;</span>
+                <span>5 min read</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="max-w-boxed mx-auto px-4 py-12 flex flex-col lg:flex-row gap-12">
+        
+        <!-- Article Content -->
+        <article class="lg:w-2/3">
+            <!-- Featured Image -->
+            <div class="mb-10 rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <img src="https://napierstreetpsychology.com.au/wp-content/uploads/2026/07/1_FIANL_BLOG_Autistic_Burnout_Image.webp" alt="Calm environment representing psychology" class="w-full h-auto md:h-[450px] object-cover">
+            </div>
+
+            <!-- Prose Content -->
+            <div class="prose max-w-none">
+                <p class="text-sm font-semibold uppercase tracking-widest text-brand-teal mb-6">Relevant for: Everyone</p>
+                
+                <p class="text-xl leading-relaxed text-brand-dark font-medium mb-8">
+                    Autistic burnout is one of those experiences that can be easy to miss from the outside and very hard to live through from the inside.
+                </p>
+
+                <p>
+                    A person experiencing autistic burnout may look withdrawn, flat, “unmotivated,” irritable, anxious, or avoidant. They may stop replying to messages, cancel plans, struggle to manage their time at work, or become much less able to tolerate noise, social demands, changes of plans, food, or making decisions — big or small.
+                </p>
+
+                <p>
+                    People may then ask: “Are you depressed?” “Are you stressed?” “Are you just exhausted?” “Do you need a better routine?”
+                </p>
+                
+                <p>
+                    Sometimes the answer is yes. Depression, anxiety, trauma, ADHD overwhelm, chronic stress, and work burnout may all be part of the picture. But if autistic burnout may be involved, sometimes the better question to ask is: <strong>has this person been living for too long in a way that does not fit their nervous system?</strong>
+                </p>
+
+                <h2>What is autistic burnout?</h2>
+                <p>
+                    Autistic burnout is a state of deep, ongoing exhaustion linked to the cumulative pressure of living in a world that is often not designed for autistic needs.
+                </p>
+
+                <p>
+                    It is not just feeling tired after a busy week or poor sleep. It can feel like previously available capacities have gone offline. Speaking, planning, working, masking, socialising, parenting, shopping, cooking, showering, or replying to messages may suddenly require impossible effort. The internal means are just not accessible.
+                </p>
+
+                <p>
+                    This is not laziness. It is not weakness. It is not a personality flaw, or lack of consideration or care. It is a system running beyond capacity for too long.
+                </p>
+
+                <h2>Autistic burnout can look like depression - but it's not</h2>
+                
+                <p>
+                    Both may involve withdrawal, low energy, and a sense of “I can’t do life right now.”
+                </p>
+
+                <p>
+                    But depression often brings a heavier change in mood, hope, pleasure, self-worth, and the ability to look forward to certain events. It often stays consistent while life demands change and sensory input fluctuates.
+                </p>
+                
+                <p>
+                    A person entering an autistic burnout phase may still feel curiosity, humour, interest, or connection when demands are reduced and the environment becomes safer. They may come alive around a trusted person, a special interest, a familiar routine, or a low-demand space.
+                </p>
+
+            </div>
+
+            <!-- Post Tags and Share -->
+            <div class="mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="font-medium text-brand-dark">Tags:</span>
+                    <a href="#" class="bg-gray-100 hover:bg-brand-lightTeal text-brand-dark text-sm py-1 px-3 rounded transition-colors">Autism</a>
+                    <a href="#" class="bg-gray-100 hover:bg-brand-lightTeal text-brand-dark text-sm py-1 px-3 rounded transition-colors">Burnout</a>
+                    <a href="#" class="bg-gray-100 hover:bg-brand-lightTeal text-brand-dark text-sm py-1 px-3 rounded transition-colors">Mental Health</a>
+                </div>
+                <div class="flex items-center gap-3 text-xl">
+                    <span class="font-medium text-brand-dark text-sm mr-2">Share:</span>
+                    <a href="#" class="text-gray-400 hover:text-brand-purple transition-colors"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-brand-teal transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-[#0077b5] transition-colors"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Author Box -->
+            <div class="mt-12 bg-white p-8 rounded-2xl shadow-sm border border-brand-lightTeal flex flex-col md:flex-row items-center md:items-start gap-6">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Dr Annabel Avraham" class="w-24 h-24 rounded-full object-cover shadow-md">
+                <div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-2">Dr Annabel Avraham</h3>
+                    <p class="text-sm text-brand-teal uppercase tracking-wide font-semibold mb-3">Clinic Director & Psychologist</p>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Annabel brings years of experience in individual and couples therapy, specializing in ADHD support, trauma, and schema therapy. She believes in creating a warm, cozy environment for self-exploration.
+                    </p>
+                    <a href="#" class="text-brand-purple font-medium text-sm hover:text-brand-teal transition-colors flex items-center gap-1">
+                        Meet the team <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="lg:w-1/3 space-y-10">
+            
+            <!-- Book CTA Widget -->
+            <div class="bg-brand-purple text-white rounded-2xl p-8 text-center shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
+                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="far fa-calendar-check text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 font-accent">Ready to Talk?</h3>
+                <p class="text-purple-100 mb-6 text-sm leading-relaxed">
+                    Take the first step towards a better version of yourself. We offer individual and couples therapy in Fitzroy North.
+                </p>
+                <a href="#" class="inline-block bg-white text-brand-purple font-semibold px-6 py-3 rounded-full w-full hover:bg-brand-lightTeal transition-colors">
+                    Book a Session
+                </a>
+            </div>
+
+            <!-- Categories -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+                <h3 class="text-lg font-bold text-brand-dark border-b-2 border-brand-borderTeal pb-3 mb-5 inline-block">Categories</h3>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="#" class="flex justify-between items-center group text-gray-600 hover:text-brand-purple transition-colors">
+                            <span class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-brand-lightTeal group-hover:text-brand-purple"></i> Individual Therapy</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded-full group-hover:bg-brand-lightTeal">12</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex justify-between items-center group text-gray-600 hover:text-brand-purple transition-colors">
+                            <span class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-brand-lightTeal group-hover:text-brand-purple"></i> Couples Therapy</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded-full group-hover:bg-brand-lightTeal">8</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex justify-between items-center group text-gray-600 hover:text-brand-purple transition-colors">
+                            <span class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-brand-lightTeal group-hover:text-brand-purple"></i> Adult ADHD</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded-full group-hover:bg-brand-lightTeal">15</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex justify-between items-center group text-gray-600 hover:text-brand-purple transition-colors">
+                            <span class="flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-brand-lightTeal group-hover:text-brand-purple"></i> Mindfulness</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded-full group-hover:bg-brand-lightTeal">5</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Recent Posts -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+                <h3 class="text-lg font-bold text-brand-dark border-b-2 border-brand-borderTeal pb-3 mb-5 inline-block">Recent Posts</h3>
+                <div class="space-y-6">
+                    <a href="#" class="flex gap-4 group">
+                        <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Thumbnail" class="w-16 h-16 rounded object-cover">
+                        <div>
+                            <h4 class="text-sm font-semibold text-brand-dark group-hover:text-brand-purple transition-colors leading-tight mb-1">How Schema Therapy Can Break Bad Habits</h4>
+                            <p class="text-xs text-brand-teal">Oct 25, 2024</p>
+                        </div>
+                    </a>
+                    <a href="#" class="flex gap-4 group">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Thumbnail" class="w-16 h-16 rounded object-cover">
+                        <div>
+                            <h4 class="text-sm font-semibold text-brand-dark group-hover:text-brand-purple transition-colors leading-tight mb-1">Navigating Adult ADHD in the Workplace</h4>
+                            <p class="text-xs text-brand-teal">Oct 18, 2024</p>
+                        </div>
+                    </a>
+                    <a href="#" class="flex gap-4 group">
+                        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Thumbnail" class="w-16 h-16 rounded object-cover">
+                        <div>
+                            <h4 class="text-sm font-semibold text-brand-dark group-hover:text-brand-purple transition-colors leading-tight mb-1">Couples Therapy: Rebuilding Connection</h4>
+                            <p class="text-xs text-brand-teal">Oct 10, 2024</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+        </aside>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t-4 border-brand-borderTeal pt-16 pb-8 mt-12">
+        <div class="max-w-boxed mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            
+            <!-- Column 1 -->
+            <div>
+                <div class="w-12 h-12 bg-brand-lightTeal rounded-full flex items-center justify-center text-brand-purple font-bold text-2xl mb-4">
+                    NP
+                </div>
+                <h3 class="text-xl font-bold text-brand-dark mb-4">Napier Street <br><span class="text-brand-teal">Psychology</span></h3>
+                <p class="text-sm text-gray-600 mb-4">Allow us to help you (re)connect to the best version of yourself.</p>
+                <div class="flex gap-3">
+                    <!-- Aboriginal Flags representation based on your original code -->
+                    <div class="h-8 w-12 bg-black flex rounded overflow-hidden border border-gray-200 relative">
+                        <div class="w-full h-1/2 bg-black absolute top-0"></div>
+                        <div class="w-full h-1/2 bg-red-600 absolute bottom-0"></div>
+                        <div class="w-4 h-4 bg-yellow-400 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div>
+                <h3 class="text-lg font-bold text-brand-dark mb-6">Quick Links</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-600 hover:text-brand-purple text-sm transition-colors flex items-center gap-2"><i class="fas fa-angle-right text-xs text-brand-teal"></i> Information</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-brand-purple text-sm transition-colors flex items-center gap-2"><i class="fas fa-angle-right text-xs text-brand-teal"></i> For Referring Doctors</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-brand-purple text-sm transition-colors flex items-center gap-2"><i class="fas fa-angle-right text-xs text-brand-teal"></i> Services</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-brand-purple text-sm transition-colors flex items-center gap-2"><i class="fas fa-angle-right text-xs text-brand-teal"></i> Meet The Team</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-brand-purple text-sm transition-colors flex items-center gap-2"><i class="fas fa-angle-right text-xs text-brand-teal"></i> Join Our Team</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-brand-purple text-sm transition-colors flex items-center gap-2"><i class="fas fa-angle-right text-xs text-brand-teal"></i> FAQs</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div>
+                <h3 class="text-lg font-bold text-brand-dark mb-6">Our Location</h3>
+                <ul class="space-y-5">
+                    <li class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full bg-brand-lightTeal flex items-center justify-center flex-shrink-0 mt-1">
+                            <i class="fas fa-map-pin text-brand-dark text-sm"></i>
+                        </div>
+                        <span class="text-gray-600 text-sm">476 Napier Street,<br><b class="text-brand-dark">Fitzroy North</b>, VIC 3068</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full bg-brand-lightTeal flex items-center justify-center flex-shrink-0 mt-1">
+                            <i class="fas fa-map-pin text-brand-dark text-sm"></i>
+                        </div>
+                        <span class="text-gray-600 text-sm">987 Glen Huntly Road,<br><b class="text-brand-dark">Caulfield</b>, VIC 3162</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 4 -->
+            <div>
+                <h3 class="text-lg font-bold text-brand-dark mb-6">Operating Hours</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex justify-between border-b border-gray-100 pb-2">
+                        <span class="font-medium text-brand-dark">Mon - Thurs</span>
+                        <span>9 am - 8 pm</span>
+                    </li>
+                    <li class="flex justify-between border-b border-gray-100 pb-2">
+                        <span class="font-medium text-brand-dark">Friday</span>
+                        <span>9 am - 3 pm</span>
+                    </li>
+                    <li class="flex justify-between pb-2">
+                        <span class="font-medium text-brand-dark">Sat - Sun</span>
+                        <span class="text-brand-purple font-medium">Closed</span>
+                    </li>
+                </ul>
+
+                <h3 class="text-lg font-bold text-brand-dark mb-4 mt-6">Contact</h3>
+                <ul class="space-y-3">
+                    <li><a href="mailto:info@napierstreetpsychology.com.au" class="text-gray-600 hover:text-brand-purple text-sm flex items-center gap-3"><i class="fas fa-envelope text-brand-teal"></i> info@napierstreet...</a></li>
+                    <li><a href="tel:0394822400" class="text-gray-600 hover:text-brand-purple text-sm flex items-center gap-3"><i class="fas fa-phone-alt text-brand-teal"></i> (03) 9482 2400</a></li>
+                    <li class="text-gray-600 text-sm flex items-center gap-3"><i class="fas fa-fax text-brand-teal"></i> 03 8677 1155</li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <div class="max-w-boxed mx-auto px-4 border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>&copy; 2024 <span class="font-semibold text-brand-dark">Napier Street Psychology</span>. All rights reserved.</p>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-brand-purple transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-brand-purple transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple JS for Mobile Menu Toggle -->
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
