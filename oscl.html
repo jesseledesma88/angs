@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulting Services | OneSource Customs & Logistics</title>
+    <meta name="description" content="OneSource Customs & Logistics Consulting. Expert workshops, compliance audits, customs submissions, and permit management.">
+    
+    <!-- Google Fonts as used in the original brand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#1e293b', // Deep professional navy
+                            blue: '#2563eb', // Accent blue
+                            light: '#f8fafc',
+                            gray: '#64748b'
+                        }
+                    },
+                    boxShadow: {
+                        'card': '0 10px 30px -10px rgba(0,0,0,0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom subtle animations to match Elementor's fadeIn */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+    </style>
+</head>
+<body class="font-sans text-brand-navy antialiased bg-white">
+
+    <!-- Header / Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#">
+                        <img class="h-12 w-auto object-contain" src="https://oscl.com.au/wp-content/uploads/2025/01/Logo-1.jpg" alt="OneSource Customs & Logistics">
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-brand-gray hover:text-brand-blue font-medium transition-colors">Home</a>
+                    <a href="#" class="text-brand-gray hover:text-brand-blue font-medium transition-colors">About</a>
+                    <a href="#" class="text-brand-blue font-semibold border-b-2 border-brand-blue pb-1 transition-colors">Consulting</a>
+                    <a href="#" class="text-brand-gray hover:text-brand-blue font-medium transition-colors">Services</a>
+                    <a href="#" class="text-brand-gray hover:text-brand-blue font-medium transition-colors">News</a>
+                    <a href="#" class="bg-brand-navy text-white px-5 py-2 rounded shadow hover:bg-gray-800 transition-all font-medium">Customer Portal</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-navy hover:text-brand-blue focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 text-base font-medium text-brand-gray hover:text-brand-blue hover:bg-gray-50">Home</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-brand-gray hover:text-brand-blue hover:bg-gray-50">About</a>
+                <a href="#" class="block px-3 py-2 text-base font-semibold text-brand-blue bg-blue-50">Consulting</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-brand-gray hover:text-brand-blue hover:bg-gray-50">Services</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-brand-gray hover:text-brand-blue hover:bg-gray-50">News</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-brand-navy text-white">
+        <div class="absolute inset-0">
+            <img class="w-full h-full object-cover opacity-30" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Consulting Team Meeting">
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 flex flex-col items-center text-center">
+            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 fade-in-up">
+                Expert Customs & Logistics Consulting
+            </h1>
+            <p class="text-lg md:text-xl max-w-3xl mb-10 text-gray-200 font-light fade-in-up delay-100">
+                Navigate the complexities of international trade with confidence. Our dedicated consulting arm provides tailored strategies, compliance audits, and comprehensive training to protect and grow your business.
+            </p>
+            <div class="fade-in-up delay-200">
+                <a href="#services" class="bg-brand-blue hover:bg-blue-700 text-white font-medium py-3 px-8 rounded shadow-lg transition-all text-lg">
+                    Explore Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
+            <h2 class="font-heading text-3xl font-bold text-brand-navy mb-6">Partnering for Supply Chain Excellence</h2>
+            <p class="text-brand-gray text-lg leading-relaxed">
+                At OneSource Customs & Logistics, we understand that moving products across borders is only part of the equation. Regulatory landscapes are constantly shifting. Our new consulting division brings our industry-leading expertise directly to your boardroom, ensuring your operations are not just efficient, but fully compliant and future-proof.
+            </p>
+        </div>
+    </section>
+
+    <!-- Consulting Services Grid -->
+    <section id="services" class="py-16 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-navy mb-4">Our Consulting Services</h2>
+                <div class="w-24 h-1 bg-brand-blue mx-auto rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1: Workshops & Training -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-xl transition-shadow duration-300 fade-in-up delay-100 group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Workshops & Training" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brand-navy bg-opacity-20 group-hover:bg-opacity-10 transition-all"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-brand-blue mb-4">
+                            <i class="fas fa-chalkboard-teacher text-3xl"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold mb-3">Workshops & Training</h3>
+                        <p class="text-brand-gray mb-4 text-sm leading-relaxed">
+                            Empower your internal teams with the knowledge they need. We provide customized training sessions on import/export regulations, Incoterms, and best practices in supply chain management.
+                        </p>
+                        <a href="#" class="text-brand-blue font-medium hover:text-blue-800 text-sm flex items-center transition-colors">
+                            Learn more <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2: Brokerage Compliance Audits -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-xl transition-shadow duration-300 fade-in-up delay-200 group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brokerage Compliance Audits" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-brand-blue mb-4">
+                            <i class="fas fa-clipboard-check text-3xl"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold mb-3">Brokerage Compliance Audits</h3>
+                        <p class="text-brand-gray mb-4 text-sm leading-relaxed">
+                            Mitigate risk and avoid costly penalties. Our experts conduct thorough reviews of your historical customs declarations to ensure complete adherence to Australian Border Force regulations.
+                        </p>
+                        <a href="#" class="text-brand-blue font-medium hover:text-blue-800 text-sm flex items-center transition-colors">
+                            Learn more <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Customs & Quarantine Submissions -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-xl transition-shadow duration-300 fade-in-up delay-300 group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Customs & Quarantine Submissions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-brand-blue mb-4">
+                            <i class="fas fa-file-signature text-3xl"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold mb-3">Customs & Quarantine Submissions</h3>
+                        <p class="text-brand-gray mb-4 text-sm leading-relaxed">
+                            Streamline your complex submissions. We handle the intricate documentation required by the Department of Agriculture, Fisheries and Forestry (DAFF) to prevent border delays.
+                        </p>
+                        <a href="#" class="text-brand-blue font-medium hover:text-blue-800 text-sm flex items-center transition-colors">
+                            Learn more <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4: Customs Brokerage Applications -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-xl transition-shadow duration-300 fade-in-up delay-400 group lg:col-start-1 lg:col-end-2 xl:col-start-auto xl:col-end-auto">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Customs Brokerage Applications" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-brand-blue mb-4">
+                            <i class="fas fa-passport text-3xl"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold mb-3">Customs Brokerage Applications</h3>
+                        <p class="text-brand-gray mb-4 text-sm leading-relaxed">
+                            Setting up your own internal brokerage capabilities? We provide end-to-end consulting to help you successfully apply for and secure your corporate customs broker licenses.
+                        </p>
+                        <a href="#" class="text-brand-blue font-medium hover:text-blue-800 text-sm flex items-center transition-colors">
+                            Learn more <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 5: Permits -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-xl transition-shadow duration-300 fade-in-up delay-500 group lg:col-start-2 lg:col-end-3 xl:col-start-auto xl:col-end-auto">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Permits Management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-brand-blue mb-4">
+                            <i class="fas fa-stamp text-3xl"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold mb-3">Permits Management</h3>
+                        <p class="text-brand-gray mb-4 text-sm leading-relaxed">
+                            Navigate the red tape with ease. From import restrictions to specialized cargo permits, we determine exactly what documentation you need and manage the application process for you.
+                        </p>
+                        <a href="#" class="text-brand-blue font-medium hover:text-blue-800 text-sm flex items-center transition-colors">
+                            Learn more <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action -->
+    <section class="relative bg-brand-navy py-20 text-center px-4">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        </div>
+        <div class="relative max-w-3xl mx-auto fade-in-up">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-6">Ready to secure your supply chain?</h2>
+            <p class="text-gray-300 mb-8 text-lg">
+                Speak directly to an experienced consultant today and find out how we can tailor our services to protect your business.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="tel:1300135964" class="bg-brand-blue hover:bg-blue-600 text-white font-medium py-3 px-8 rounded shadow-lg transition-all text-lg flex items-center justify-center">
+                    <i class="fas fa-phone-alt mr-3"></i> 1300 135 964
+                </a>
+                <a href="#" class="bg-white hover:bg-gray-100 text-brand-navy font-medium py-3 px-8 rounded shadow-lg transition-all text-lg flex items-center justify-center">
+                    Get a Free Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Matching Source) -->
+    <footer class="bg-white pt-16 pb-8 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="flex flex-col items-start">
+                    <img class="h-16 w-auto object-contain mb-6" src="https://oscl.com.au/wp-content/uploads/2025/01/Logo-1.jpg" alt="OneSource Customs & Logistics">
+                    <p class="text-brand-gray text-sm">
+                        Large or small, we are here to help your business achieve supply chain success.<br><br>Make peace of mind your priority.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-heading font-bold text-brand-navy mb-6 text-lg">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-brand-gray hover:text-brand-blue text-sm transition-colors">Home</a></li>
+                        <li><a href="#" class="text-brand-gray hover:text-brand-blue text-sm transition-colors">About</a></li>
+                        <li><a href="#" class="text-brand-gray hover:text-brand-blue text-sm transition-colors">Services</a></li>
+                        <li><a href="#" class="text-brand-blue font-medium text-sm transition-colors">Consulting</a></li>
+                        <li><a href="#" class="text-brand-gray hover:text-brand-blue text-sm transition-colors">News</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-heading font-bold text-brand-navy mb-6 text-lg">Contact Us</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="tel:1300135964" class="flex items-center text-brand-gray hover:text-brand-blue transition-colors">
+                                <i class="fas fa-phone-alt w-6 text-center text-brand-blue"></i>
+                                <span class="ml-3 text-sm">1300 135 964</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:enquiries@oscl.com.au" class="flex items-center text-brand-gray hover:text-brand-blue transition-colors">
+                                <i class="fas fa-envelope w-6 text-center text-brand-blue"></i>
+                                <span class="ml-3 text-sm">enquiries@oscl.com.au</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Socials -->
+                    <div class="mt-6 flex space-x-4">
+                        <a href="#" class="text-brand-gray hover:text-brand-blue transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-brand-gray hover:text-brand-blue transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-xs text-gray-500 text-center md:text-left mb-4 md:mb-0">
+                    Copyright © 2026 OneSource Customs & Logistics | Nominee Customs Broker License No: 05548
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-xs text-gray-500 hover:text-brand-blue">Privacy Policy</a>
+                    <a href="#" class="text-xs text-gray-500 hover:text-brand-blue">Terms and Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
