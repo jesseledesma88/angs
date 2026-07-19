@@ -1,97 +1,681 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Good Steward | AI, Automation & Digital Systems</title>
     <meta name="description" content="We help businesses automate operations, improve customer experiences, and build digital foundations that scale.">
     
-    <!-- Tailwind CSS for rapid styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter for a clean, modern, and highly legible look -->
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Custom Tailwind Configuration matching the logo's color palette -->
-    <script>
-        window.tailwind = window.tailwind || {};
-        window.tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            navy: '#0f2942',     /* Deep navy from the hands/text in the logo */
-                            blue: '#1a4369',     /* Lighter blue for gradients/accents */
-                            green: '#2d9c49',    /* Main leaf green */
-                            lightgreen: '#54c770', /* Lighter leaf green */
-                            accent: '#e6f4ea',   /* Very light green for backgrounds */
-                            light: '#f8fafc',    /* Off-white background */
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
-        /* Custom Styles for smooth transitions and specific component overrides */
+        :root {
+            /* Brand Colors */
+            --navy: #0f2942;
+            --blue: #1a4369;
+            --green: #2d9c49;
+            --lightgreen: #54c770;
+            --accent: #e6f4ea;
+            --light: #f8fafc;
+            --white: #ffffff;
+            
+            /* Text Colors */
+            --text-main: #0f2942;
+            --text-muted: #4b5563;
+            --text-light: #9ca3af;
+            
+            /* UI Elements */
+            --border: rgba(0, 0, 0, 0.05);
+            --border-light: #f1f5f9;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Spacing & Layout */
+            --max-width: 1280px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #0f2942;
-        }
-        
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background-color: var(--light);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 640px) { .container { padding: 0 1.5rem; } }
+        @media (min-width: 1024px) { .container { padding: 0 2rem; } }
+
+        .section-padding { padding: 5rem 0; }
+        @media (min-width: 1024px) { .section-padding { padding: 8rem 0; } }
+
+        .text-center { text-align: center; }
         .gradient-text {
-            background: linear-gradient(135deg, #0f2942 0%, #2d9c49 100%);
+            background: linear-gradient(135deg, var(--navy) 0%, var(--green) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .card-hover {
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--navy);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-primary:hover {
+            background-color: var(--blue);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--navy);
+            border: 1px solid #e2e8f0;
+        }
+        .btn-secondary:hover {
+            background-color: var(--light);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            background-color: var(--white);
             transition: all 0.3s ease;
         }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 6rem; /* 96px */
+            transition: all 0.3s ease;
         }
 
-        /* Styling for the central "W" concept from the logo to be used as a background motif */
-        .bg-motif {
-            background-image: radial-gradient(#e6f4ea 1px, transparent 1px);
-            background-size: 20px 20px;
+        .nav-logo-img {
+            height: 5rem; /* 80px */
+            width: auto;
+            object-fit: contain;
+            transition: all 0.3s ease;
         }
 
-        /* Glassmorphism Navigation */
-        .glass-nav-scrolled {
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) { .nav-links { display: flex; } }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--green); }
+        .nav-links .btn { padding: 0.5rem 1.25rem; color: white; }
+
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--navy);
+            cursor: pointer;
+        }
+        @media (min-width: 768px) { .mobile-menu-btn { display: none; } }
+
+        .mobile-menu {
+            display: none;
+            background-color: var(--white);
+            border-top: 1px solid var(--border-light);
+            padding: 1rem;
+        }
+        .mobile-menu.active { display: block; }
+        @media (min-width: 768px) { .mobile-menu.active { display: none; } }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            border-radius: 0.375rem;
+        }
+        .mobile-menu a:hover { background-color: var(--light); color: var(--green); }
+        .mobile-menu .btn-mobile { color: var(--navy); font-weight: 700; }
+
+        /* Scrolled Navbar State */
+        .navbar.scrolled {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-sm);
+        }
+        .navbar.scrolled .nav-container { height: 4rem; /* 64px */ }
+        .navbar.scrolled .nav-logo-img { height: 3.5rem; /* 56px */ }
+
+        .hero {
+            position: relative;
+            padding-top: 8rem;
+            padding-bottom: 5rem;
+            overflow: hidden;
+            background-image: radial-gradient(var(--accent) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        @media (min-width: 1024px) {
+            .hero { padding-top: 12rem; padding-bottom: 8rem; }
         }
 
-        /* Back to top button transitions */
+        .hero-blob-1, .hero-blob-2 {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+        }
+        .hero-blob-1 { top: -5rem; right: -5rem; width: 24rem; height: 24rem; background: var(--accent); opacity: 0.5; }
+        .hero-blob-2 { bottom: -5rem; left: -5rem; width: 20rem; height: 20rem; background: var(--lightgreen); opacity: 0.2; }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 1rem;
+            border-radius: 999px;
+            background-color: var(--accent);
+            color: var(--green);
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid rgba(45, 156, 73, 0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        @media (min-width: 768px) { .hero-title { font-size: 3.75rem; } }
+        @media (min-width: 1024px) { .hero-title { font-size: 4.5rem; } }
+
+        .hero-desc {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 48rem;
+            margin: 0 auto 2.5rem auto;
+            line-height: 1.7;
+        }
+        @media (min-width: 768px) { .hero-desc { font-size: 1.5rem; } }
+
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (min-width: 640px) { .hero-actions { flex-direction: row; } }
+        .hero-actions .btn { padding: 1rem 2rem; font-size: 1.125rem; }
+
+        .trust-indicators {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .trust-title {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        .trust-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            opacity: 0.7;
+            filter: grayscale(100%);
+        }
+        @media (min-width: 768px) { .trust-logos { gap: 4rem; } }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--navy);
+        }
+
+        .about-section { background-color: var(--white); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        @media (min-width: 1024px) { .about-grid { grid-template-columns: 1fr 1fr; } }
+
+        .about-image-wrapper { position: relative; }
+        .about-image-bg {
+            position: absolute;
+            inset: 0;
+            background-color: var(--green);
+            opacity: 0.1;
+            border-radius: 1.5rem;
+            transform: translate(1rem, 1rem);
+        }
+        .about-image {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow-xl);
+        }
+        @media (min-width: 768px) { .about-image { height: 500px; } }
+
+        .about-badge {
+            position: absolute;
+            bottom: -1.5rem;
+            left: -1.5rem;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 20;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            max-width: 20rem;
+        }
+        .about-badge-icon {
+            background: var(--accent);
+            color: var(--green);
+            padding: 0.75rem;
+            border-radius: 50%;
+            font-size: 1.25rem;
+        }
+        .about-badge-title { font-weight: 700; color: var(--navy); }
+        .about-badge-text { font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+        @media (min-width: 768px) { .section-title { font-size: 2.25rem; } }
+        
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+
+        .mission-list { display: flex; flex-direction: column; gap: 2rem; }
+        .mission-item { display: flex; gap: 1rem; }
+        .mission-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: var(--accent);
+            color: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+        .mission-title { font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+        .mission-text { color: var(--text-muted); line-height: 1.6; }
+
+        .services-section { background-color: var(--light); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .service-card-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8rem;
+            height: 8rem;
+            background: var(--accent);
+            border-bottom-left-radius: 100%;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .service-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+        .icon-navy { background: var(--navy); }
+        .icon-green { background: var(--green); }
+        .icon-blue { background: var(--blue); }
+
+        .service-title { font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; position: relative; z-index: 10;}
+        .service-desc { color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6; position: relative; z-index: 10;}
+        
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            position: relative; z-index: 10;
+        }
+        .service-features i { color: var(--green); }
+
+        .projects-section { background: var(--white); border-top: 1px solid var(--border-light); }
+        .projects-header {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        @media (min-width: 768px) {
+            .projects-header { flex-direction: row; justify-content: space-between; align-items: flex-end; }
+        }
+        .projects-header .btn-link {
+            color: var(--navy);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        .projects-header .btn-link:hover { color: var(--green); }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .projects-grid { grid-template-columns: repeat(4, 1fr); } }
+
+        .project-card {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #eee;
+            cursor: pointer;
+        }
+        .project-img {
+            width: 100%;
+            height: 16rem;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .project-card:hover .project-img { transform: scale(1.05); }
+        
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 41, 66, 0.9), rgba(15, 41, 66, 0.4), transparent);
+        }
+        
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 1.5rem;
+            width: 100%;
+        }
+        .project-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--white);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .tag-green { background: var(--green); }
+        .tag-blue { background: var(--blue); }
+        .tag-purple { background: #9333ea; }
+        .tag-orange { background: #f97316; }
+
+        .project-title { color: var(--white); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem; }
+        .project-desc {
+            color: #e2e8f0;
+            font-size: 0.875rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .project-card:hover .project-desc { opacity: 1; transform: translateY(0); }
+
+        .contact-section {
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 0;
+        }
+        .contact-blob-1, .contact-blob-2 {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+        .contact-blob-1 { top: 0; right: 0; width: 16rem; height: 16rem; background: var(--green); opacity: 0.1; transform: translate(50%, -50%); }
+        .contact-blob-2 { bottom: 0; left: 0; width: 24rem; height: 24rem; background: var(--blue); opacity: 0.2; transform: translate(-30%, 30%); }
+
+        .contact-header { text-align: center; color: var(--white); margin-bottom: 3rem; position: relative; z-index: 10;}
+        .contact-icon { font-size: 2.5rem; color: var(--green); margin-bottom: 1.5rem; }
+        .contact-title { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; }
+        @media (min-width: 768px) { .contact-title { font-size: 3rem; } }
+        .contact-desc { font-size: 1.25rem; color: #d1d5db; max-width: 42rem; margin: 0 auto; }
+
+        .contact-form-wrapper {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 28rem;
+            margin: 0 auto;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            z-index: 10;
+        }
+        .form-title { font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: 1.5rem; }
+        
+        .form-group { margin-bottom: 1rem; }
+        .form-label { display: block; font-size: 0.875rem; font-weight: 500; color: var(--text-muted); margin-bottom: 0.25rem; }
+        .form-input {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(45, 156, 73, 0.2); }
+        
+        .btn-submit {
+            width: 100%;
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover { background: var(--blue); }
+
+        .footer {
+            background: #111827; /* Gray-900 */
+            color: var(--white);
+            padding: 4rem 0 2rem 0;
+            border-top: 4px solid var(--green);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
+        
+        .footer-logo {
+            height: 4rem; /* 64px */
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            /* Filter magic to turn colored logo pure white */
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-desc { color: #9ca3af; max-width: 24rem; margin-bottom: 1.5rem; }
+        .social-links { display: flex; gap: 1rem; }
+        .social-links a { color: #9ca3af; font-size: 1.25rem; transition: color 0.3s; }
+        .social-links a:hover { color: var(--green); }
+
+        .footer-title { font-size: 1.125rem; font-weight: 700; margin-bottom: 1rem; }
+        .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+        .footer-links a { color: #9ca3af; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--white); }
+        
+        .footer-contact li { display: flex; gap: 0.75rem; color: #9ca3af; margin-bottom: 0.75rem; }
+        .footer-contact i { color: var(--green); margin-top: 0.25rem; }
+        .footer-contact a { color: inherit; transition: color 0.3s; word-break: break-all; }
+        .footer-contact a:hover { color: var(--white); }
+
+        .footer-bottom {
+            border-top: 1px solid #1f2937;
+            padding-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        @media (min-width: 768px) {
+            .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+        }
+        .footer-legal { display: flex; gap: 1rem; }
+        .footer-legal a { color: inherit; transition: color 0.3s; }
+        .footer-legal a:hover { color: var(--white); }
+
+        /* Back to top button */
         #back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 50;
+            background: var(--green);
+            color: var(--white);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            border: none;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
             transform: translateY(20px);
+            transition: all 0.3s ease;
         }
+        #back-to-top:hover { background: var(--lightgreen); }
         #back-to-top.show {
             opacity: 1;
             visibility: visible;
@@ -99,437 +683,358 @@
         }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div id="nav-container" class="flex justify-between items-center h-24 transition-all duration-300">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="flex items-center">
-                        <img id="nav-logo" src="https://raw.githubusercontent.com/jesseledesma88/angs/de23d6ff96ac51c2460cb3f6ec7d1fa943e1a464/good-sheperd.webp" alt="Good Steward Logo" class="h-20 w-auto object-contain transition-all duration-300">
-                    </a>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#about" class="text-gray-600 hover:text-brand-green font-medium transition-colors">About</a>
-                    <a href="#services" class="text-gray-600 hover:text-brand-green font-medium transition-colors">Services</a>
-                    <a href="#projects" class="text-gray-600 hover:text-brand-green font-medium transition-colors">Projects</a>
-                    <a href="#contact" class="bg-brand-navy hover:bg-brand-blue text-white px-5 py-2.5 rounded-lg font-medium transition-colors shadow-md">
-                        Get Started
-                    </a>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-brand-navy hover:text-brand-green focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
+    <nav id="navbar" class="navbar">
+        <div class="container nav-container" id="nav-container">
+            <a href="#" class="nav-logo">
+                <img id="nav-logo-img" class="nav-logo-img" src="https://raw.githubusercontent.com/jesseledesma88/angs/de23d6ff96ac51c2460cb3f6ec7d1fa943e1a464/good-sheperd.webp" alt="Good Steward Logo">
+            </a>
+            
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact" class="btn btn-primary">Get Started</a>
             </div>
+
+            <button id="mobile-menu-btn" class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
         
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 rounded-md">About</a>
-                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 rounded-md">Services</a>
-                <a href="#projects" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 rounded-md">Projects</a>
-                <a href="#contact" class="block px-3 py-2 text-base font-medium text-brand-navy font-bold hover:bg-gray-50 rounded-md">Get Started</a>
-            </div>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact" class="btn-mobile">Get Started</a>
         </div>
     </nav>
 
     <main>
-        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-motif">
-            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-brand-accent rounded-full opacity-50 blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-brand-lightgreen rounded-full opacity-20 blur-3xl"></div>
+        <section class="hero text-center">
+            <div class="hero-blob-1"></div>
+            <div class="hero-blob-2"></div>
             
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent text-brand-green text-sm font-semibold mb-6 border border-brand-green/20">
+            <div class="container hero-content">
+                <div class="hero-badge">
                     <i class="fas fa-leaf"></i>
                     <span>Faithful Management of Digital Resources</span>
                 </div>
                 
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-brand-navy mb-6 leading-tight">
-                    Building AI-Powered Systems <br class="hidden md:block">for <span class="gradient-text">Growing Businesses</span>
+                <h1 class="hero-title">
+                    Building AI-Powered Systems <br>for <span class="gradient-text">Growing Businesses</span>
                 </h1>
                 
-                <p class="mt-4 text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+                <p class="hero-desc">
                     We help businesses automate operations, improve customer experiences, and build digital foundations that scale.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#contact" class="bg-brand-navy hover:bg-brand-blue text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">
                         Start Your Project <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#services" class="bg-white hover:bg-gray-50 text-brand-navy border border-gray-200 px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-sm flex items-center justify-center">
+                    <a href="#services" class="btn btn-secondary">
                         Explore Our Services
                     </a>
                 </div>
                 
-                <!-- Trust indicators -->
-                <div class="mt-16 pt-8 border-t border-gray-200/60">
-                    <p class="text-sm text-gray-500 font-medium mb-4 uppercase tracking-wider">Core Pillars of Our Service</p>
-                    <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 grayscale">
-                        <div class="flex items-center gap-2 font-bold text-lg text-brand-navy"><i class="fab fa-wordpress"></i> WordPress</div>
-                        <div class="flex items-center gap-2 font-bold text-lg text-brand-navy"><i class="fas fa-cogs"></i> Automations</div>
-                        <div class="flex items-center gap-2 font-bold text-lg text-brand-navy"><i class="fas fa-users-cog"></i> CRM Integration</div>
+                <div class="trust-indicators">
+                    <p class="trust-title">Core Pillars of Our Service</p>
+                    <div class="trust-logos">
+                        <div class="trust-item"><i class="fab fa-wordpress"></i> WordPress</div>
+                        <div class="trust-item"><i class="fas fa-cogs"></i> Automations</div>
+                        <div class="trust-item"><i class="fas fa-users-cog"></i> CRM Integration</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <!-- Image/Graphic Side -->
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-brand-green opacity-10 rounded-3xl transform translate-x-4 translate-y-4"></div>
-                        <img src="https://placehold.co/600x600/0f2942/ffffff?text=Good+Steward+Vision" alt="Team Collaboration" class="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[500px]">
-                        
-                        <!-- Floating Badge -->
-                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl z-20 flex items-start gap-4 max-w-xs">
-                            <div class="bg-brand-accent p-3 rounded-full text-brand-green">
-                                <i class="fas fa-hands-holding text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-brand-navy">Stewarding Success</h4>
-                                <p class="text-sm text-gray-600 mt-1">Making a lasting impact in our communities.</p>
-                            </div>
-                        </div>
-                    </div>
+        <section id="about" class="about-section section-padding">
+            <div class="container about-grid">
+                <div class="about-image-wrapper">
+                    <div class="about-image-bg"></div>
+                    <img src="https://placehold.co/600x600/0f2942/ffffff?text=Good+Steward+Vision" alt="Team Collaboration" class="about-image">
                     
-                    <!-- Content Side -->
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">Honoring God by Serving Others with Excellence</h2>
-                        
-                        <div class="space-y-8">
-                            <!-- Mission -->
-                            <div class="flex gap-4">
-                                <div class="flex-shrink-0 mt-1">
-                                    <div class="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-brand-green">
-                                        <i class="fas fa-bullseye"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold text-brand-navy mb-2">Our Mission</h3>
-                                    <p class="text-gray-600 leading-relaxed">To build a world-class technology company that transforms businesses through AI, automation, and websites, creates meaningful opportunities for people, and generates lasting resources to advance God's Kingdom.</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Vision -->
-                            <div class="flex gap-4">
-                                <div class="flex-shrink-0 mt-1">
-                                    <div class="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-brand-green">
-                                        <i class="fas fa-eye"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold text-brand-navy mb-2">Our Vision</h3>
-                                    <p class="text-gray-600 leading-relaxed">We help businesses grow through websites, AI, automation, and digital systems that save time, increase revenue, and simplify operations.</p>
-                                </div>
-                            </div>
-
-                            <!-- Purpose -->
-                            <div class="flex gap-4">
-                                <div class="flex-shrink-0 mt-1">
-                                    <div class="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-brand-green">
-                                        <i class="fas fa-heart"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold text-brand-navy mb-2">Our Purpose</h3>
-                                    <p class="text-gray-600 leading-relaxed">We exist to create meaningful opportunities for our team, provide for our families, and steward our success to make a lasting impact in our communities and beyond.</p>
-                                </div>
-                            </div>
+                    <div class="about-badge">
+                        <div class="about-badge-icon">
+                            <i class="fas fa-hands-holding"></i>
+                        </div>
+                        <div>
+                            <div class="about-badge-title">Stewarding Success</div>
+                            <div class="about-badge-text">Making a lasting impact in our communities.</div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="services" class="py-20 bg-brand-light">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Digital Foundations That Scale</h2>
-                    <p class="text-lg text-gray-600">We specialize in three core areas to help your business operate efficiently and grow predictably.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Service 1: Web Development -->
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover">
-                        <div class="w-14 h-14 rounded-xl bg-brand-navy text-white flex items-center justify-center text-2xl mb-6 shadow-md">
-                            <i class="fab fa-wordpress"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-navy mb-3">WordPress Web Development</h3>
-                        <p class="text-gray-600 mb-6 line-clamp-3">Custom, high-converting websites built on the world's most flexible platform. We design digital storefronts that attract, engage, and convert visitors into loyal customers.</p>
-                        <ul class="space-y-2 text-sm text-gray-600 mb-6">
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Custom Theme Design</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Performance Optimization</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> E-commerce Integration</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 2: Automations -->
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-brand-accent rounded-bl-full opacity-50 -z-10"></div>
-                        <div class="w-14 h-14 rounded-xl bg-brand-green text-white flex items-center justify-center text-2xl mb-6 shadow-md">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-navy mb-3">Business Automations</h3>
-                        <p class="text-gray-600 mb-6 line-clamp-3">Reclaim your time by automating repetitive tasks. We connect your apps and build smart workflows so you can focus on high-value growth activities.</p>
-                        <ul class="space-y-2 text-sm text-gray-600 mb-6">
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Zapier / Make Integration</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Automated Follow-ups</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Data Synchronization</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 3: CRM -->
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover">
-                        <div class="w-14 h-14 rounded-xl bg-brand-blue text-white flex items-center justify-center text-2xl mb-6 shadow-md">
-                            <i class="fas fa-users-cog"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-navy mb-3">CRM Implementation</h3>
-                        <p class="text-gray-600 mb-6 line-clamp-3">Manage relationships at scale. We set up and optimize Customer Relationship Management systems to track leads, manage pipelines, and improve retention.</p>
-                        <ul class="space-y-2 text-sm text-gray-600 mb-6">
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Pipeline Architecture</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Lead Scoring & Routing</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Reporting Dashboards</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="py-20 bg-white border-t border-gray-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                    <div class="max-w-2xl">
-                        <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Systems in Action</h2>
-                        <p class="text-lg text-gray-600">Explore demonstration projects showcasing how we integrate design, AI, and automation to solve specific industry challenges.</p>
-                    </div>
-                    <a href="#contact" class="text-brand-navy font-semibold hover:text-brand-green transition-colors flex items-center gap-2 whitespace-nowrap">
-                        View All Capabilities <i class="fas fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Project 1 -->
-                    <div class="group relative rounded-2xl overflow-hidden bg-gray-100 cursor-pointer">
-                        <img src="https://placehold.co/400x500/0f2942/ffffff?text=Dentist+Clinic" alt="Dentist Website" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-6 w-full">
-                            <div class="bg-brand-green text-white text-xs font-bold px-2 py-1 rounded inline-block mb-2">Web Dev + CRM</div>
-                            <h3 class="text-xl font-bold text-white mb-1">Dental Practice</h3>
-                            <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">Integrated booking & patient management.</p>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="group relative rounded-2xl overflow-hidden bg-gray-100 cursor-pointer">
-                        <img src="https://placehold.co/400x500/2d9c49/ffffff?text=Local+Restaurant" alt="Restaurant Website" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-6 w-full">
-                            <div class="bg-brand-blue text-white text-xs font-bold px-2 py-1 rounded inline-block mb-2">Web Dev + Automation</div>
-                            <h3 class="text-xl font-bold text-white mb-1">Local Restaurant</h3>
-                            <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">Online ordering & automated review requests.</p>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="group relative rounded-2xl overflow-hidden bg-gray-100 cursor-pointer">
-                        <img src="https://placehold.co/400x500/1a4369/ffffff?text=AI+Support" alt="AI Chatbot" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-6 w-full">
-                            <div class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded inline-block mb-2">AI + Automation</div>
-                            <h3 class="text-xl font-bold text-white mb-1">Customer Support AI</h3>
-                            <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">24/7 intelligent triage and response system.</p>
-                        </div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="group relative rounded-2xl overflow-hidden bg-gray-100 cursor-pointer">
-                        <img src="https://placehold.co/400x500/0f2942/ffffff?text=Booking+Sys" alt="Appointment Automation" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-6 w-full">
-                            <div class="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded inline-block mb-2">Automation + CRM</div>
-                            <h3 class="text-xl font-bold text-white mb-1">Smart Scheduling</h3>
-                            <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">No-show reduction via automated SMS/Email.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="py-24 bg-brand-navy relative overflow-hidden">
-            <!-- Decorative background elements -->
-            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-green rounded-full opacity-10 blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-blue rounded-full opacity-20 blur-3xl transform -translate-x-1/3 translate-y-1/3"></div>
-            
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <i class="fas fa-seedling text-4xl text-brand-green mb-6"></i>
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Steward Your Resources Better?</h2>
-                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Let's discuss how our AI, automation, and digital systems can help your business save time and increase revenue.</p>
                 
-                <div class="bg-white rounded-2xl p-8 max-w-md mx-auto shadow-2xl text-left">
-                    <h3 class="text-2xl font-bold text-brand-navy mb-6">Start a Conversation</h3>
-                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('In a live environment, this would submit to your backend or CRM.');">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-shadow" placeholder="John Doe" required>
+                <div class="about-content">
+                    <h2 class="section-title">Honoring God by Serving Others with Excellence</h2>
+                    
+                    <div class="mission-list">
+                        <div class="mission-item">
+                            <div class="mission-icon"><i class="fas fa-bullseye"></i></div>
+                            <div>
+                                <h3 class="mission-title">Our Mission</h3>
+                                <p class="mission-text">To build a world-class technology company that transforms businesses through AI, automation, and websites, creates meaningful opportunities for people, and generates lasting resources to advance God's Kingdom.</p>
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-shadow" placeholder="jesse@example.com" required>
+                        
+                        <div class="mission-item">
+                            <div class="mission-icon"><i class="fas fa-eye"></i></div>
+                            <div>
+                                <h3 class="mission-title">Our Vision</h3>
+                                <p class="mission-text">We help businesses grow through websites, AI, automation, and digital systems that save time, increase revenue, and simplify operations.</p>
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Area of Interest</label>
-                            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-shadow">
+
+                        <div class="mission-item">
+                            <div class="mission-icon"><i class="fas fa-heart"></i></div>
+                            <div>
+                                <h3 class="mission-title">Our Purpose</h3>
+                                <p class="mission-text">We exist to create meaningful opportunities for our team, provide for our families, and steward our success to make a lasting impact in our communities and beyond.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services-section section-padding">
+            <div class="container">
+                <div class="text-center" style="max-width: 48rem; margin: 0 auto;">
+                    <h2 class="section-title">Digital Foundations That Scale</h2>
+                    <p class="section-subtitle">We specialize in three core areas to help your business operate efficiently and grow predictably.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon icon-navy"><i class="fab fa-wordpress"></i></div>
+                        <h3 class="service-title">WordPress Web Development</h3>
+                        <p class="service-desc">Custom, high-converting websites built on the world's most flexible platform. We design digital storefronts that attract, engage, and convert visitors into loyal customers.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Custom Theme Design</li>
+                            <li><i class="fas fa-check"></i> Performance Optimization</li>
+                            <li><i class="fas fa-check"></i> E-commerce Integration</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-bg"></div>
+                        <div class="service-icon icon-green"><i class="fas fa-project-diagram"></i></div>
+                        <h3 class="service-title">Business Automations</h3>
+                        <p class="service-desc">Reclaim your time by automating repetitive tasks. We connect your apps and build smart workflows so you can focus on high-value growth activities.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Zapier / Make Integration</li>
+                            <li><i class="fas fa-check"></i> Automated Follow-ups</li>
+                            <li><i class="fas fa-check"></i> Data Synchronization</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon icon-blue"><i class="fas fa-users-cog"></i></div>
+                        <h3 class="service-title">CRM Implementation</h3>
+                        <p class="service-desc">Manage relationships at scale. We set up and optimize Customer Relationship Management systems to track leads, manage pipelines, and improve retention.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Pipeline Architecture</li>
+                            <li><i class="fas fa-check"></i> Lead Scoring & Routing</li>
+                            <li><i class="fas fa-check"></i> Reporting Dashboards</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section section-padding">
+            <div class="container">
+                <div class="projects-header">
+                    <div>
+                        <h2 class="section-title" style="margin-bottom: 0.5rem;">Systems in Action</h2>
+                        <p class="section-subtitle" style="margin-bottom: 0;">Explore demonstration projects showcasing how we integrate design, AI, and automation.</p>
+                    </div>
+                    <a href="#contact" class="btn-link">View All Capabilities <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x500/0f2942/ffffff?text=Dentist+Clinic" alt="Dentist Website" class="project-img">
+                        <div class="project-overlay"></div>
+                        <div class="project-info">
+                            <span class="project-tag tag-green">Web Dev + CRM</span>
+                            <h3 class="project-title">Dental Practice</h3>
+                            <p class="project-desc">Integrated booking & patient management.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x500/2d9c49/ffffff?text=Local+Restaurant" alt="Restaurant Website" class="project-img">
+                        <div class="project-overlay"></div>
+                        <div class="project-info">
+                            <span class="project-tag tag-blue">Web Dev + Automation</span>
+                            <h3 class="project-title">Local Restaurant</h3>
+                            <p class="project-desc">Online ordering & automated review requests.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x500/1a4369/ffffff?text=AI+Support" alt="AI Chatbot" class="project-img">
+                        <div class="project-overlay"></div>
+                        <div class="project-info">
+                            <span class="project-tag tag-purple">AI + Automation</span>
+                            <h3 class="project-title">Customer Support AI</h3>
+                            <p class="project-desc">24/7 intelligent triage and response system.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x500/0f2942/ffffff?text=Booking+Sys" alt="Appointment Automation" class="project-img">
+                        <div class="project-overlay"></div>
+                        <div class="project-info">
+                            <span class="project-tag tag-orange">Automation + CRM</span>
+                            <h3 class="project-title">Smart Scheduling</h3>
+                            <p class="project-desc">No-show reduction via automated SMS/Email.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="contact-blob-1"></div>
+            <div class="contact-blob-2"></div>
+            
+            <div class="container">
+                <div class="contact-header">
+                    <i class="fas fa-seedling contact-icon"></i>
+                    <h2 class="contact-title">Ready to Steward Your Resources Better?</h2>
+                    <p class="contact-desc">Let's discuss how our AI, automation, and digital systems can help your business save time and increase revenue.</p>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <h3 class="form-title">Start a Conversation</h3>
+                    <!-- Form replaced alert with a stylized custom UI element since alert() is restricted -->
+                    <form onsubmit="event.preventDefault(); document.getElementById('form-success').style.display = 'block';">
+                        <div class="form-group">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-input" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" placeholder="jesse@goodstewardsystems.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Area of Interest</label>
+                            <select class="form-input">
                                 <option>Web Development</option>
                                 <option>Business Automation</option>
                                 <option>CRM Setup</option>
                                 <option>General Inquiry</option>
                             </select>
                         </div>
-                        <button type="submit" class="w-full bg-brand-navy hover:bg-brand-blue text-white font-bold py-3 px-4 rounded-lg transition-colors mt-4 shadow-md">
-                            Request Consultation
-                        </button>
+                        <button type="submit" class="btn-submit">Request Consultation</button>
+                        <div id="form-success" style="display: none; margin-top: 1rem; color: var(--green); font-size: 0.875rem; text-align: center; font-weight: 600;">
+                            Message sent! We will reach out shortly.
+                        </div>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-900 text-white pt-16 pb-8 border-t-4 border-brand-green">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
                 
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center mb-6">
-                        <img src="https://raw.githubusercontent.com/jesseledesma88/angs/de23d6ff96ac51c2460cb3f6ec7d1fa943e1a464/good-sheperd.webp" alt="Good Steward Logo White" class="h-16 w-auto object-contain brightness-0 invert">
-                    </div>
-                    <p class="text-gray-400 max-w-sm mb-6">Reflecting faithful management of resources through AI, Automation & Digital Systems for growing businesses.</p>
-                    <div class="flex gap-4">
-                        <a href="#" class="text-gray-400 hover:text-brand-green transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-brand-green transition-colors"><i class="fab fa-twitter text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-brand-green transition-colors"><i class="fab fa-github text-xl"></i></a>
+                <div>
+                    <img src="https://raw.githubusercontent.com/jesseledesma88/angs/de23d6ff96ac51c2460cb3f6ec7d1fa943e1a464/good-sheperd.webp" alt="Good Steward Logo" class="footer-logo">
+                    <p class="footer-desc">Reflecting faithful management of resources through AI, Automation & Digital Systems for growing businesses.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
-                        <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Demo Projects</a></li>
-                    </ul>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#about">About Us</a>
+                        <a href="#services">Services</a>
+                        <a href="#projects">Demo Projects</a>
+                    </div>
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Contact</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-envelope mt-1 text-brand-green"></i>
-                            <a href="mailto:jesse@goodstewardsystems.com" class="text-gray-400 hover:text-white transition-colors break-all">jesse@goodstewardsystems.com</a>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:jesse@goodstewardsystems.com">jesse@goodstewardsystems.com</a>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-globe mt-1 text-brand-green"></i>
-                            <span class="text-gray-400">GoodStewardSystems.com</span>
+                        <li>
+                            <i class="fas fa-globe"></i>
+                            <span>GoodStewardSystems.com</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">© 2026 Good Steward. All rights reserved.</p>
-                <div class="text-gray-500 text-sm flex gap-4">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            <div class="footer-bottom">
+                <p>© 2026 Good Steward. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <button id="back-to-top" class="fixed bottom-8 right-8 z-50 bg-brand-green hover:bg-brand-lightgreen text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-green" aria-label="Back to top">
+    <button id="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const icon = mobileMenuBtn.querySelector('i');
+        const icon = mobileBtn.querySelector('i');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            if (mobileMenu.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
         });
 
         // Close mobile menu on link click
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
+        mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('active');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             });
         });
 
-        // Navbar blur effect, logo resize, and back to top on scroll
+        // Sticky Navbar & Back to Top Logic
         const nav = document.getElementById('navbar');
-        const navContainer = document.getElementById('nav-container');
-        const navLogo = document.getElementById('nav-logo');
-        const backToTopBtn = document.getElementById('back-to-top');
+        const backToTop = document.getElementById('back-to-top');
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                // Navbar styling
-                nav.classList.remove('bg-white');
-                nav.classList.add('glass-nav-scrolled');
-                
-                // Shrink navbar height
-                navContainer.classList.remove('h-24');
-                navContainer.classList.add('h-16');
-                
-                // Shrink logo
-                navLogo.classList.remove('h-20');
-                navLogo.classList.add('h-14');
-
-                // Show back to top button
-                backToTopBtn.classList.add('show');
+                nav.classList.add('scrolled');
+                backToTop.classList.add('show');
             } else {
-                // Revert Navbar styling
-                nav.classList.add('bg-white');
-                nav.classList.remove('glass-nav-scrolled');
-                
-                // Revert navbar height
-                navContainer.classList.add('h-24');
-                navContainer.classList.remove('h-16');
-                
-                // Revert logo size
-                navLogo.classList.add('h-20');
-                navLogo.classList.remove('h-14');
-
-                // Hide back to top button
-                backToTopBtn.classList.remove('show');
+                nav.classList.remove('scrolled');
+                backToTop.classList.remove('show');
             }
         });
 
-        // Back to top functionality
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        // Back to top scroll action
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
