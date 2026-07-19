@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Steward | AI, Automation & Digital Systems</title>
+    <meta name="description" content="We help businesses automate operations, improve customer experiences, and build digital foundations that scale.">
+    
+    <!-- Tailwind CSS for rapid styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter for a clean, modern, and highly legible look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Tailwind Configuration matching the logo's color palette -->
+    <script>
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#0f2942',     /* Deep navy from the hands/text in the logo */
+                            blue: '#1a4369',     /* Lighter blue for gradients/accents */
+                            green: '#2d9c49',    /* Main leaf green */
+                            lightgreen: '#54c770', /* Lighter leaf green */
+                            accent: '#e6f4ea',   /* Very light green for backgrounds */
+                            light: '#f8fafc',    /* Off-white background */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for smooth transitions and specific component overrides */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f2942;
+        }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #0f2942 0%, #2d9c49 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Styling for the central "W" concept from the logo to be used as a background motif */
+        .bg-motif {
+            background-image: radial-gradient(#e6f4ea 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Glassmorphism Navigation */
+        .glass-nav-scrolled {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Back to top button transitions */
+        #back-to-top {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            transform: translateY(20px);
+        }
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="nav-container" class="flex justify-between items-center h-24 transition-all duration-300">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="flex items-center">
+                        <img id="nav-logo" src="https://raw.githubusercontent.com/jesseledesma88/angs/de23d6ff96ac51c2460cb3f6ec7d1fa943e1a464/good-sheperd.webp" alt="Good Steward Logo" class="h-20 w-auto object-contain transition-all duration-300">
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-gray-600 hover:text-brand-green font-medium transition-colors">About</a>
+                    <a href="#services" class="text-gray-600 hover:text-brand-green font-medium transition-colors">Services</a>
+                    <a href="#projects" class="text-gray-600 hover:text-brand-green font-medium transition-colors">Projects</a>
+                    <a href="#contact" class="bg-brand-navy hover:bg-brand-blue text-white px-5 py-2.5 rounded-lg font-medium transition-colors shadow-md">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-navy hover:text-brand-green focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 rounded-md">About</a>
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 rounded-md">Services</a>
+                <a href="#projects" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 rounded-md">Projects</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-brand-navy font-bold hover:bg-gray-50 rounded-md">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-motif">
+            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-brand-accent rounded-full opacity-50 blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-brand-lightgreen rounded-full opacity-20 blur-3xl"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent text-brand-green text-sm font-semibold mb-6 border border-brand-green/20">
+                    <i class="fas fa-leaf"></i>
+                    <span>Faithful Management of Digital Resources</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-brand-navy mb-6 leading-tight">
+                    Building AI-Powered Systems <br class="hidden md:block">for <span class="gradient-text">Growing Businesses</span>
+                </h1>
+                
+                <p class="mt-4 text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+                    We help businesses automate operations, improve customer experiences, and build digital foundations that scale.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="bg-brand-navy hover:bg-brand-blue text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                        Start Your Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#services" class="bg-white hover:bg-gray-50 text-brand-navy border border-gray-200 px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-sm flex items-center justify-center">
+                        Explore Our Services
+                    </a>
+                </div>
+                
+                <!-- Trust indicators -->
+                <div class="mt-16 pt-8 border-t border-gray-200/60">
+                    <p class="text-sm text-gray-500 font-medium mb-4 uppercase tracking-wider">Core Pillars of Our Service</p>
+                    <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 grayscale">
+                        <div class="flex items-center gap-2 font-bold text-lg text-brand-navy"><i class="fab fa-wordpress"></i> WordPress</div>
+                        <div class="flex items-center gap-2 font-bold text-lg text-brand-navy"><i class="fas fa-cogs"></i> Automations</div>
+                        <div class="flex items-center gap-2 font-bold text-lg text-brand-navy"><i class="fas fa-users-cog"></i> CRM Integration</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <!-- Image/Graphic Side -->
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-brand-green opacity-10 rounded-3xl transform translate-x-4 translate-y-4"></div>
+                        <img src="https://placehold.co/600x600/0f2942/ffffff?text=Good+Steward+Vision" alt="Team Collaboration" class="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[500px]">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl z-20 flex items-start gap-4 max-w-xs">
+                            <div class="bg-brand-accent p-3 rounded-full text-brand-green">
+                                <i class="fas fa-hands-holding text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-navy">Stewarding Success</h4>
+                                <p class="text-sm text-gray-600 mt-1">Making a lasting impact in our communities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Content Side -->
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">Honoring God by Serving Others with Excellence</h2>
+                        
+                        <div class="space-y-8">
+                            <!-- Mission -->
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-brand-green">
+                                        <i class="fas fa-bullseye"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-brand-navy mb-2">Our Mission</h3>
+                                    <p class="text-gray-600 leading-relaxed">To build a world-class technology company that transforms businesses through AI, automation, and websites, creates meaningful opportunities for people, and generates lasting resources to advance God's Kingdom.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Vision -->
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-brand-green">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-brand-navy mb-2">Our Vision</h3>
+                                    <p class="text-gray-600 leading-relaxed">We help businesses grow through websites, AI, automation, and digital systems that save time, increase revenue, and simplify operations.</p>
+                                </div>
+                            </div>
+
+                            <!-- Purpose -->
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-brand-green">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-brand-navy mb-2">Our Purpose</h3>
+                                    <p class="text-gray-600 leading-relaxed">We exist to create meaningful opportunities for our team, provide for our families, and steward our success to make a lasting impact in our communities and beyond.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-20 bg-brand-light">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Digital Foundations That Scale</h2>
+                    <p class="text-lg text-gray-600">We specialize in three core areas to help your business operate efficiently and grow predictably.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Service 1: Web Development -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover">
+                        <div class="w-14 h-14 rounded-xl bg-brand-navy text-white flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fab fa-wordpress"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-navy mb-3">WordPress Web Development</h3>
+                        <p class="text-gray-600 mb-6 line-clamp-3">Custom, high-converting websites built on the world's most flexible platform. We design digital storefronts that attract, engage, and convert visitors into loyal customers.</p>
+                        <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Custom Theme Design</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Performance Optimization</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> E-commerce Integration</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 2: Automations -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-brand-accent rounded-bl-full opacity-50 -z-10"></div>
+                        <div class="w-14 h-14 rounded-xl bg-brand-green text-white flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-navy mb-3">Business Automations</h3>
+                        <p class="text-gray-600 mb-6 line-clamp-3">Reclaim your time by automating repetitive tasks. We connect your apps and build smart workflows so you can focus on high-value growth activities.</p>
+                        <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Zapier / Make Integration</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Automated Follow-ups</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Data Synchronization</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 3: CRM -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover">
+                        <div class="w-14 h-14 rounded-xl bg-brand-blue text-white flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-navy mb-3">CRM Implementation</h3>
+                        <p class="text-gray-600 mb-6 line-clamp-3">Manage relationships at scale. We set up and optimize Customer Relationship Management systems to track leads, manage pipelines, and improve retention.</p>
+                        <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Pipeline Architecture</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Lead Scoring & Routing</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-green"></i> Reporting Dashboards</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                    <div class="max-w-2xl">
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Systems in Action</h2>
+                        <p class="text-lg text-gray-600">Explore demonstration projects showcasing how we integrate design, AI, and automation to solve specific industry challenges.</p>
+                    </div>
+                    <a href="#contact" class="text-brand-navy font-semibold hover:text-brand-green transition-colors flex items-center gap-2 whitespace-nowrap">
+                        View All Capabilities <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Project 1 -->
+                    <div class="group relative rounded-2xl overflow-hidden bg-gray-100 cursor-pointer">
+                        <img src="https://placehold.co/400x500/0f2942/ffffff?text=Dentist+Clinic" alt="Dentist Website" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                            <div class="bg-brand-green text-white text-xs font-bold px-2 py-1 rounded inline-block mb-2">Web Dev + CRM</div>
+                            <h3 class="text-xl font-bold text-white mb-1">Dental Practice</h3>
+                            <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">Integrated booking & patient management.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="group relative rounded-2xl overflow-hidden bg-gray-100 cursor-pointer">
+                        <img src="https://placehold.co/400x500/2d9c49/ffffff?text=Local+Restaurant" alt="Restaurant Website" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                            <div class="bg-brand-blue text-white text-xs font-bold px-2 py-1 rounded inline-block mb-2">Web Dev + Automation</div>
+                            <h3 class="text-xl font-bold text-white mb-1">Local Restaurant</h3>
+                            <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">Online ordering & automated review requests.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="group relative rounded-2xl overflow-hidden bg-gray-100 cursor-pointer">
+                        <img src="https://placehold.co/400x500/1a4369/ffffff?text=AI+Support" alt="AI Chatbot" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                            <div class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded inline-block mb-2">AI + Automation</div>
+                            <h3 class="text-xl font-bold text-white mb-1">Customer Support AI</h3>
+                            <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">24/7 intelligent triage and response system.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="group relative rounded-2xl overflow-hidden bg-gray-100 cursor-pointer">
+                        <img src="https://placehold.co/400x500/0f2942/ffffff?text=Booking+Sys" alt="Appointment Automation" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                            <div class="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded inline-block mb-2">Automation + CRM</div>
+                            <h3 class="text-xl font-bold text-white mb-1">Smart Scheduling</h3>
+                            <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">No-show reduction via automated SMS/Email.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 bg-brand-navy relative overflow-hidden">
+            <!-- Decorative background elements -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-green rounded-full opacity-10 blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-blue rounded-full opacity-20 blur-3xl transform -translate-x-1/3 translate-y-1/3"></div>
+            
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <i class="fas fa-seedling text-4xl text-brand-green mb-6"></i>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Steward Your Resources Better?</h2>
+                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Let's discuss how our AI, automation, and digital systems can help your business save time and increase revenue.</p>
+                
+                <div class="bg-white rounded-2xl p-8 max-w-md mx-auto shadow-2xl text-left">
+                    <h3 class="text-2xl font-bold text-brand-navy mb-6">Start a Conversation</h3>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('In a live environment, this would submit to your backend or CRM.');">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-shadow" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-shadow" placeholder="jesse@example.com" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Area of Interest</label>
+                            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-shadow">
+                                <option>Web Development</option>
+                                <option>Business Automation</option>
+                                <option>CRM Setup</option>
+                                <option>General Inquiry</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-navy hover:bg-brand-blue text-white font-bold py-3 px-4 rounded-lg transition-colors mt-4 shadow-md">
+                            Request Consultation
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white pt-16 pb-8 border-t-4 border-brand-green">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <img src="https://raw.githubusercontent.com/jesseledesma88/angs/de23d6ff96ac51c2460cb3f6ec7d1fa943e1a464/good-sheperd.webp" alt="Good Steward Logo White" class="h-16 w-auto object-contain brightness-0 invert">
+                    </div>
+                    <p class="text-gray-400 max-w-sm mb-6">Reflecting faithful management of resources through AI, Automation & Digital Systems for growing businesses.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-brand-green transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-brand-green transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-brand-green transition-colors"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Demo Projects</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-envelope mt-1 text-brand-green"></i>
+                            <a href="mailto:jesse@goodstewardsystems.com" class="text-gray-400 hover:text-white transition-colors break-all">jesse@goodstewardsystems.com</a>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-globe mt-1 text-brand-green"></i>
+                            <span class="text-gray-400">GoodStewardSystems.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 Good Steward. All rights reserved.</p>
+                <div class="text-gray-500 text-sm flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-8 right-8 z-50 bg-brand-green hover:bg-brand-lightgreen text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-green" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const icon = mobileMenuBtn.querySelector('i');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Close mobile menu on link click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Navbar blur effect, logo resize, and back to top on scroll
+        const nav = document.getElementById('navbar');
+        const navContainer = document.getElementById('nav-container');
+        const navLogo = document.getElementById('nav-logo');
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                // Navbar styling
+                nav.classList.remove('bg-white');
+                nav.classList.add('glass-nav-scrolled');
+                
+                // Shrink navbar height
+                navContainer.classList.remove('h-24');
+                navContainer.classList.add('h-16');
+                
+                // Shrink logo
+                navLogo.classList.remove('h-20');
+                navLogo.classList.add('h-14');
+
+                // Show back to top button
+                backToTopBtn.classList.add('show');
+            } else {
+                // Revert Navbar styling
+                nav.classList.add('bg-white');
+                nav.classList.remove('glass-nav-scrolled');
+                
+                // Revert navbar height
+                navContainer.classList.add('h-24');
+                navContainer.classList.remove('h-16');
+                
+                // Revert logo size
+                navLogo.classList.add('h-20');
+                navLogo.classList.remove('h-14');
+
+                // Hide back to top button
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Back to top functionality
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
